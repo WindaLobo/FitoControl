@@ -25,9 +25,9 @@ public class FitoControl {
         Articulo articulo2 = new Articulo();
         Articulo articulo3 = new Articulo();
         
-        articuloRepo.Añadir(articulo1);
+       /*articuloRepo.Añadir(articulo1);
         articuloRepo.Añadir(articulo2);
-        articuloRepo.Añadir(articulo3);
+        articuloRepo.Añadir(articulo3);*/
         
         var todos = articuloRepo.ObtenerTodos();
         

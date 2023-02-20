@@ -1,23 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
 /**
- *
- * @author Windar
+ * Compra extends de modelo
  */
 public class Compra extends Modelo {
+    private String fecha;
 
-    public String fecha;
-
-    @Override
-    public String toString() {
-
-        return  "fecha=" + fecha ;
+    /**
+     * @param fecha
+     */
+    public Compra(String fecha) {
+        this.fecha = fecha;
     }
 
+    /**
+     * constructor vacio
+     */
+    public Compra() {
+    }
 
+    /**
+     * @return fecha
+     */
+    public String getFecha() {
+        return fecha;
+    }
 
+    /**
+     * @param fecha
+     */
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+
+    /**
+     * @return toString
+     */
+    @Override
+    public String toString() {
+        return "fecha=" + fecha;
+    }
 }

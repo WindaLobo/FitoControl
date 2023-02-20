@@ -6,7 +6,7 @@ public abstract class Modelo {
     @Override
     public String toString() {
 
-        return "Modelo{" + "Id=" + Id + '}';
+        return "Id=" + Id ;
     }
 
 }

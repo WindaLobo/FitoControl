@@ -5,15 +5,48 @@
 package modelo;
 
 /**
- *
- * @author Windar
+ * @author Inventario
  */
 public class Inventario extends Modelo {
-    public int cantidad;
+    private int cantidad;
+
+    /**
+     * @param cantidad
+     */
+    public Inventario(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * Constructor vacio
+     */
+    public Inventario() {
+    }
+
+    /**
+     * @return cantidad
+     */
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    /**
+     * @setCantidad cantidad
+     */
+
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    /**
+     * @return toString
+     */
+
     @Override
     public String toString() {
 
-        return "cantidad=" + cantidad ;
+        return "cantidad=" + cantidad;
     }
-    
+
 }
