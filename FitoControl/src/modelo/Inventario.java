@@ -8,6 +8,12 @@ package modelo;
  *
  * @author Windar
  */
-public class Inventario {
+public class Inventario extends Modelo {
+    public int cantidad;
+    @Override
+    public String toString() {
+
+        return "cantidad=" + cantidad ;
+    }
     
 }

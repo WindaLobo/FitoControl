@@ -8,6 +8,16 @@ package modelo;
  *
  * @author Windar
  */
-public class Compra {
-    
+public class Compra extends Modelo {
+
+    public String fecha;
+
+    @Override
+    public String toString() {
+
+        return  "fecha=" + fecha ;
+    }
+
+
+
 }

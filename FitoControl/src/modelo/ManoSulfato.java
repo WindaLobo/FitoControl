@@ -9,5 +9,6 @@ package modelo;
  * @author Windar
  */
 public class ManoSulfato {
+
     
 }

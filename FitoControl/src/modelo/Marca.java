@@ -8,6 +8,12 @@ package modelo;
  *
  * @author Windar
  */
-public class Marca {
+public class Marca extends Modelo  {
+    public String nombre;
+    @Override
+    public String toString() {
+
+        return "nombre=" + nombre ;
+    }
     
 }
