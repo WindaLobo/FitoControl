@@ -36,7 +36,7 @@ public class CompraArticulo {
     }
 
     /**
-     * @setIdArticulo idArticulo
+     * @param idArticulo
      */
     public void setIdArticulo(int idArticulo) {
         this.idArticulo = idArticulo;
@@ -50,7 +50,7 @@ public class CompraArticulo {
     }
 
     /**
-     * @setIdCompra idCompra
+     * @param idCompra
      */
     public void setIdCompra(int idCompra) {
         this.idCompra = idCompra;
@@ -65,7 +65,7 @@ public class CompraArticulo {
     }
 
     /**
-     * @setCantidad cantidad
+     * @param cantidad
      */
 
     public void setCantidad(int cantidad) {
@@ -81,7 +81,7 @@ public class CompraArticulo {
     }
 
     /**
-     * @setPrecio precio
+     * @param precio
      */
 
     public void setPrecio(double precio) {

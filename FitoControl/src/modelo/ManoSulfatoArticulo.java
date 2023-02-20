@@ -1,15 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
 /**
  * @author Windar
  */
-public class ManoSulfatoArticulo {
+public class ManoSulfatoArticulo extends Modelo{
     private int idArticulo;
-    private int idManoSulfato;
     private int idMedida;
     private int cantidad;
 
@@ -18,14 +13,12 @@ public class ManoSulfatoArticulo {
 
     /**
      * @param idArticulo
-     * @param idManoSulfato
      * @param idMedida
      * @param cantidad
      */
 
-    public ManoSulfatoArticulo(int idArticulo, int idManoSulfato, int idMedida, int cantidad) {
+    public ManoSulfatoArticulo(int idArticulo, int idMedida, int cantidad) {
         this.idArticulo = idArticulo;
-        this.idManoSulfato = idManoSulfato;
         this.idMedida = idMedida;
         this.cantidad = cantidad;
 
@@ -40,26 +33,10 @@ public class ManoSulfatoArticulo {
     }
 
     /**
-     * @setIdArticulo idArticulo
+     * @param idArticulo
      */
     public void setIdArticulo(int idArticulo) {
         this.idArticulo = idArticulo;
-    }
-
-    /**
-     * @return idManoSulfato
-     */
-
-    public int getIdManoSulfato() {
-        return idManoSulfato;
-    }
-
-    /**
-     * @setIdManoSulfato idManoSulfato
-     */
-
-    public void setIdManoSulfato(int idManoSulfato) {
-        this.idManoSulfato = idManoSulfato;
     }
 
     /**
@@ -70,7 +47,7 @@ public class ManoSulfatoArticulo {
     }
 
     /**
-     * @setIdMedida idMedida
+     * @param idMedida
      */
     public void setIdMedida(int idMedida) {
         this.idMedida = idMedida;
@@ -84,7 +61,7 @@ public class ManoSulfatoArticulo {
     }
 
     /**
-     * @setCantidad cantidad
+     * @param cantidad
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
@@ -97,7 +74,6 @@ public class ManoSulfatoArticulo {
     public String toString() {
         return "ManoSulfatoArticulo{" +
                 "idArticulo=" + idArticulo +
-                ", idManoSulfato=" + idManoSulfato +
                 ", idMedida=" + idMedida +
                 ", cantidad=" + cantidad +
                 '}';

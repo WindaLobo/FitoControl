@@ -4,9 +4,7 @@ package modelo;
  * @author Windar
  */
 
-
-public class Articulo {
-    private int idArticulo;
+public class Articulo  extends Modelo{
     private int cantidad;
     private String nombre;
     private int idInventario;
@@ -14,15 +12,14 @@ public class Articulo {
     private int idMarca;
 
     /**
-     * @param idArticulo
+   
      * @param cantidad
      * @param nombre
      * @param idInventario
      * @param idMedida
      * @param idMarca
      */
-    public Articulo(int idArticulo, int cantidad, String nombre, int idInventario, int idMedida, int idMarca) {
-        this.idArticulo = idArticulo;
+    public Articulo( int cantidad, String nombre, int idInventario, int idMedida, int idMarca) {
         this.cantidad = cantidad;
         this.nombre = nombre;
         this.idInventario = idInventario;
@@ -32,22 +29,6 @@ public class Articulo {
 
 
     public Articulo() {
-    }
-
-    /**
-     * @return idArticulo
-     */
-
-    public int getIdArticulo() {
-        return idArticulo;
-    }
-
-    /**
-     * @param idArticulo
-     */
-
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
     }
 
     /**
@@ -136,7 +117,6 @@ public class Articulo {
     @Override
     public String toString() {
         return "Articulo{" +
-                "idArticulo=" + idArticulo +
                 ", cantidad=" + cantidad +
                 ", nombre='" + nombre + '\'' +
                 ", idInventario=" + idInventario +
