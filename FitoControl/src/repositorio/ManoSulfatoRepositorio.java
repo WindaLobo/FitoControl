@@ -3,9 +3,13 @@ package repositorio;
 import java.util.ArrayList;
 import modelo.Modelo;
 
-public class ArticuloRepositorio implements IRepositorio {
+/**
+ *
+ * @author Windar
+ */
+public class ManoSulfatoRepositorio implements IRepositorio {
 
-    private final ArrayList<Modelo> Articulos = new ArrayList<>();
+    private final ArrayList<Modelo> ManoSulfato = new ArrayList<>();
 
     @Override
     public Modelo Obtener(int id) {
@@ -15,14 +19,14 @@ public class ArticuloRepositorio implements IRepositorio {
     @Override
     public Modelo Añadir(Modelo modelo) {
 
-        if (!Articulos.isEmpty()) {
-            Modelo last = Articulos.get(Articulos.size() - 1);
+        if (!ManoSulfato.isEmpty()) {
+            Modelo last = ManoSulfato.get(ManoSulfato.size() - 1);
             modelo.Id = last.Id + 1;
         } else {
             modelo.Id = 1;
         }
 
-        Articulos.add(modelo);
+        ManoSulfato.add(modelo);
         return modelo;
     }
 
@@ -38,7 +42,7 @@ public class ArticuloRepositorio implements IRepositorio {
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-        return Articulos;
+        return ManoSulfato;
     }
 
 }
