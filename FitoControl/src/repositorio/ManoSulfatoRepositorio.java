@@ -17,31 +17,37 @@ public class ManoSulfatoRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo manoSulfato) {
 
         if (!ManoSulfato.isEmpty()) {
             Modelo last = ManoSulfato.get(ManoSulfato.size() - 1);
-            modelo.Id = last.Id + 1;
+            manoSulfato.Id = last.Id + 1;
         } else {
-            modelo.Id = 1;
+            manoSulfato.Id = 1;
         }
 
-        ManoSulfato.add(modelo);
-        return modelo;
+        ManoSulfato.add(manoSulfato);
+        return manoSulfato;
     }
 
     @Override
-    public void Eliminar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Eliminar(Modelo manoSulfato) {
+       ManoSulfato.remove(manoSulfato);
     }
 
     @Override
-    public void Modificar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Modificar(Modelo manoSulfato) {
+        int index = ManoSulfato.indexOf(manoSulfato);
+        if (index > -1) {
+            ManoSulfato.set(index, manoSulfato);
+        }
     }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
+        for (Modelo manoSulfato : ManoSulfato) {
+            System.out.println(manoSulfato);
+        }
         return ManoSulfato;
     }
 

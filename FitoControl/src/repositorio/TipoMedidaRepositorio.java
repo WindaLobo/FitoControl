@@ -18,32 +18,37 @@ public class TipoMedidaRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo tipoMedidas) {
 
         if (!TipoMedidas.isEmpty()) {
             Modelo last = TipoMedidas.get(TipoMedidas.size() - 1);
-            modelo.Id = last.Id + 1;
+            tipoMedidas.Id = last.Id + 1;
         } else {
-            modelo.Id = 1;
+            tipoMedidas.Id = 1;
         }
 
-        TipoMedidas.add(modelo);
-        return modelo;
+        TipoMedidas.add(tipoMedidas);
+        return tipoMedidas;
     }
 
     @Override
-    public void Eliminar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Eliminar(Modelo tipoMedidas) {
+       TipoMedidas.remove(tipoMedidas);
     }
 
     @Override
-    public void Modificar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Modificar(Modelo tipoMedidas) {
+      int index = TipoMedidas.indexOf(tipoMedidas);
+        if (index > -1) {
+            TipoMedidas.set(index, tipoMedidas);
+        }
     }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
+        for (Modelo tipoMedidas : TipoMedidas) {
+            System.out.println(tipoMedidas);
+        }
         return TipoMedidas;
     }
-
 }

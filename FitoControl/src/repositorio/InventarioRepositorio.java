@@ -13,31 +13,38 @@ public class InventarioRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo invetarios) {
 
         if (!Inventarios.isEmpty()) {
             Modelo last = Inventarios.get(Inventarios.size() - 1);
-            modelo.Id = last.Id + 1;
+            invetarios.Id = last.Id + 1;
         } else {
-            modelo.Id = 1;
+            invetarios.Id = 1;
         }
 
-        Inventarios.add(modelo);
-        return modelo;
+        Inventarios.add(invetarios);
+        return invetarios;
     }
 
     @Override
-    public void Eliminar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Eliminar(Modelo invetarios) {
+       Inventarios.remove(invetarios);
     }
 
     @Override
-    public void Modificar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Modificar(Modelo invetarios) {
+         int index = Inventarios.indexOf(invetarios);
+        if (index > -1) {
+            Inventarios.set(index, invetarios);
+        }
     }
 
+   
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
+         for (Modelo inventarios : Inventarios) {
+            System.out.println(inventarios);
+        }
         return Inventarios;
     }
 

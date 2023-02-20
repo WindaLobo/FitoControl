@@ -9,35 +9,43 @@ public class ArticuloRepositorio implements IRepositorio {
 
     @Override
     public Modelo Obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+         String obte = Articulos.get(id).toString();
+         System.out.println(obte);
+        return null;
     }
 
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo articulos) {
 
         if (!Articulos.isEmpty()) {
             Modelo last = Articulos.get(Articulos.size() - 1);
-            modelo.Id = last.Id + 1;
+            articulos.Id = last.Id + 1;
         } else {
-            modelo.Id = 1;
+            articulos.Id = 1;
         }
 
-        Articulos.add(modelo);
-        return modelo;
+        Articulos.add(articulos);
+        return articulos;
     }
 
     @Override
-    public void Eliminar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Eliminar(Modelo articulos) {
+        Articulos.remove(articulos);
     }
 
     @Override
-    public void Modificar(Modelo modelo) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public void Modificar(Modelo articulos) {
+        int index = Articulos.indexOf(articulos);
+        if (index > -1) {
+            Articulos.set(index, articulos);
+        }
     }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
+        for (Modelo articulos : Articulos) {
+            System.out.println(articulos);
+        }
         return Articulos;
     }
 
