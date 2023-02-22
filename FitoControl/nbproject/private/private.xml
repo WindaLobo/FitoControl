@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Windar/Documents/NetBeansProjects/FitoControl/src/repositorio/IRepositorio.java</file>
-            <file>file:/C:/Users/Windar/Documents/NetBeansProjects/FitoControl/src/modelo/Modelo.java</file>
-            <file>file:/C:/Users/Windar/Documents/NetBeansProjects/FitoControl/src/modelo/Articulo.java</file>
-            <file>file:/C:/Users/Windar/Documents/NetBeansProjects/FitoControl/src/fitocontrol/FitoControl.java</file>
-            <file>file:/C:/Users/Windar/Documents/NetBeansProjects/FitoControl/src/repositorio/ArticuloRepositorio.java</file>
+            <file>file:/C:/Datos%20Windar/fitoControl/FitoControl/FitoControl/src/modelo/CompraArticulo.java</file>
+            <file>file:/C:/Datos%20Windar/fitoControl/FitoControl/FitoControl/src/fitocontrol/CargadorDeDatos.java</file>
+            <file>file:/C:/Datos%20Windar/fitoControl/FitoControl/FitoControl/src/modelo/Compra.java</file>
+            <file>file:/C:/Datos%20Windar/fitoControl/FitoControl/FitoControl/src/modelo/Inventario.java</file>
+            <file>file:/C:/Datos%20Windar/fitoControl/FitoControl/FitoControl/src/fitocontrol/FitoControl.java</file>
         </group>
     </open-files>
 </project-private>

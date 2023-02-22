@@ -3,30 +3,30 @@ package modelo;
 /**
  * @author Windar
  */
+public class Articulo extends Modelo {
 
-public class Articulo  extends Modelo{
+    //Añadir atributo referencia
     private int cantidad;
     private String nombre;
     private int idInventario;
-    private int idMedida;
+    private TipoMedida tipoMedida;
     private int idMarca;
 
     /**
-   
+     *
      * @param cantidad
      * @param nombre
      * @param idInventario
-     * @param idMedida
+     * @param tipoMedida
      * @param idMarca
      */
-    public Articulo( int cantidad, String nombre, int idInventario, int idMedida, int idMarca) {
+    public Articulo(int cantidad, String nombre, int idInventario, TipoMedida tipoMedida, int idMarca) {
         this.cantidad = cantidad;
         this.nombre = nombre;
         this.idInventario = idInventario;
-        this.idMedida = idMedida;
-        this.idMarca = idMarca;
+        this.tipoMedida = tipoMedida;
+        this.idMarca = idMarca;    
     }
-
 
     public Articulo() {
     }
@@ -34,7 +34,6 @@ public class Articulo  extends Modelo{
     /**
      * @return cantidad
      */
-
     public int getCantidad() {
         return cantidad;
     }
@@ -42,7 +41,6 @@ public class Articulo  extends Modelo{
     /**
      * @param cantidad
      */
-
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
@@ -50,7 +48,6 @@ public class Articulo  extends Modelo{
     /**
      * @return nombre
      */
-
     public String getNombre() {
         return nombre;
     }
@@ -58,7 +55,6 @@ public class Articulo  extends Modelo{
     /**
      * @param nombre
      */
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -66,7 +62,6 @@ public class Articulo  extends Modelo{
     /**
      * @return idInventario
      */
-
     public int getIdInventario() {
         return idInventario;
     }
@@ -74,7 +69,6 @@ public class Articulo  extends Modelo{
     /**
      * @param idInventario
      */
-
     public void setIdInventario(int idInventario) {
         this.idInventario = idInventario;
     }
@@ -82,23 +76,20 @@ public class Articulo  extends Modelo{
     /**
      * @return idMedida
      */
-
-    public int getIdMedida() {
-        return idMedida;
+    public TipoMedida getIdMedida() {
+        return tipoMedida;
     }
 
     /**
-     * @param idMedida
+     * @param tipoMedida
      */
-
-    public void setIdMedida(int idMedida) {
-        this.idMedida = idMedida;
+    public void setIdMedida(TipoMedida tipoMedida) {
+        this.tipoMedida = tipoMedida;
     }
 
     /**
      * @return idMarca
      */
-
     public int getIdMarca() {
         return idMarca;
     }
@@ -106,7 +97,6 @@ public class Articulo  extends Modelo{
     /**
      * @param idMarca
      */
-
     public void setIdMarca(int idMarca) {
         this.idMarca = idMarca;
     }
@@ -116,12 +106,12 @@ public class Articulo  extends Modelo{
      */
     @Override
     public String toString() {
-        return "Articulo{" +
-                ", cantidad=" + cantidad +
-                ", nombre='" + nombre + '\'' +
-                ", idInventario=" + idInventario +
-                ", idMedida=" + idMedida +
-                ", idMarca=" + idMarca +
-                '}';
+        return "Articulo{"
+                + ", cantidad=" + cantidad
+                + ", nombre='" + nombre + '\''
+                + ", idInventario=" + idInventario
+                + ", tipoMedida=" + tipoMedida
+                + ", idMarca=" + idMarca
+                + '}';
     }
 }

@@ -1,17 +1,23 @@
-
 package modelo;
+
+import java.time.Instant;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * @author ManoSulfato
  */
 public class ManoSulfato extends Modelo {
-    private String fecha;
+
+    private Date fecha;
+     private ArrayList<ManoSulfatoArticulo> cantidad;
 
     /**
      * @param fecha
      */
     public ManoSulfato(String fecha) {
-        this.fecha = fecha;
+        this.fecha = Date.from(Instant.now());
+        this.cantidad = new ArrayList<>();
     }
 
     /**
@@ -19,19 +25,26 @@ public class ManoSulfato extends Modelo {
      */
     public ManoSulfato() {
     }
+    
+    public ArrayList<ManoSulfatoArticulo> getCantidad() {
+        return cantidad;
+    }
 
     /**
      * @return fecha
      */
-    public String getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
     /**
      * @param fecha
      */
-    public void setFecha(String fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
+    }
+    public void añadirCantidad(ManoSulfatoArticulo cantidades){
+        this.cantidad.add(cantidades);
     }
 
     /**
@@ -39,7 +52,6 @@ public class ManoSulfato extends Modelo {
      */
     @Override
     public String toString() {
-        return
-                "fecha='" + fecha;
+        return "fecha='" + fecha;
     }
 }

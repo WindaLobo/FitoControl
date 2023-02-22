@@ -5,12 +5,12 @@ package modelo;
  * @author Inventario
  */
 public class Inventario extends Modelo {
-    private int cantidad;
+    private double cantidad;
 
     /**
      * @param cantidad
      */
-    public Inventario(int cantidad) {
+    public Inventario(double cantidad) {
         this.cantidad = cantidad;
     }
 
@@ -24,7 +24,7 @@ public class Inventario extends Modelo {
      * @return cantidad
      */
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
@@ -32,7 +32,7 @@ public class Inventario extends Modelo {
      * @param cantidad
      */
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
 

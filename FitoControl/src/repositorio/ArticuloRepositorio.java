@@ -7,45 +7,50 @@ public class ArticuloRepositorio implements IRepositorio {
 
     private final ArrayList<Modelo> Articulos = new ArrayList<>();
 
+    //Metodo para obtener por nombre / Nombres que contengan la cadena introducida por el user / Lanzar exception si no existe
+    //Metodo para obtener por referencia / Busqueda exacta / Lanzar exception si no existe
+    
     @Override
-    public Modelo Obtener(int id) {
-         String obte = Articulos.get(id).toString();
-         System.out.println(obte);
-        return null;
+    public Modelo Obtener(int id) throws Exception {
+
+        for (Modelo articulo : Articulos) {
+            if (articulo.Id == id) {
+                return articulo;
+            }
+        }
+
+        throw new Exception("Articulo no encontrado");
     }
 
     @Override
-    public Modelo Añadir(Modelo articulos) {
+    public Modelo Añadir(Modelo articulo) {
 
         if (!Articulos.isEmpty()) {
             Modelo last = Articulos.get(Articulos.size() - 1);
-            articulos.Id = last.Id + 1;
+            articulo.Id = last.Id + 1;
         } else {
-            articulos.Id = 1;
+            articulo.Id = 1;
         }
 
-        Articulos.add(articulos);
-        return articulos;
+        Articulos.add(articulo);
+        return articulo;
     }
 
     @Override
-    public void Eliminar(Modelo articulos) {
-        Articulos.remove(articulos);
+    public void Eliminar(Modelo articulo) {
+        Articulos.remove(articulo);
     }
 
     @Override
-    public void Modificar(Modelo articulos) {
-        int index = Articulos.indexOf(articulos);
+    public void Modificar(Modelo articulo) {
+        int index = Articulos.indexOf(articulo);
         if (index > -1) {
-            Articulos.set(index, articulos);
+            Articulos.set(index, articulo);
         }
     }
 
     @Override
-    public ArrayList<Modelo> ObtenerTodos() {
-        for (Modelo articulos : Articulos) {
-            System.out.println(articulos);
-        }
+    public ArrayList<Modelo> ObtenerTodos() {   
         return Articulos;
     }
 

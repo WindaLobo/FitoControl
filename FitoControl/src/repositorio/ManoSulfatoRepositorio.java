@@ -1,6 +1,8 @@
 package repositorio;
 
 import java.util.ArrayList;
+import modelo.ManoSulfato;
+import modelo.ManoSulfatoArticulo;
 import modelo.Modelo;
 
 /**
@@ -17,13 +19,16 @@ public class ManoSulfatoRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo manoSulfato) {
-
+    public Modelo Añadir(Modelo modelo) {
+        ManoSulfato manoSulfato = (ManoSulfato) modelo;
         if (!ManoSulfato.isEmpty()) {
             Modelo last = ManoSulfato.get(ManoSulfato.size() - 1);
             manoSulfato.Id = last.Id + 1;
         } else {
             manoSulfato.Id = 1;
+        }
+        for (ManoSulfatoArticulo cantidad : manoSulfato.getCantidad()) {
+            cantidad.setIdManoSulfato(manoSulfato.Id);
         }
 
         ManoSulfato.add(manoSulfato);
@@ -32,7 +37,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
 
     @Override
     public void Eliminar(Modelo manoSulfato) {
-       ManoSulfato.remove(manoSulfato);
+        ManoSulfato.remove(manoSulfato);
     }
 
     @Override
@@ -45,9 +50,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-        for (Modelo manoSulfato : ManoSulfato) {
-            System.out.println(manoSulfato);
-        }
+
         return ManoSulfato;
     }
 

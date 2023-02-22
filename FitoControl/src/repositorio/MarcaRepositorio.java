@@ -12,41 +12,46 @@ public class MarcaRepositorio implements IRepositorio {
     private final ArrayList<Modelo> Marcas = new ArrayList<>();
 
     @Override
-    public Modelo Obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Modelo Obtener(int id) throws Exception {
+       
+        for (Modelo marca : Marcas) {
+            if (marca.Id == id) {
+                return marca;
+            }
+        }
+
+        throw new Exception(" Marca no encontrado");
     }
 
+
     @Override
-    public Modelo Añadir(Modelo marcas) {
+    public Modelo Añadir(Modelo marca) {
 
         if (!Marcas.isEmpty()) {
             Modelo last = Marcas.get(Marcas.size() - 1);
-            marcas.Id = last.Id + 1;
+            marca.Id = last.Id + 1;
         } else {
-            marcas.Id = 1;
+            marca.Id = 1;
         }
 
-        Marcas.add(marcas);
-        return marcas;
+        Marcas.add(marca);
+        return marca;
     }
 
     @Override
-    public void Eliminar(Modelo marcas) {
-       Marcas.remove(marcas);
+    public void Eliminar(Modelo marca) {
+       Marcas.remove(marca);
     }
 
     @Override
-    public void Modificar(Modelo marcas) {
-        int index = Marcas.indexOf(marcas);
+    public void Modificar(Modelo marca) {
+        int index = Marcas.indexOf(marca);
         if (index > -1) {
-            Marcas.set(index, marcas);
+            Marcas.set(index, marca);
         }
     }
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-        for (Modelo marcas : Marcas) {
-            System.out.println(marcas);
-        }
         return Marcas;
     }
 
