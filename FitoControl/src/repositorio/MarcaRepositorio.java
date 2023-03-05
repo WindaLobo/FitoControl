@@ -13,7 +13,7 @@ public class MarcaRepositorio implements IRepositorio {
 
     @Override
     public Modelo Obtener(int id) throws Exception {
-       
+
         for (Modelo marca : Marcas) {
             if (marca.Id == id) {
                 return marca;
@@ -22,7 +22,6 @@ public class MarcaRepositorio implements IRepositorio {
 
         throw new Exception(" Marca no encontrado");
     }
-
 
     @Override
     public Modelo Añadir(Modelo marca) {
@@ -40,7 +39,7 @@ public class MarcaRepositorio implements IRepositorio {
 
     @Override
     public void Eliminar(Modelo marca) {
-       Marcas.remove(marca);
+        Marcas.remove(marca);
     }
 
     @Override
@@ -50,6 +49,7 @@ public class MarcaRepositorio implements IRepositorio {
             Marcas.set(index, marca);
         }
     }
+
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
         return Marcas;

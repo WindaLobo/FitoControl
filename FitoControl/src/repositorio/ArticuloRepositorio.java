@@ -9,7 +9,6 @@ public class ArticuloRepositorio implements IRepositorio {
 
     //Metodo para obtener por nombre / Nombres que contengan la cadena introducida por el user / Lanzar exception si no existe
     //Metodo para obtener por referencia / Busqueda exacta / Lanzar exception si no existe
-    
     @Override
     public Modelo Obtener(int id) throws Exception {
 
@@ -50,7 +49,7 @@ public class ArticuloRepositorio implements IRepositorio {
     }
 
     @Override
-    public ArrayList<Modelo> ObtenerTodos() {   
+    public ArrayList<Modelo> ObtenerTodos() {
         return Articulos;
     }
 

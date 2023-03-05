@@ -2,12 +2,16 @@ package fitocontrol;
 
 import modelo.Articulo;
 import modelo.Compra;
+import modelo.CompraArticulo;
 import modelo.Inventario;
+import modelo.ManoSulfato;
+import modelo.ManoSulfatoArticulo;
 import modelo.Marca;
 import modelo.TipoMedida;
 import repositorio.ArticuloRepositorio;
 import repositorio.CompraRepositorio;
 import repositorio.InventarioRepositorio;
+import repositorio.ManoSulfatoRepositorio;
 import repositorio.MarcaRepositorio;
 
 /**
@@ -20,6 +24,7 @@ public class CargadorDeDatos {
     public final ArticuloRepositorio articuloRepo = new ArticuloRepositorio();
     public final InventarioRepositorio inventarioRepo = new InventarioRepositorio();
     public final CompraRepositorio compreaRepo = new CompraRepositorio();
+    public final ManoSulfatoRepositorio manoSulfatoRepo = new ManoSulfatoRepositorio();
 
     public void Cargar() {
 
@@ -39,17 +44,24 @@ public class CargadorDeDatos {
         inventarioRepo.Añadir(inventario2);
         inventarioRepo.Añadir(inventario3);
 
-        Articulo articulo1 = new Articulo(5, "Articulo 1", inventario1.Id, TipoMedida.Litros, marcaA.Id);
-        Articulo articulo2 = new Articulo(3, "Articulo 2", inventario2.Id, TipoMedida.Kilos, marcaB.Id);
-        Articulo articulo3 = new Articulo(2, "Articulo 3", inventario3.Id, TipoMedida.Centilitros, marcaC.Id);
+        Articulo articulo1 = new Articulo("Articulo 1", TipoMedida.Litros, marcaA.Id);
+        Articulo articulo2 = new Articulo("Articulo 2", TipoMedida.Kilos, marcaB.Id);
+        Articulo articulo3 = new Articulo("Articulo 3", TipoMedida.Centilitros, marcaC.Id);
 
         articuloRepo.Añadir(articulo1);
         articuloRepo.Añadir(articulo2);
         articuloRepo.Añadir(articulo3);
 
-        Compra compra1 = new Compra();
-        Compra compra2 = new Compra();
-        Compra compra3 = new Compra();
-     
+        Compra compra = new Compra();
+        CompraArticulo compraArticulo = new CompraArticulo(articulo1.Id, 10, 30);
+        compra.añadirProducto(compraArticulo);
+        compreaRepo.Añadir(compra);
+
+        ManoSulfato manoSulfato = new ManoSulfato("12-6-2016");
+        ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo(manoSulfato.Id, articulo2.Id, TipoMedida.Centilitros, 6);
+        manoSulfato.añadirProducto(manoSulfatoArticulo);
+        manoSulfatoRepo.Añadir(manoSulfato);
+
     }
+
 }

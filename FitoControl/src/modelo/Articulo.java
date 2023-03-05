@@ -6,7 +6,6 @@ package modelo;
 public class Articulo extends Modelo {
 
     //Añadir atributo referencia
-    private int cantidad;
     private String nombre;
     private int idInventario;
     private TipoMedida tipoMedida;
@@ -14,35 +13,17 @@ public class Articulo extends Modelo {
 
     /**
      *
-     * @param cantidad
      * @param nombre
-     * @param idInventario
      * @param tipoMedida
      * @param idMarca
      */
-    public Articulo(int cantidad, String nombre, int idInventario, TipoMedida tipoMedida, int idMarca) {
-        this.cantidad = cantidad;
+    public Articulo(String nombre, TipoMedida tipoMedida, int idMarca) {
         this.nombre = nombre;
-        this.idInventario = idInventario;
         this.tipoMedida = tipoMedida;
-        this.idMarca = idMarca;    
+        this.idMarca = idMarca;
     }
 
     public Articulo() {
-    }
-
-    /**
-     * @return cantidad
-     */
-    public int getCantidad() {
-        return cantidad;
-    }
-
-    /**
-     * @param cantidad
-     */
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
     }
 
     /**
@@ -106,12 +87,10 @@ public class Articulo extends Modelo {
      */
     @Override
     public String toString() {
-        return "Articulo{"
-                + ", cantidad=" + cantidad
-                + ", nombre='" + nombre + '\''
-                + ", idInventario=" + idInventario
-                + ", tipoMedida=" + tipoMedida
-                + ", idMarca=" + idMarca
-                + '}';
+        return "Articulo"
+                + ", nombre :" + nombre
+                + ", idInventario :" + idInventario
+                + ", tipoMedida :" + tipoMedida
+                + ", idMarca :" + idMarca;
     }
 }

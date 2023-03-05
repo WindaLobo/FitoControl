@@ -12,13 +12,11 @@ public class CompraArticulo {
 
     /**
      * @param idArticulo
-     * @param idCompra
      * @param cantidad
      * @param precio
      */
-    public CompraArticulo(int idArticulo, int idCompra, double cantidad, double precio) {
+    public CompraArticulo(int idArticulo, double cantidad, double precio) {
         this.idArticulo = idArticulo;
-        this.idCompra = idCompra;
         this.cantidad = cantidad;
         this.precio = precio;
     }

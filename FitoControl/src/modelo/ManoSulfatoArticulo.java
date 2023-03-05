@@ -3,10 +3,11 @@ package modelo;
 /**
  * @author Windar
  */
-public class ManoSulfatoArticulo extends Modelo{
+public class ManoSulfatoArticulo extends Modelo {
+
     private int idManoSulfato;
     private int idArticulo;
-    private int idMedida;
+    private TipoMedida idMedida;
     private int cantidad;
 
     public ManoSulfatoArticulo() {
@@ -18,8 +19,7 @@ public class ManoSulfatoArticulo extends Modelo{
      * @param idMedida
      * @param cantidad
      */
-
-    public ManoSulfatoArticulo(int idManoSulfato, int idArticulo, int idMedida, int cantidad) {
+    public ManoSulfatoArticulo(int idManoSulfato, int idArticulo, TipoMedida idMedida, int cantidad) {
         this.idManoSulfato = idManoSulfato;
         this.idArticulo = idArticulo;
         this.idMedida = idMedida;
@@ -35,11 +35,9 @@ public class ManoSulfatoArticulo extends Modelo{
         this.idManoSulfato = idManoSulfato;
     }
 
-    
     /**
      * @return idArticulo
      */
-
     public int getIdArticulo() {
         return idArticulo;
     }
@@ -54,14 +52,14 @@ public class ManoSulfatoArticulo extends Modelo{
     /**
      * @return idMedida
      */
-    public int getIdMedida() {
+    public TipoMedida getIdMedida() {
         return idMedida;
     }
 
     /**
      * @param idMedida
      */
-    public void setIdMedida(int idMedida) {
+    public void setIdMedida(TipoMedida idMedida) {
         this.idMedida = idMedida;
     }
 
@@ -84,11 +82,10 @@ public class ManoSulfatoArticulo extends Modelo{
      */
     @Override
     public String toString() {
-        return "ManoSulfatoArticulo{" +
-                "idManoSulfato=" + idManoSulfato +
-                "idArticulo=" + idArticulo +
-                ", idMedida=" + idMedida +
-                ", cantidad=" + cantidad +
-                '}';
+        return "ManoSulfatoArticulo"
+                + "idManoSulfato=" + idManoSulfato
+                + "idArticulo=" + idArticulo
+                + ", idMedida=" + idMedida
+                + ", cantidad=" + cantidad;
     }
 }

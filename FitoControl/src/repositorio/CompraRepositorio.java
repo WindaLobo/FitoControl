@@ -56,9 +56,8 @@ public class CompraRepositorio implements IRepositorio {
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-       
-       //Si es menor de 0 lazar una excesion
         return Compras;
+
     }
 
 }

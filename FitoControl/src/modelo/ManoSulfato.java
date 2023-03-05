@@ -10,14 +10,14 @@ import java.util.Date;
 public class ManoSulfato extends Modelo {
 
     private Date fecha;
-     private ArrayList<ManoSulfatoArticulo> cantidad;
+    private ArrayList<ManoSulfatoArticulo> productos;
 
     /**
      * @param fecha
      */
     public ManoSulfato(String fecha) {
         this.fecha = Date.from(Instant.now());
-        this.cantidad = new ArrayList<>();
+        this.productos = new ArrayList<>();
     }
 
     /**
@@ -25,9 +25,9 @@ public class ManoSulfato extends Modelo {
      */
     public ManoSulfato() {
     }
-    
-    public ArrayList<ManoSulfatoArticulo> getCantidad() {
-        return cantidad;
+
+    public ArrayList<ManoSulfatoArticulo> getProductos() {
+        return productos;
     }
 
     /**
@@ -43,8 +43,9 @@ public class ManoSulfato extends Modelo {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    public void añadirCantidad(ManoSulfatoArticulo cantidades){
-        this.cantidad.add(cantidades);
+
+    public void añadirProducto(ManoSulfatoArticulo producto) {
+        this.productos.add(producto);
     }
 
     /**
@@ -52,6 +53,6 @@ public class ManoSulfato extends Modelo {
      */
     @Override
     public String toString() {
-        return "fecha='" + fecha;
+        return fecha.toString();
     }
 }

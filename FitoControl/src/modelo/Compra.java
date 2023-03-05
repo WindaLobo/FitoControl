@@ -7,10 +7,10 @@ import java.util.Date;
 /**
  * Compra extends de modelo
  */
-public class Compra extends Modelo  {
+public class Compra extends Modelo {
 
     private Date fecha;
-    private  ArrayList<CompraArticulo> productos;
+    private ArrayList<CompraArticulo> productos;
 
     public Compra() {
         this.fecha = Date.from(Instant.now());
@@ -34,15 +34,16 @@ public class Compra extends Modelo  {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
-    
-    public void añadirProducto(CompraArticulo producto){
+
+    public void añadirProducto(CompraArticulo producto) {
         this.productos.add(producto);
     }
+
     /**
      * @return toString
      */
     @Override
     public String toString() {
-        return "fecha=" + fecha.toString();
+        return fecha.toString();
     }
 }

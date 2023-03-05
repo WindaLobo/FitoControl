@@ -4,6 +4,7 @@ package modelo;
  * @author Marca
  */
 public class Marca extends Modelo {
+
     private String nombre;
 
     /**
@@ -22,7 +23,6 @@ public class Marca extends Modelo {
     /**
      * @return nombre
      */
-
     public String getNombre() {
         return nombre;
     }
@@ -40,7 +40,7 @@ public class Marca extends Modelo {
     @Override
     public String toString() {
 
-        return "nombre=" + nombre;
+        return "Id : " + Id + "\n Nombre :" + nombre;
     }
 
 }

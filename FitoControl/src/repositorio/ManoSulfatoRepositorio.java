@@ -11,47 +11,53 @@ import modelo.Modelo;
  */
 public class ManoSulfatoRepositorio implements IRepositorio {
 
-    private final ArrayList<Modelo> ManoSulfato = new ArrayList<>();
+    private final ArrayList<Modelo> ManosSulfato = new ArrayList<>();
 
     @Override
-    public Modelo Obtener(int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Modelo Obtener(int id) throws Exception {
+        for (Modelo manoSulfato : ManosSulfato) {
+            if (manoSulfato.Id == id) {
+                return manoSulfato;
+            }
+        }
+
+        throw new Exception("Mano sulfato no encontrada");
     }
 
     @Override
     public Modelo Añadir(Modelo modelo) {
         ManoSulfato manoSulfato = (ManoSulfato) modelo;
-        if (!ManoSulfato.isEmpty()) {
-            Modelo last = ManoSulfato.get(ManoSulfato.size() - 1);
+        if (!ManosSulfato.isEmpty()) {
+            Modelo last = ManosSulfato.get(ManosSulfato.size() - 1);
             manoSulfato.Id = last.Id + 1;
         } else {
             manoSulfato.Id = 1;
         }
-        for (ManoSulfatoArticulo cantidad : manoSulfato.getCantidad()) {
-            cantidad.setIdManoSulfato(manoSulfato.Id);
+        for (ManoSulfatoArticulo producto : manoSulfato.getProductos()) {
+            producto.setIdManoSulfato(manoSulfato.Id);
         }
 
-        ManoSulfato.add(manoSulfato);
+        ManosSulfato.add(manoSulfato);
         return manoSulfato;
     }
 
     @Override
     public void Eliminar(Modelo manoSulfato) {
-        ManoSulfato.remove(manoSulfato);
+        ManosSulfato.remove(manoSulfato);
     }
 
     @Override
     public void Modificar(Modelo manoSulfato) {
-        int index = ManoSulfato.indexOf(manoSulfato);
+        int index = ManosSulfato.indexOf(manoSulfato);
         if (index > -1) {
-            ManoSulfato.set(index, manoSulfato);
+            ManosSulfato.set(index, manoSulfato);
         }
     }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
 
-        return ManoSulfato;
+        return ManosSulfato;
     }
 
 }

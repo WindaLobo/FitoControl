@@ -1,10 +1,10 @@
-
 package modelo;
 
 /**
  * @author Inventario
  */
 public class Inventario extends Modelo {
+
     private double cantidad;
 
     /**
@@ -23,7 +23,6 @@ public class Inventario extends Modelo {
     /**
      * @return cantidad
      */
-
     public double getCantidad() {
         return cantidad;
     }
@@ -31,7 +30,6 @@ public class Inventario extends Modelo {
     /**
      * @param cantidad
      */
-
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
@@ -39,7 +37,6 @@ public class Inventario extends Modelo {
     /**
      * @return toString
      */
-
     @Override
     public String toString() {
 
