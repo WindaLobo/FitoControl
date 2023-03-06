@@ -40,48 +40,5 @@ public class MenuMarcas {
         JOptionPane.showMessageDialog(null, Repositorio.Marcas.ObtenerTodos());
     }
 
-    /*  public static void MenuCompras() {
-        String Opcion2;
 
-        do {
-            Opcion2 = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
-                    JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
-
-            switch (Opcion2.toUpperCase()) {
-                case "Añadir":
-
-                    FitoControlOpciones.añadirCompra();
-                    
-                    break;
-                case "ObtenerTodos":
-                    FitoControlOpciones.mostraTodaLasCompras();
-                    break;
-                case "Volver atras":
-                    break;
-            }
-
-        } while (!Opcion2.equalsIgnoreCase("Volver atras"));
-    }
-
-    public static void MenuManosSulfato() {
-        String Opcion2;
-
-        do {
-            Opcion2 = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
-                    JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
-
-            switch (Opcion2.toUpperCase()) {
-                case "Añadir":
-
-                    FitoControlOpciones.añadirManoSulfato();
-                    break;
-                case "ObtenerTodos":
-                    FitoControlOpciones.mostraTodaLasManosDeSulfato();
-                    break;
-                case "Volver atras":
-                    break;
-            }
-
-        } while (!Opcion2.equalsIgnoreCase("Volver atras"));
-    }*/
 }
