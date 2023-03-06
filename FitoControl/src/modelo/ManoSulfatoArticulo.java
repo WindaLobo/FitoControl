@@ -5,8 +5,8 @@ package modelo;
  */
 public class ManoSulfatoArticulo extends Modelo {
 
-    private int idManoSulfato;
-    private int idArticulo;
+    private ManoSulfato idManoSulfato;
+    private Articulo idArticulo;
     private TipoMedida idMedida;
     private int cantidad;
 
@@ -19,7 +19,7 @@ public class ManoSulfatoArticulo extends Modelo {
      * @param idMedida
      * @param cantidad
      */
-    public ManoSulfatoArticulo(int idManoSulfato, int idArticulo, TipoMedida idMedida, int cantidad) {
+    public ManoSulfatoArticulo(ManoSulfato idManoSulfato, Articulo idArticulo, TipoMedida idMedida, int cantidad) {
         this.idManoSulfato = idManoSulfato;
         this.idArticulo = idArticulo;
         this.idMedida = idMedida;
@@ -27,25 +27,25 @@ public class ManoSulfatoArticulo extends Modelo {
 
     }
 
-    public int getIdManoSulfato() {
+    public ManoSulfato getIdManoSulfato() {
         return idManoSulfato;
     }
 
-    public void setIdManoSulfato(int idManoSulfato) {
+    public void setIdManoSulfato(ManoSulfato idManoSulfato) {
         this.idManoSulfato = idManoSulfato;
     }
 
     /**
      * @return idArticulo
      */
-    public int getIdArticulo() {
+    public Articulo getIdArticulo() {
         return idArticulo;
     }
 
     /**
      * @param idArticulo
      */
-    public void setIdArticulo(int idArticulo) {
+    public void setIdArticulo(Articulo idArticulo) {
         this.idArticulo = idArticulo;
     }
 

@@ -3,14 +3,14 @@ package fitocontrol;
 import modelo.Articulo;
 import modelo.Compra;
 import modelo.CompraArticulo;
-import modelo.Inventario;
+
 import modelo.ManoSulfato;
 import modelo.ManoSulfatoArticulo;
 import modelo.Marca;
 import modelo.TipoMedida;
 import repositorio.ArticuloRepositorio;
 import repositorio.CompraRepositorio;
-import repositorio.InventarioRepositorio;
+
 import repositorio.ManoSulfatoRepositorio;
 import repositorio.MarcaRepositorio;
 
@@ -22,7 +22,7 @@ public class CargadorDeDatos {
 
     public final MarcaRepositorio marcaRepo = new MarcaRepositorio();
     public final ArticuloRepositorio articuloRepo = new ArticuloRepositorio();
-    public final InventarioRepositorio inventarioRepo = new InventarioRepositorio();
+
     public final CompraRepositorio compreaRepo = new CompraRepositorio();
     public final ManoSulfatoRepositorio manoSulfatoRepo = new ManoSulfatoRepositorio();
 
@@ -36,13 +36,7 @@ public class CargadorDeDatos {
         marcaRepo.Añadir(marcaB);
         marcaRepo.Añadir(marcaC);
 
-        Inventario inventario1 = new Inventario(0);
-        Inventario inventario2 = new Inventario(0);
-        Inventario inventario3 = new Inventario(0);
 
-        inventarioRepo.Añadir(inventario1);
-        inventarioRepo.Añadir(inventario2);
-        inventarioRepo.Añadir(inventario3);
 
         Articulo articulo1 = new Articulo("Articulo 1", TipoMedida.Litros, marcaA.Id);
         Articulo articulo2 = new Articulo("Articulo 2", TipoMedida.Kilos, marcaB.Id);
@@ -53,14 +47,15 @@ public class CargadorDeDatos {
         articuloRepo.Añadir(articulo3);
 
         Compra compra = new Compra();
-        CompraArticulo compraArticulo = new CompraArticulo(articulo1.Id, 10, 30);
-        compra.añadirProducto(compraArticulo);
+        //CompraArticulo compraArticulo = new CompraArticulo(articulo1.Id, 10, 30);
+       // compra.añadirProducto(compraArticulo);
         compreaRepo.Añadir(compra);
 
         ManoSulfato manoSulfato = new ManoSulfato("12-6-2016");
-        ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo(manoSulfato.Id, articulo2.Id, TipoMedida.Centilitros, 6);
+        
+      /*  ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo(manoSulfato.Id, articulo2.Id, TipoMedida.Centilitros, 6);
         manoSulfato.añadirProducto(manoSulfatoArticulo);
-        manoSulfatoRepo.Añadir(manoSulfato);
+        manoSulfatoRepo.Añadir(manoSulfato);*/
 
     }
 

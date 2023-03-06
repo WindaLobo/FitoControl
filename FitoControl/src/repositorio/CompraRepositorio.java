@@ -33,9 +33,11 @@ public class CompraRepositorio implements IRepositorio {
 
         for (CompraArticulo producto : compra.getProductos()) {
             producto.setIdCompra(compra.Id);
+
         }
 
         Compras.add(compra);
+
         return compra;
     }
 

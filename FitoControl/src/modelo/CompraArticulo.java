@@ -5,18 +5,18 @@ package modelo;
  */
 public class CompraArticulo {
 
-    private int idArticulo;
+    private Articulo  articulo;
     private int idCompra;
     private double cantidad;
     private double precio;
 
     /**
-     * @param idArticulo
+     * @param articulo
      * @param cantidad
      * @param precio
      */
-    public CompraArticulo(int idArticulo, double cantidad, double precio) {
-        this.idArticulo = idArticulo;
+    public CompraArticulo(Articulo articulo, double cantidad, double precio) {
+        this.articulo = articulo;
         this.cantidad = cantidad;
         this.precio = precio;
     }
@@ -28,17 +28,17 @@ public class CompraArticulo {
     }
 
     /**
-     * @return idArticulo
+     * @return articulo
      */
-    public int getIdArticulo() {
-        return idArticulo;
+    public Articulo getArticulo() {
+        return articulo;
     }
 
     /**
      * @param idArticulo
      */
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
     }
 
     /**
@@ -89,10 +89,9 @@ public class CompraArticulo {
     @Override
     public String toString() {
         return "CompraArticulo{"
-                + "idArticulo=" + idArticulo
+                + "Articulo=" + articulo
                 + ", idCompra=" + idCompra
                 + ", cantidad=" + cantidad
-                + ", precio=" + precio
-                + '}';
+                + ", precio=" + precio;
     }
 }

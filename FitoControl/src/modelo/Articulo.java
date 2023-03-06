@@ -7,10 +7,10 @@ public class Articulo extends Modelo {
 
     //Añadir atributo referencia
     private String nombre;
-    private int idInventario;
     private TipoMedida tipoMedida;
     private int idMarca;
-
+    private double cantidad;
+ 
     /**
      *
      * @param nombre
@@ -22,9 +22,19 @@ public class Articulo extends Modelo {
         this.tipoMedida = tipoMedida;
         this.idMarca = idMarca;
     }
-
+    
     public Articulo() {
     }
+
+
+    public double getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+    }
+    
 
     /**
      * @return nombre
@@ -43,17 +53,7 @@ public class Articulo extends Modelo {
     /**
      * @return idInventario
      */
-    public int getIdInventario() {
-        return idInventario;
-    }
-
-    /**
-     * @param idInventario
-     */
-    public void setIdInventario(int idInventario) {
-        this.idInventario = idInventario;
-    }
-
+  
     /**
      * @return idMedida
      */
@@ -81,7 +81,10 @@ public class Articulo extends Modelo {
     public void setIdMarca(int idMarca) {
         this.idMarca = idMarca;
     }
+    
+   
 
+      
     /**
      * @return toString
      */
@@ -89,8 +92,8 @@ public class Articulo extends Modelo {
     public String toString() {
         return "Articulo"
                 + ", nombre :" + nombre
-                + ", idInventario :" + idInventario
                 + ", tipoMedida :" + tipoMedida
                 + ", idMarca :" + idMarca;
     }
 }
+

@@ -8,7 +8,6 @@ import java.util.Date;
  * @author ManoSulfato
  */
 public class ManoSulfato extends Modelo {
-
     private Date fecha;
     private ArrayList<ManoSulfatoArticulo> productos;
 
@@ -47,6 +46,9 @@ public class ManoSulfato extends Modelo {
     public void añadirProducto(ManoSulfatoArticulo producto) {
         this.productos.add(producto);
     }
+      
+ 
+
 
     /**
      * @return toString

@@ -40,7 +40,7 @@ public class Marca extends Modelo {
     @Override
     public String toString() {
 
-        return "Id : " + Id + "\n Nombre :" + nombre;
+        return "\n Id : " + Id + "\n Nombre :" + nombre;
     }
 
 }

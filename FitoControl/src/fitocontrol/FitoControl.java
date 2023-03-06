@@ -1,6 +1,8 @@
 package fitocontrol;
 
 import fitocontrol.Menus.MenuArticulos;
+import fitocontrol.Menus.MenuCompras;
+import fitocontrol.Menus.MenuManosSulfato;
 import fitocontrol.Menus.MenuMarcas;
 import javax.swing.JOptionPane;
 
@@ -28,10 +30,10 @@ public class FitoControl {
                         MenuArticulos.Mostrar();
                         break;
                     case "COMPRAS":
-                        // Mostrar.MenuCompras();
+                        MenuCompras.Mostrar();
                         break;
-                    case "MANO SULFATO":
-                        //  Mostrar.MenuManosSulfato();
+                    case "MANO SULFATOS":
+                        MenuManosSulfato.Mostrar();
                         break;
                     case "SALIR":
                         break;
