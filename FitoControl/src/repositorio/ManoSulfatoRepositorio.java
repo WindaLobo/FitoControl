@@ -1,6 +1,8 @@
 package repositorio;
 
 import java.util.ArrayList;
+
+import modelo.Articulo;
 import modelo.ManoSulfato;
 import modelo.ManoSulfatoArticulo;
 import modelo.Modelo;
@@ -10,9 +12,8 @@ import modelo.Modelo;
  * @author Windar
  */
 public class ManoSulfatoRepositorio implements IRepositorio {
-
     private final ArrayList<Modelo> ManosSulfato = new ArrayList<>();
-
+    private final ArrayList<Articulo> articulos= new ArrayList<>();
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo manoSulfato : ManosSulfato) {
@@ -20,10 +21,8 @@ public class ManoSulfatoRepositorio implements IRepositorio {
                 return manoSulfato;
             }
         }
-
         throw new Exception("Mano sulfato no encontrada");
     }
-
     @Override
     public Modelo Añadir(Modelo modelo) {
         ManoSulfato manoSulfato = (ManoSulfato) modelo;
@@ -40,6 +39,28 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         ManosSulfato.add(manoSulfato);
         return manoSulfato;
     }
+    public void usarArticulo(String nombreArticulo, int cantidadUsada) throws Exception {
+        // Buscamos el artículo en el inventario
+        Articulo articulo = buscarArticulo(nombreArticulo);
+
+        // Verificamos que haya suficiente cantidad disponible
+        if (articulo.getCantidad() < cantidadUsada) {
+            throw new Exception("No hay suficiente cantidad de " + nombreArticulo );
+        }
+
+        // Actualizamos la cantidad disponible
+        articulo.setCantidad(articulo.getCantidad() - cantidadUsada);
+    }
+
+    private Articulo buscarArticulo(String nombreArticulo) throws Exception {
+        // Buscamos el artículo por su nombre
+        for (Articulo articulo : articulos) {
+            if (articulo.getNombre().equals(nombreArticulo)) {
+                return articulo;
+            }
+        }
+        throw new Exception("No se encontró el artículo " + nombreArticulo);
+    }
 
     @Override
     public void Eliminar(Modelo manoSulfato) {
@@ -53,7 +74,6 @@ public class ManoSulfatoRepositorio implements IRepositorio {
             ManosSulfato.set(index, manoSulfato);
         }
     }
-
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
 

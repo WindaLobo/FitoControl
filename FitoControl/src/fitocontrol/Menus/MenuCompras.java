@@ -4,14 +4,17 @@ import fitocontrol.Repositorio;
 import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
+
 import javax.swing.*;
 import java.util.ArrayList;
+
 import modelo.Articulo;
+import repositorio.CompraRepositorio;
 
 public class MenuCompras {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-    private static final String[] opcionesMenuCompra = {"Agregar Compra", "Finalizar Compra"};
+    private static final String[] opcionesMenuCompra = {"Agregar Articulo", "Finalizar Compra"};
 
     public static void Mostrar() throws Exception {
         String Opcion;
@@ -21,7 +24,7 @@ public class MenuCompras {
 
             switch (Opcion.toUpperCase()) {
                 case "AÑADIR":
-                    opcionesMenuCompras();
+                    opcionesAñadirCompra();
                     break;
                 case "OBTENER TODOS":
                     mostraTodaLasCompras();
@@ -33,8 +36,11 @@ public class MenuCompras {
         } while (!Opcion.equalsIgnoreCase("Volver atras"));
     }
 
-    private static void opcionesMenuCompras() throws Exception {
+    private static void opcionesAñadirCompra() throws Exception {
         String Opcion;
+
+        Compra compra = new Compra();
+
         do {
 
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
@@ -42,11 +48,17 @@ public class MenuCompras {
 
             switch (Opcion.toUpperCase()) {
 
-                case "AGREGAR COMPRA":
-                    añadirCompra();
+                case "AGREGAR ARTICULO":
+                    CompraArticulo detalleCompra = añadirArticulo();
+                    compra.añadirProducto(detalleCompra);
                     break;
 
                 case "FINALIZAR COMPRA":
+                    if (compra.getArticulos().size() == 0) {
+                        throw new Exception("La compra no contiene nigun articulo");
+                    }
+
+                    Repositorio.Compra.Añadir(compra);
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("Finalizar Compra"));
@@ -57,9 +69,8 @@ public class MenuCompras {
 
     }
 
-    private static void añadirCompra() throws Exception {
+    private static CompraArticulo añadirArticulo() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
-        Compra compras = new Compra();
 
         int idArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo " + articulos.toString()));
 
@@ -79,13 +90,7 @@ public class MenuCompras {
             throw new Exception("Articulo seleccionado no existe ");
         }
 
-        CompraArticulo compraArticulo = new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
-
-        compras.añadirProducto(compraArticulo);
-
-        Repositorio.Compra.Añadir(compras);
-
-        JOptionPane.showMessageDialog(null, "Compra creado correctamente.");
+        return new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
 
     }
 

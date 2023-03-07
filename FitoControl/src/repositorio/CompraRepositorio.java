@@ -1,14 +1,14 @@
 package repositorio;
 
 import java.util.ArrayList;
-import modelo.Compra;
-import modelo.CompraArticulo;
-import modelo.Modelo;
+
+import modelo.*;
 
 public class CompraRepositorio implements IRepositorio {
+    private static final ArrayList<Modelo> Compras = new ArrayList<>();
 
-    private final ArrayList<Modelo> Compras = new ArrayList<>();
- private final ArrayList<Modelo> productos = new ArrayList<>();
+    public CompraRepositorio() {
+    }
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo compras : Compras) {
@@ -18,7 +18,6 @@ public class CompraRepositorio implements IRepositorio {
         }
         throw new Exception("Compra no encontrado");
     }
-
     @Override
     public Modelo Añadir(Modelo modelo) {
 
@@ -31,14 +30,13 @@ public class CompraRepositorio implements IRepositorio {
             compra.Id = 1;
         }
 
-        for (CompraArticulo producto : compra.getProductos()) {
-            producto.setIdCompra(compra.Id);
-
+        for (CompraArticulo detalleCompra : compra.getArticulos()) {
+            detalleCompra.setIdCompra(compra.Id);
+            Articulo articulo = detalleCompra.getArticulo();
+            articulo.setCantidad(articulo.getCantidad() + detalleCompra.getCantidad());
         }
-        
-               
+
         Compras.add(compra);
-     
         return compra;
     }
 
@@ -46,7 +44,6 @@ public class CompraRepositorio implements IRepositorio {
     public void Eliminar(Modelo compra) {
         Compras.remove(compra);
     }
-
     @Override
     public void Modificar(Modelo compra) throws Exception {
         int index = Compras.indexOf(compra);
@@ -54,16 +51,11 @@ public class CompraRepositorio implements IRepositorio {
             Compras.set(index, compra);
         }
         throw new Exception("No se puede modificar");
-
     }
-    
-
- 
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
         return Compras;
-
     }
 
 }

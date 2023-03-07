@@ -1,8 +1,10 @@
 package fitocontrol.Menus;
 
 import fitocontrol.Repositorio;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 import modelo.Articulo;
 import modelo.Modelo;
 import modelo.TipoMedida;
@@ -10,7 +12,6 @@ import modelo.TipoMedida;
 public class MenuArticulos {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-    private static final String[] opcionesMenuCompra = {"Agregar producto", "Finalizar "};
 
     public static void Mostrar() throws Exception {
         String Opcion;
@@ -21,7 +22,7 @@ public class MenuArticulos {
 
             switch (Opcion.toUpperCase()) {
                 case "AÑADIR":
-                    opcionesMenuArticulo();
+                    añadirArticulos();
                     break;
                 case "OBTENER TODOS":
                     mostraTodoLosArticulo();
@@ -32,27 +33,8 @@ public class MenuArticulos {
 
         } while (!Opcion.equalsIgnoreCase("Volver atras"));
     }
+    private static void añadirArticulos() throws Exception {
 
-    private static void opcionesMenuArticulo() throws Exception {
-        String Opcion;
-        do {
-
-            Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
-                    opcionesMenuCompra, opcionesMenuCompra[0]);
-
-            switch (Opcion.toUpperCase()) {
-
-                case "AGREGAR PRODUCTO":
-                    añadirArticulos();
-                    break;
-
-                case "FINALIZAR":
-                    break;
-            }
-        } while (!Opcion.equalsIgnoreCase("Finalizar "));
-    }
-
-    private static void añadirArticulos() {
         ArrayList<Modelo> marcas = Repositorio.Marcas.ObtenerTodos();
 
         String nombre = JOptionPane.showInputDialog("Introduce el nombre de la articulo");

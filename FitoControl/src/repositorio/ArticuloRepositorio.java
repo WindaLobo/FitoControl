@@ -5,13 +5,13 @@ import modelo.Modelo;
 
 public class ArticuloRepositorio implements IRepositorio {
 
-    private final ArrayList<Modelo> Articulos = new ArrayList<>();
+    private static final ArrayList<Modelo> Articulos = new ArrayList<>();
 
     //Metodo para obtener por nombre / Nombres que contengan la cadena introducida por el user / Lanzar exception si no existe
     //Metodo para obtener por referencia / Busqueda exacta / Lanzar exception si no existe
+
     @Override
     public Modelo Obtener(int id) throws Exception {
-
         for (Modelo articulo : Articulos) {
             if (articulo.Id == id) {
                 return articulo;
@@ -52,5 +52,6 @@ public class ArticuloRepositorio implements IRepositorio {
     public ArrayList<Modelo> ObtenerTodos() {
         return Articulos;
     }
+
 
 }

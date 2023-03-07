@@ -7,10 +7,9 @@ import modelo.Modelo;
  *
  * @author Windar
  */
-public class MarcaRepositorio implements IRepositorio {
+    public class MarcaRepositorio implements IRepositorio {
 
     private final ArrayList<Modelo> Marcas = new ArrayList<>();
-
     @Override
     public Modelo Obtener(int id) throws Exception {
 
@@ -19,10 +18,8 @@ public class MarcaRepositorio implements IRepositorio {
                 return marca;
             }
         }
-
         throw new Exception(" Marca no encontrado");
     }
-
     @Override
     public Modelo Añadir(Modelo marca) {
 
@@ -32,11 +29,9 @@ public class MarcaRepositorio implements IRepositorio {
         } else {
             marca.Id = 1;
         }
-
         Marcas.add(marca);
         return marca;
     }
-
     @Override
     public void Eliminar(Modelo marca) {
         Marcas.remove(marca);
@@ -49,7 +44,6 @@ public class MarcaRepositorio implements IRepositorio {
             Marcas.set(index, marca);
         }
     }
-
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
         return Marcas;

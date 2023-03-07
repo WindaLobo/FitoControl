@@ -69,8 +69,6 @@ public class MenuManosSulfato {
 
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
 
-   
-
         Modelo articuloEncontrado = null;
         for (Modelo articulo : articulos) {
             if (articulo.Id == IdArticulo) {

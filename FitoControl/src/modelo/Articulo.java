@@ -28,6 +28,7 @@ public class Articulo extends Modelo {
 
 
     public double getCantidad() {
+
         return cantidad;
     }
 
@@ -91,7 +92,7 @@ public class Articulo extends Modelo {
         return "Articulo"
                 + ", nombre :" + nombre
                 + ", tipoMedida :" + tipoMedida
-                + ", idMarca :" + idMarca;
+                + ", idMarca :" + idMarca + ", la cantidad es :" + cantidad;
     }
 }
 

@@ -10,15 +10,15 @@ import java.util.Date;
 public class Compra extends Modelo {
 
     private Date fecha;
-    private ArrayList<CompraArticulo> productos;
+    private ArrayList<CompraArticulo> articulos;
 
     public Compra() {
         this.fecha = Date.from(Instant.now());
-        this.productos = new ArrayList<>();
+        this.articulos = new ArrayList<>();
     }
 
-    public ArrayList<CompraArticulo> getProductos() {
-        return productos;
+    public ArrayList<CompraArticulo> getArticulos() {
+        return articulos;
     }
 
     /**
@@ -36,7 +36,7 @@ public class Compra extends Modelo {
     }
 
     public void añadirProducto(CompraArticulo producto) {
-        this.productos.add(producto);
+        this.articulos.add(producto);
     }
 
     /**

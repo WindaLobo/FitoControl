@@ -3,9 +3,9 @@ package modelo;
 /**
  * CompraArticulo
  */
-public class CompraArticulo {
+public class CompraArticulo extends Modelo {
 
-    private Articulo  articulo;
+    private Articulo articulo;
     private int idCompra;
     private double cantidad;
     private double precio;
@@ -35,7 +35,7 @@ public class CompraArticulo {
     }
 
     /**
-     * @param idArticulo
+     * @param articulo
      */
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
