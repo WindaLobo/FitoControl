@@ -34,7 +34,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
             manoSulfato.Id = 1;
         }
         for (ManoSulfatoArticulo producto : manoSulfato.getProductos()) {
-            producto.setIdManoSulfato(manoSulfato);
+            producto.setIdManoSulfato(manoSulfato.Id);
         }
 
         ManosSulfato.add(manoSulfato);

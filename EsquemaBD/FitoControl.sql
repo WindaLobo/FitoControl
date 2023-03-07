@@ -3,7 +3,6 @@ set datestyle to DMY, SQL;
 show datestyle;
 drop table if exists Marca cascade ;
 drop table if exists TipoMedida cascade ;
-drop table if exists Inventario cascade ;
 drop table if exists Articulo cascade;
 drop table if exists Compra cascade ;
 drop table if exists ManoSulfato cascade;
@@ -24,12 +23,6 @@ CREATE TABLE TipoMedida
    );
 
 
-CREATE TABLE Inventario
-    ( 
-     IdInventario integer NOT NULL ,
-     Cantidad real  NOT NULL ,  
-     PRIMARY KEY ( IdInventario) 
-     );
 
 
 CREATE TABLE Articulo 
@@ -101,12 +94,6 @@ INSERT INTO TipoMedida (IdMedida, Nombre)
 VALUES (6970, 'Kilo');
 INSERT INTO TipoMedida (IdMedida, Nombre)
 VALUES (6971, 'CentriLitro');
-INSERT INTO Inventario (IdInventario, Cantidad)
-VALUES (9595, 5);
-INSERT INTO Inventario (IdInventario, Cantidad)
-VALUES (9596, 6);
-INSERT INTO Inventario (IdInventario, Cantidad)
-VALUES (9597, 4);
 INSERT INTO Articulo (IdArticulo, Nombre, Cantidad,IdMArca,IdMedida,IdInventario)
 VALUES (5858, ' fungicida', 3,5465, 6969,9595);
 INSERT INTO Articulo (IdArticulo, Nombre, Cantidad,IdMArca,IdMedida,IdInventario)

@@ -58,13 +58,9 @@ public class MenuManosSulfato {
     private static void añadirManoSulfato() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 
-        ArrayList<Modelo> manosSulfatos = Repositorio.ManoSulfato.ObtenerTodos();
-
         String date = JOptionPane.showInputDialog("Introduce la fecha");
 
         ManoSulfato manosSulfato = new ManoSulfato(date);
-
-        int IdManoSulfato = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id de mano sulfato" + manosSulfatos.toString()));
 
         int IdArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo" + articulos.toString()));
 
@@ -73,17 +69,7 @@ public class MenuManosSulfato {
 
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
 
-        Modelo manoSulfatoEncontrado = null;
-        for (Modelo manoSulfato : manosSulfatos) {
-            if (manoSulfato.Id == IdManoSulfato) {
-                manoSulfatoEncontrado = manoSulfato;
-                break;
-            }
-        }
-
-        if (manoSulfatoEncontrado == null) {
-            throw new Exception("Articulo seleccionado no existe ");
-        }
+   
 
         Modelo articuloEncontrado = null;
         for (Modelo articulo : articulos) {
@@ -96,7 +82,7 @@ public class MenuManosSulfato {
             throw new Exception("Articulo seleccionado no existe ");
         }
 
-        ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo((ManoSulfato) manoSulfatoEncontrado, (Articulo) articuloEncontrado, tipoMedida, cantidad);
+        ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
 
         manosSulfato.añadirProducto(manoSulfatoArticulo);
 

@@ -8,7 +8,7 @@ import modelo.Modelo;
 public class CompraRepositorio implements IRepositorio {
 
     private final ArrayList<Modelo> Compras = new ArrayList<>();
-
+ private final ArrayList<Modelo> productos = new ArrayList<>();
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo compras : Compras) {
@@ -35,9 +35,10 @@ public class CompraRepositorio implements IRepositorio {
             producto.setIdCompra(compra.Id);
 
         }
-
+        
+               
         Compras.add(compra);
-
+     
         return compra;
     }
 
@@ -55,6 +56,9 @@ public class CompraRepositorio implements IRepositorio {
         throw new Exception("No se puede modificar");
 
     }
+    
+
+ 
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {

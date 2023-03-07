@@ -82,10 +82,8 @@ public class Articulo extends Modelo {
         this.idMarca = idMarca;
     }
     
-   
-
-      
-    /**
+  
+      /**
      * @return toString
      */
     @Override
