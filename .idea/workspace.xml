@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/FitoControl/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuManosSulfato.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuManosSulfato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Modelo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/TipoMedida.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/TipoMedida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/MarcaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/MarcaRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/CargadorDeDatos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/CargadorDeDatos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/FitoControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/FitoControl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/FitoControlOpciones.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuArticulos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuArticulos.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuMarcas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuMarcas.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Repositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Repositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Articulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Articulo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Compra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Compra.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/CompraArticulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/CompraArticulo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Inventario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfato.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfato.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfatoArticulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfatoArticulo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Marca.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Marca.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Modelo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/TipoMedida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/TipoMedida.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ArticuloRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ArticuloRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/CompraRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/CompraRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/InventarioRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ManoSulfatoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ManoSulfatoRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/MarcaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/MarcaRepositorio.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="windar" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Mgt7v0KPJ5rO6h4mNJyF7LHSHZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Datos Windar/FitoControl&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Datos Windar\FitoControl\FitoControl" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fitocontrol.FitoControl" />
+      <module name="FitoControl" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="" />
+      <created>1678200889716</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678200889716</updated>
+    </task>
+    <servers />
+  </component>
+</project>

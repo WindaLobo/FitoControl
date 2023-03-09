@@ -4,8 +4,8 @@ package modelo;
  * @author Windar
  */
 public class Articulo extends Modelo {
-
     //Añadir atributo referencia
+
     private String nombre;
     private TipoMedida tipoMedida;
     private int idMarca;
@@ -25,17 +25,13 @@ public class Articulo extends Modelo {
     
     public Articulo() {
     }
-
-
     public double getCantidad() {
 
         return cantidad;
     }
-
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
-    
 
     /**
      * @return nombre
@@ -82,14 +78,12 @@ public class Articulo extends Modelo {
     public void setIdMarca(int idMarca) {
         this.idMarca = idMarca;
     }
-    
-  
-      /**
+    /**
      * @return toString
      */
     @Override
     public String toString() {
-        return "Articulo"
+        return "Articulo : " + Id
                 + ", nombre :" + nombre
                 + ", tipoMedida :" + tipoMedida
                 + ", idMarca :" + idMarca + ", la cantidad es :" + cantidad;

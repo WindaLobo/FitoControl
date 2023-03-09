@@ -22,24 +22,22 @@ public class CompraRepositorio implements IRepositorio {
     public Modelo Añadir(Modelo modelo) {
 
         Compra compra = (Compra) modelo;
-
         if (!Compras.isEmpty()) {
             Modelo last = Compras.get(Compras.size() - 1);
             compra.Id = last.Id + 1;
         } else {
             compra.Id = 1;
         }
-
+        int detalleId=0;
         for (CompraArticulo detalleCompra : compra.getArticulos()) {
-            detalleCompra.setIdCompra(compra.Id);
+           detalleCompra.Id =++detalleId;
+              detalleCompra.setIdCompra(compra.Id);
             Articulo articulo = detalleCompra.getArticulo();
             articulo.setCantidad(articulo.getCantidad() + detalleCompra.getCantidad());
         }
-
         Compras.add(compra);
         return compra;
     }
-
     @Override
     public void Eliminar(Modelo compra) {
         Compras.remove(compra);
@@ -52,7 +50,6 @@ public class CompraRepositorio implements IRepositorio {
         }
         throw new Exception("No se puede modificar");
     }
-
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
         return Compras;

@@ -1,14 +1,10 @@
 package fitocontrol.Menus;
 
 import fitocontrol.Repositorio;
-import modelo.ManoSulfato;
-import modelo.ManoSulfatoArticulo;
-import modelo.Modelo;
-import modelo.TipoMedida;
+import modelo.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
-import modelo.Articulo;
 
 public class MenuManosSulfato {
 
@@ -38,6 +34,7 @@ public class MenuManosSulfato {
 
     private static void opcionesMenuManoDeSulfato() throws Exception {
         String Opcion;
+        ManoSulfato manosSulfato = new ManoSulfato();
         do {
 
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
@@ -46,21 +43,21 @@ public class MenuManosSulfato {
             switch (Opcion.toUpperCase()) {
 
                 case "AGREGAR MANOSULFATO":
-                    añadirManoSulfato();
+                    ManoSulfatoArticulo  producto = añadirManoSulfato();
+                    manosSulfato.añadirProducto(producto);
                     break;
 
-                case "FINALIZAR ":
+                case "FINALIZAR  ":
+                    if (manosSulfato.getProductos().size() == 0) {
+                        throw new Exception("La manoSulfato no contiene nigun producto");
+                    }
+                    Repositorio.ManoSulfato.Añadir(manosSulfato);
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("Finalizar "));
     }
-
-    private static void añadirManoSulfato() throws Exception {
+    private static ManoSulfatoArticulo añadirManoSulfato() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
-
-        String date = JOptionPane.showInputDialog("Introduce la fecha");
-
-        ManoSulfato manosSulfato = new ManoSulfato(date);
 
         int IdArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo" + articulos.toString()));
 
@@ -79,16 +76,9 @@ public class MenuManosSulfato {
         if (articuloEncontrado == null) {
             throw new Exception("Articulo seleccionado no existe ");
         }
-
-        ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
-
-        manosSulfato.añadirProducto(manoSulfatoArticulo);
-
-        Repositorio.ManoSulfato.Añadir(manosSulfato);
+        return  new ManoSulfatoArticulo ((Articulo) articuloEncontrado, tipoMedida, cantidad);
     }
-
     private static void mostraTodaLasManosDeSulfato() {
         JOptionPane.showMessageDialog(null, Repositorio.ManoSulfato.ObtenerTodos());
-
     }
 }

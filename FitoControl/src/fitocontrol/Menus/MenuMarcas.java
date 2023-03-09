@@ -1,13 +1,11 @@
 package fitocontrol.Menus;
-
 import fitocontrol.Repositorio;
 import javax.swing.JOptionPane;
 import modelo.Marca;
-
 public class MenuMarcas {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-    public static void Mostrar() throws Exception {
+    public static void Mostrar() {
         String Opcion;
 
         do {
@@ -24,7 +22,6 @@ public class MenuMarcas {
                 case "VOLVER ATRAS":
                     break;
             }
-
         } while (!Opcion.equalsIgnoreCase("Volver atras"));
     }
     private static void añadirMarca() {

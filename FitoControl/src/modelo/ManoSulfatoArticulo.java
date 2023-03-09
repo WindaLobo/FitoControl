@@ -4,17 +4,13 @@ package modelo;
  * @author Windar
  */
 public class ManoSulfatoArticulo extends Modelo {
-
     private int idManoSulfato;
     private Articulo idArticulo;
     private TipoMedida idMedida;
     private int cantidad;
-
     public ManoSulfatoArticulo() {
     }
-
     /**
-   
      * @param idArticulo
      * @param idMedida
      * @param cantidad
@@ -26,7 +22,6 @@ public class ManoSulfatoArticulo extends Modelo {
         this.cantidad = cantidad;
 
     }
-
     public int  getIdManoSulfato() {
         return idManoSulfato;
     }
@@ -34,49 +29,42 @@ public class ManoSulfatoArticulo extends Modelo {
     public void setIdManoSulfato(int  idManoSulfato) {
         this.idManoSulfato = idManoSulfato;
     }
-
     /**
      * @return idArticulo
      */
     public Articulo getIdArticulo() {
         return idArticulo;
     }
-
     /**
      * @param idArticulo
      */
     public void setIdArticulo(Articulo idArticulo) {
         this.idArticulo = idArticulo;
     }
-
     /**
      * @return idMedida
      */
     public TipoMedida getIdMedida() {
         return idMedida;
     }
-
     /**
      * @param idMedida
      */
     public void setIdMedida(TipoMedida idMedida) {
         this.idMedida = idMedida;
     }
-
     /**
      * @return cantidad
      */
     public int getCantidad() {
         return cantidad;
     }
-
     /**
      * @param cantidad
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
-
     /**
      * @return toString
      */

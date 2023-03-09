@@ -39,7 +39,7 @@ public class FitoControl {
                         break;
                 }
             } catch (Exception ex) {
-                System.out.println(ex.getMessage());
+                JOptionPane.showMessageDialog(null, ex.getMessage());
             }
         } while (!Opcion.equalsIgnoreCase("SALIR"));
     }

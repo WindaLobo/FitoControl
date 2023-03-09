@@ -4,12 +4,10 @@ package modelo;
  * CompraArticulo
  */
 public class CompraArticulo extends Modelo {
-
     private Articulo articulo;
     private int idCompra;
     private double cantidad;
     private double precio;
-
     /**
      * @param articulo
      * @param cantidad
@@ -20,13 +18,11 @@ public class CompraArticulo extends Modelo {
         this.cantidad = cantidad;
         this.precio = precio;
     }
-
     /**
      * Constructor vacio
      */
     public CompraArticulo() {
     }
-
     /**
      * @return articulo
      */
@@ -47,43 +43,37 @@ public class CompraArticulo extends Modelo {
     public int getIdCompra() {
         return idCompra;
     }
-
     /**
      * @param idCompra
      */
     public void setIdCompra(int idCompra) {
         this.idCompra = idCompra;
     }
-
     /**
      * @return cantidad
      */
     public double getCantidad() {
         return cantidad;
     }
-
     /**
      * @param cantidad
      */
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
-
     /**
      * @return precio
      */
     public double getPrecio() {
         return precio;
     }
-
     /**
      * @param precio
      */
     public void setPrecio(double precio) {
         this.precio = precio;
     }
-
-    /**
+   /**
      * @return toString
      */
     @Override

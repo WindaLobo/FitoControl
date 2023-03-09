@@ -2,10 +2,7 @@ package repositorio;
 
 import java.util.ArrayList;
 
-import modelo.Articulo;
-import modelo.ManoSulfato;
-import modelo.ManoSulfatoArticulo;
-import modelo.Modelo;
+import modelo.*;
 
 /**
  *
@@ -32,36 +29,16 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         } else {
             manoSulfato.Id = 1;
         }
+        int detalleManoSulfatoId=0;
         for (ManoSulfatoArticulo producto : manoSulfato.getProductos()) {
+            manoSulfato.Id= ++detalleManoSulfatoId;
             producto.setIdManoSulfato(manoSulfato.Id);
+            Articulo articulo = producto.getIdArticulo();
+            articulo.setCantidad(articulo.getCantidad() - producto.getCantidad());
         }
-
         ManosSulfato.add(manoSulfato);
         return manoSulfato;
     }
-    public void usarArticulo(String nombreArticulo, int cantidadUsada) throws Exception {
-        // Buscamos el artículo en el inventario
-        Articulo articulo = buscarArticulo(nombreArticulo);
-
-        // Verificamos que haya suficiente cantidad disponible
-        if (articulo.getCantidad() < cantidadUsada) {
-            throw new Exception("No hay suficiente cantidad de " + nombreArticulo );
-        }
-
-        // Actualizamos la cantidad disponible
-        articulo.setCantidad(articulo.getCantidad() - cantidadUsada);
-    }
-
-    private Articulo buscarArticulo(String nombreArticulo) throws Exception {
-        // Buscamos el artículo por su nombre
-        for (Articulo articulo : articulos) {
-            if (articulo.getNombre().equals(nombreArticulo)) {
-                return articulo;
-            }
-        }
-        throw new Exception("No se encontró el artículo " + nombreArticulo);
-    }
-
     @Override
     public void Eliminar(Modelo manoSulfato) {
         ManosSulfato.remove(manoSulfato);

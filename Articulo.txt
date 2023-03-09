@@ -1,0 +1,2 @@
+Articulo, nombre :Sulfato de casio, tipoMedida :Kilos, idMarca :1, la cantidad es :0.0
+Articulo, nombre :Sulfato de sodio, tipoMedida :Centilitros, idMarca :1, la cantidad es :0.0

@@ -1,10 +1,8 @@
 package fitocontrol.Menus;
-
 import fitocontrol.Repositorio;
 import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
-
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -12,10 +10,8 @@ import modelo.Articulo;
 import repositorio.CompraRepositorio;
 
 public class MenuCompras {
-
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
     private static final String[] opcionesMenuCompra = {"Agregar Articulo", "Finalizar Compra"};
-
     public static void Mostrar() throws Exception {
         String Opcion;
 
@@ -32,10 +28,8 @@ public class MenuCompras {
                 case "VOLVER ATRAS":
                     break;
             }
-
         } while (!Opcion.equalsIgnoreCase("Volver atras"));
     }
-
     private static void opcionesAñadirCompra() throws Exception {
         String Opcion;
 
@@ -55,20 +49,17 @@ public class MenuCompras {
 
                 case "FINALIZAR COMPRA":
                     if (compra.getArticulos().size() == 0) {
-                        throw new Exception("La compra no contiene nigun articulo");
+                       throw new Exception("La compra no contiene nigun articulo");
                     }
-
                     Repositorio.Compra.Añadir(compra);
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("Finalizar Compra"));
     }
-
     private static void mostraTodaLasCompras() {
         JOptionPane.showMessageDialog(null, Repositorio.Compra.ObtenerTodos());
 
     }
-
     private static CompraArticulo añadirArticulo() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 

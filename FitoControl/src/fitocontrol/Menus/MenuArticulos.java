@@ -1,18 +1,13 @@
 package fitocontrol.Menus;
-
 import fitocontrol.Repositorio;
-
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 import modelo.Articulo;
 import modelo.Modelo;
 import modelo.TipoMedida;
 
 public class MenuArticulos {
-
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-
     public static void Mostrar() throws Exception {
         String Opcion;
 

@@ -2,14 +2,10 @@ package repositorio;
 
 import java.util.ArrayList;
 import modelo.Modelo;
-
 public class ArticuloRepositorio implements IRepositorio {
-
     private static final ArrayList<Modelo> Articulos = new ArrayList<>();
-
-    //Metodo para obtener por nombre / Nombres que contengan la cadena introducida por el user / Lanzar exception si no existe
+   //Metodo para obtener por nombre / Nombres que contengan la cadena introducida por el user / Lanzar exception si no existe
     //Metodo para obtener por referencia / Busqueda exacta / Lanzar exception si no existe
-
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo articulo : Articulos) {
@@ -17,10 +13,8 @@ public class ArticuloRepositorio implements IRepositorio {
                 return articulo;
             }
         }
-
         throw new Exception("Articulo no encontrado");
     }
-
     @Override
     public Modelo Añadir(Modelo articulo) {
 
@@ -30,11 +24,9 @@ public class ArticuloRepositorio implements IRepositorio {
         } else {
             articulo.Id = 1;
         }
-
         Articulos.add(articulo);
         return articulo;
     }
-
     @Override
     public void Eliminar(Modelo articulo) {
         Articulos.remove(articulo);
@@ -47,11 +39,9 @@ public class ArticuloRepositorio implements IRepositorio {
             Articulos.set(index, articulo);
         }
     }
-
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
         return Articulos;
     }
-
 
 }
