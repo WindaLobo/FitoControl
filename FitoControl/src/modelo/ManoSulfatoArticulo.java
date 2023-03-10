@@ -8,8 +8,7 @@ public class ManoSulfatoArticulo extends Modelo {
     private Articulo idArticulo;
     private TipoMedida idMedida;
     private int cantidad;
-    public ManoSulfatoArticulo() {
-    }
+
     /**
      * @param idArticulo
      * @param idMedida

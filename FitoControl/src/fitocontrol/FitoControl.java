@@ -14,7 +14,7 @@ public class FitoControl {
 
     public static void main(String[] args) throws Exception {
 
-        String[] opciones = {"Marcas", "Articulos", "Compras", "Mano sulfatos", "Salir"};
+        String[] opciones = {"Marcas", "Articulos", "Compras", "Mano Sulfatos", "Salir"};
         String Opcion = "";
 
         do {
@@ -24,16 +24,16 @@ public class FitoControl {
 
                 switch (Opcion.toUpperCase()) {
                     case "MARCAS":
-                        MenuMarcas.Mostrar();
+                        MenuMarcas.mostrar();
                         break;
                     case "ARTICULOS":
-                        MenuArticulos.Mostrar();
+                        MenuArticulos.mostrar();
                         break;
                     case "COMPRAS":
                         MenuCompras.Mostrar();
                         break;
                     case "MANO SULFATOS":
-                        MenuManosSulfato.Mostrar();
+                        MenuManosSulfato.mostrar();
                         break;
                     case "SALIR":
                         break;

@@ -11,17 +11,13 @@ public class ManoSulfato extends Modelo {
     private Date fecha;
     private ArrayList<ManoSulfatoArticulo> productos;
     /**
-     * @param fecha
+     *
      */
-    public ManoSulfato(String fecha) {
+    public ManoSulfato() {
         this.fecha = Date.from(Instant.now());
         this.productos = new ArrayList<>();
     }
-    /**
-     * Constructor vacio
-     */
-    public ManoSulfato() {
-    }
+
     public ArrayList<ManoSulfatoArticulo> getProductos() {
         return productos;
     }
@@ -45,6 +41,6 @@ public class ManoSulfato extends Modelo {
      */
     @Override
     public String toString() {
-        return fecha.toString() + productos.toString();
+        return fecha.toString() + productos.toString() ;
     }
 }

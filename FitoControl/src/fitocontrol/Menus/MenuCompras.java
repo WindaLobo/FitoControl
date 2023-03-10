@@ -7,7 +7,6 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 import modelo.Articulo;
-import repositorio.CompraRepositorio;
 
 public class MenuCompras {
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -67,8 +66,18 @@ public class MenuCompras {
 
         double cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
 
+        if (cantidad < 0) {
+            throw new Exception("La cantidad no puede ser negativo");
+        }
         double precio = Integer.parseInt(JOptionPane.showInputDialog("Introduce el precio "));
 
+        Modelo articuloEncontrado = validarArticulo(idArticulo,articulos);
+
+        return new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
+
+    }
+
+    private static Modelo validarArticulo(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
         Modelo articuloEncontrado = null;
         for (Modelo articulo : articulos) {
             if (articulo.Id == idArticulo) {
@@ -76,13 +85,11 @@ public class MenuCompras {
                 break;
             }
         }
-
         if (articuloEncontrado == null) {
             throw new Exception("Articulo seleccionado no existe ");
         }
 
-        return new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
-
+        return articuloEncontrado;
     }
 
 }

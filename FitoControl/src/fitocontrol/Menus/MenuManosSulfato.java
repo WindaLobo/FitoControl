@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class MenuManosSulfato {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-    private static final String[] opcionesMenuCompra = {"Agregar ManoSulfato", "Finalizar "};
+    private static final String[] opcionesMenuCompra = {"Agregar ManoSulfato", "Finalizar"};
 
-    public static void Mostrar() throws Exception {
+    public static void mostrar() throws Exception {
         String Opcion;
 
         do {
@@ -34,7 +34,8 @@ public class MenuManosSulfato {
 
     private static void opcionesMenuManoDeSulfato() throws Exception {
         String Opcion;
-        ManoSulfato manosSulfato = new ManoSulfato();
+        ManoSulfato manoSulfato = new ManoSulfato();
+
         do {
 
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
@@ -43,19 +44,24 @@ public class MenuManosSulfato {
             switch (Opcion.toUpperCase()) {
 
                 case "AGREGAR MANOSULFATO":
-                    ManoSulfatoArticulo  producto = añadirManoSulfato();
-                    manosSulfato.añadirProducto(producto);
+                    ManoSulfatoArticulo producto = añadirManoSulfato();
+                    manoSulfato.añadirProducto(producto);
                     break;
 
-                case "FINALIZAR  ":
-                    if (manosSulfato.getProductos().size() == 0) {
+                case "FINALIZAR":
+                    if (manoSulfato.getProductos().size() == 0) {
                         throw new Exception("La manoSulfato no contiene nigun producto");
                     }
-                    Repositorio.ManoSulfato.Añadir(manosSulfato);
+                    Repositorio.ManoSulfato.Añadir(manoSulfato);
                     break;
             }
-        } while (!Opcion.equalsIgnoreCase("Finalizar "));
+        } while (!Opcion.equalsIgnoreCase("Finalizar"));
     }
+
+    private static void mostraTodaLasManosDeSulfato() {
+        JOptionPane.showMessageDialog(null, Repositorio.ManoSulfato.ObtenerTodos());
+    }
+
     private static ManoSulfatoArticulo añadirManoSulfato() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 
@@ -66,9 +72,16 @@ public class MenuManosSulfato {
 
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
 
+        if (cantidad < 0) {
+            throw new Exception("La cantidad no puede ser negativo");
+        }
+        Modelo articuloEncontrado = validarArticulo(IdArticulo,articulos);
+        return new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
+    }
+    private static Modelo validarArticulo(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
         Modelo articuloEncontrado = null;
         for (Modelo articulo : articulos) {
-            if (articulo.Id == IdArticulo) {
+            if (articulo.Id == idArticulo) {
                 articuloEncontrado = articulo;
                 break;
             }
@@ -76,9 +89,6 @@ public class MenuManosSulfato {
         if (articuloEncontrado == null) {
             throw new Exception("Articulo seleccionado no existe ");
         }
-        return  new ManoSulfatoArticulo ((Articulo) articuloEncontrado, tipoMedida, cantidad);
-    }
-    private static void mostraTodaLasManosDeSulfato() {
-        JOptionPane.showMessageDialog(null, Repositorio.ManoSulfato.ObtenerTodos());
+        return articuloEncontrado;
     }
 }

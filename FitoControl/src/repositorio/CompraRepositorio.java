@@ -7,8 +7,6 @@ import modelo.*;
 public class CompraRepositorio implements IRepositorio {
     private static final ArrayList<Modelo> Compras = new ArrayList<>();
 
-    public CompraRepositorio() {
-    }
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo compras : Compras) {
@@ -52,6 +50,7 @@ public class CompraRepositorio implements IRepositorio {
     }
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
+
         return Compras;
     }
 

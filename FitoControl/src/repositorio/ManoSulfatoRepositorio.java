@@ -10,7 +10,6 @@ import modelo.*;
  */
 public class ManoSulfatoRepositorio implements IRepositorio {
     private final ArrayList<Modelo> ManosSulfato = new ArrayList<>();
-    private final ArrayList<Articulo> articulos= new ArrayList<>();
     @Override
     public Modelo Obtener(int id) throws Exception {
         for (Modelo manoSulfato : ManosSulfato) {
@@ -21,7 +20,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         throw new Exception("Mano sulfato no encontrada");
     }
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo modelo) throws Exception {
         ManoSulfato manoSulfato = (ManoSulfato) modelo;
         if (!ManosSulfato.isEmpty()) {
             Modelo last = ManosSulfato.get(ManosSulfato.size() - 1);
@@ -30,11 +29,15 @@ public class ManoSulfatoRepositorio implements IRepositorio {
             manoSulfato.Id = 1;
         }
         int detalleManoSulfatoId=0;
-        for (ManoSulfatoArticulo producto : manoSulfato.getProductos()) {
-            manoSulfato.Id= ++detalleManoSulfatoId;
-            producto.setIdManoSulfato(manoSulfato.Id);
-            Articulo articulo = producto.getIdArticulo();
-            articulo.setCantidad(articulo.getCantidad() - producto.getCantidad());
+        for (ManoSulfatoArticulo articuloManoSulfato : manoSulfato.getProductos()) {
+            articuloManoSulfato.Id = ++detalleManoSulfatoId;
+            articuloManoSulfato.setIdManoSulfato(manoSulfato.Id);
+            Articulo articulo = articuloManoSulfato.getIdArticulo();
+            if (articuloManoSulfato.getCantidad()<0 || articulo.getCantidad()<0) {
+                throw new Exception("No puedes aplicar mano sulfato pq no tienes suficiente stock");
+            } else {
+                articulo.setCantidad(articuloManoSulfato.getCantidad() - articulo.getCantidad());
+            }
         }
         ManosSulfato.add(manoSulfato);
         return manoSulfato;
@@ -53,7 +56,6 @@ public class ManoSulfatoRepositorio implements IRepositorio {
     }
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-
         return ManosSulfato;
     }
 

@@ -9,7 +9,7 @@ public interface IRepositorio {
 
     public ArrayList<Modelo> ObtenerTodos();
 
-    public Modelo Añadir(Modelo modelo);
+    public Modelo Añadir(Modelo modelo) throws Exception;
 
     public void Eliminar(Modelo modelo);
 
