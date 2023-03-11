@@ -39,23 +39,24 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         }
         int detalleManoSulfatoId = 0;
 
-        for (ManoSulfatoArticulo articuloManoSulfato : manoSulfato.getProductos()) {
+        for (ManoSulfatoArticulo detalleManoSulfato : manoSulfato.getProductos()) {
 
-            articuloManoSulfato.Id = ++detalleManoSulfatoId;
+            detalleManoSulfato.Id = ++detalleManoSulfatoId;
 
-            articuloManoSulfato.setIdManoSulfato(manoSulfato.Id);
+            detalleManoSulfato.setIdManoSulfato(manoSulfato.Id);
 
-            Articulo articulo = articuloManoSulfato.getIdArticulo();
+            Articulo articulo = detalleManoSulfato.getIdArticulo();
 
-            if (articuloManoSulfato.getCantidad() < 0 || articulo.getCantidad() < 0) {
+            if (articulo.getCantidad() - detalleManoSulfato.getCantidad() < 0) {
 
-                throw new Exception("No puedes aplicar mano sulfato pq no tienes suficiente stock");
+                throw new Exception("No puedes aplicar mano sulfato por que no tienes suficiente stock");
 
             } else {
 
-                articulo.setCantidad(articuloManoSulfato.getCantidad() - articulo.getCantidad());
+                articulo.setCantidad(articulo.getCantidad() - detalleManoSulfato.getCantidad());
             }
         }
+
         ManosSulfato.add(manoSulfato);
 
         return manoSulfato;

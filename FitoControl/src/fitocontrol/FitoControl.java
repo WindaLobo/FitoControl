@@ -7,6 +7,7 @@ import fitocontrol.Menus.MenuMarcas;
 
 import javax.swing.JOptionPane;
 
+
 /**
  * @author Windar
  */
@@ -21,6 +22,13 @@ public class FitoControl {
             try {
                 Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
                         JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+                if (Opcion == null) {
+
+                    Opcion = "";
+
+                    JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                }
+
 
                 switch (Opcion.toUpperCase()) {
 

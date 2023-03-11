@@ -1,10 +1,14 @@
 package fitocontrol.Menus;
+
 import fitocontrol.Repositorio;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 import modelo.Articulo;
 import modelo.Modelo;
 import modelo.TipoMedida;
+
 import static validaciones.validaciones.validarIdMarca;
 import static validaciones.validaciones.validarnombre;
 
@@ -17,6 +21,13 @@ public class MenuArticulos {
         do {
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
                     JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
+
+            if (Opcion == null) {
+
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
 
             switch (Opcion.toUpperCase()) {
                 case "AÑADIR":

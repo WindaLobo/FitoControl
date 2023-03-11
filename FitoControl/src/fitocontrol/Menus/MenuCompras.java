@@ -10,8 +10,7 @@ import java.util.ArrayList;
 
 import modelo.Articulo;
 
-import static validaciones.validaciones.validarArticuloEcontrado;
-import static validaciones.validaciones.validarCantidadIntroducida;
+import static validaciones.validaciones.*;
 
 public class MenuCompras {
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -22,7 +21,12 @@ public class MenuCompras {
 
         do {
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
+            if (Opcion == null) {
 
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
             switch (Opcion.toUpperCase()) {
                 case "AÑADIR":
                     opcionesAñadirCompra();
@@ -45,10 +49,19 @@ public class MenuCompras {
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
                     opcionesMenuCompra, opcionesMenuCompra[0]);
 
+            if (Opcion == null) {
+
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
             switch (Opcion.toUpperCase()) {
 
                 case "AGREGAR ARTICULO":
                     CompraArticulo detalleCompra = añadirArticulo();
+
+                    validarCompraDetalle(compra, detalleCompra);
+
                     compra.añadirProducto(detalleCompra);
                     break;
 
@@ -82,8 +95,6 @@ public class MenuCompras {
         return new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
 
     }
-
-
 
 
 }

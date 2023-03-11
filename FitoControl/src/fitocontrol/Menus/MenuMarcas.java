@@ -1,8 +1,11 @@
 package fitocontrol.Menus;
 
 import fitocontrol.Repositorio;
+
 import javax.swing.JOptionPane;
+
 import modelo.Marca;
+
 import static validaciones.validaciones.validadNombreDeLAMarca;
 
 public class MenuMarcas {
@@ -16,6 +19,12 @@ public class MenuMarcas {
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
                     JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
 
+            if (Opcion == null) {
+
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
             switch (Opcion.toUpperCase()) {
 
                 case "AÑADIR":
@@ -43,6 +52,7 @@ public class MenuMarcas {
 
         JOptionPane.showMessageDialog(null, "Marca creada correctamente.");
     }
+
     private static void mostraTodaLasMarcas() {
         JOptionPane.showMessageDialog(null, Repositorio.Marcas.ObtenerTodos());
     }

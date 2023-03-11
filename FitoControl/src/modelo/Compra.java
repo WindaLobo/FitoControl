@@ -46,7 +46,7 @@ public class Compra extends Modelo {
     @Override
     public String toString() {
 
-        return fecha.toString() + articulos.toString();
+        return fecha.toString() + articulos.toString() + "\n";
 
     }
 }

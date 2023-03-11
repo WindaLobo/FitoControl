@@ -1,7 +1,10 @@
 package validaciones;
 
+import modelo.Compra;
+import modelo.CompraArticulo;
 import modelo.Modelo;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class validaciones {
@@ -68,6 +71,14 @@ public class validaciones {
             throw new Exception("La cantidad no puede ser negativo");
         }
     }
+    public static Modelo validarCompraDetalle( Compra compra, CompraArticulo detalleCompra ) throws Exception {
+        for (CompraArticulo compraDetalle : compra.getArticulos()){
 
+            if(compraDetalle.getArticulo().Id == detalleCompra.getArticulo().Id){
 
+                throw new Exception("El articulo introducido ya existe en la compra");
+            }
+        }
+        return detalleCompra;
+    }
 }

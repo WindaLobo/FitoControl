@@ -46,6 +46,6 @@ public class ManoSulfato extends Modelo {
      */
     @Override
     public String toString() {
-        return fecha.toString() + productos.toString();
+        return fecha.toString() + productos.toString() + "\n";
     }
 }

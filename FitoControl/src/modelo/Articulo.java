@@ -84,9 +84,9 @@ public class Articulo extends Modelo {
     @Override
     public String toString() {
         return "Articulo : " + Id
-                + ", nombre :" + nombre
-                + ", tipoMedida :" + tipoMedida
-                + ", idMarca :" + idMarca + ", la cantidad es :" + cantidad;
+                + ", nombre : " + nombre
+                + ", tipoMedida : " + tipoMedida
+                + ", idMarca : " + idMarca + ", la cantidad es : " + cantidad;
     }
 }
 

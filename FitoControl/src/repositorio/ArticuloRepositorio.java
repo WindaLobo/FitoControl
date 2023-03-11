@@ -50,16 +50,13 @@ public class ArticuloRepositorio implements IRepositorio {
     public void Modificar(Modelo articulo) {
 
         int index = Articulos.indexOf(articulo);
-
         if (index > -1) {
-
             Articulos.set(index, articulo);
         }
     }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
-
         return Articulos;
     }
 

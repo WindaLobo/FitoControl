@@ -12,7 +12,7 @@ import static validaciones.validaciones.validarCantidadIntroducida;
 public class MenuManosSulfato {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
-    private static final String[] opcionesMenuCompra = {"Agregar ManoSulfato", "Finalizar"};
+    private static final String[] opcionesMenuCompra = {"Agregar Articulo", "Finalizar"};
 
     public static void mostrar() throws Exception {
         String Opcion;
@@ -20,6 +20,13 @@ public class MenuManosSulfato {
         do {
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
                     JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
+
+            if (Opcion == null) {
+
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
 
             switch (Opcion.toUpperCase()) {
                 case "AÑADIR":
@@ -44,10 +51,16 @@ public class MenuManosSulfato {
 
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
                     opcionesMenuCompra, opcionesMenuCompra[0]);
+            if (Opcion == null) {
+
+                Opcion = "";
+
+                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+            }
 
             switch (Opcion.toUpperCase()) {
 
-                case "AGREGAR MANOSULFATO":
+                case "AGREGAR ARTICULO":
                     ManoSulfatoArticulo producto = añadirManoSulfato();
                     manoSulfato.añadirProducto(producto);
                     break;

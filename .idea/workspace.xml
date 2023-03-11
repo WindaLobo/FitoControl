@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" afterDir="false" />
@@ -12,35 +10,12 @@
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Modelo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Modelo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/TipoMedida.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/TipoMedida.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/MarcaRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/MarcaRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/CargadorDeDatos.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/FitoControl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/FitoControl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuArticulos.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuArticulos.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuCompras.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuCompras.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuManosSulfato.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuManosSulfato.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuMarcas.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/fitocontrol/Menus/MenuMarcas.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Articulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Articulo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Compra.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Compra.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/CompraArticulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/CompraArticulo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfato.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfato.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfatoArticulo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/ManoSulfatoArticulo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Marca.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Marca.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/Modelo.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/Modelo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/modelo/TipoMedida.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/modelo/TipoMedida.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ArticuloRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ArticuloRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/CompraRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/CompraRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/IRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/IRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ManoSulfatoRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/ManoSulfatoRepositorio.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/FitoControl/repositorio/MarcaRepositorio.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/FitoControl/repositorio/MarcaRepositorio.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,26 +89,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="28" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuManosSulfato.java</url>
-          <line>17</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
