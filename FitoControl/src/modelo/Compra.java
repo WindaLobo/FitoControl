@@ -12,28 +12,34 @@ import java.util.Date;
 public class Compra extends Modelo {
     private Date fecha;
     private ArrayList<CompraArticulo> articulos;
+
     public Compra() {
         this.fecha = Date.from(Instant.now());
         this.articulos = new ArrayList<>();
     }
+
     public ArrayList<CompraArticulo> getArticulos() {
         return articulos;
     }
+
     /**
      * @return fecha
      */
     public Date getFecha() {
         return fecha;
     }
+
     /**
      * @param fecha
      */
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
     public void añadirProducto(CompraArticulo producto) {
         this.articulos.add(producto);
     }
+
     /**
      * @return toString
      */

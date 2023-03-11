@@ -6,6 +6,9 @@ import modelo.*;
 import javax.swing.*;
 import java.util.ArrayList;
 
+import static validaciones.validaciones.validarArticuloEcontrado;
+import static validaciones.validaciones.validarCantidadIntroducida;
+
 public class MenuManosSulfato {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -34,6 +37,7 @@ public class MenuManosSulfato {
 
     private static void opcionesMenuManoDeSulfato() throws Exception {
         String Opcion;
+
         ManoSulfato manoSulfato = new ManoSulfato();
 
         do {
@@ -72,23 +76,12 @@ public class MenuManosSulfato {
 
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
 
-        if (cantidad < 0) {
-            throw new Exception("La cantidad no puede ser negativo");
-        }
-        Modelo articuloEncontrado = validarArticulo(IdArticulo,articulos);
+        validarCantidadIntroducida(cantidad);
+
+        Modelo articuloEncontrado = validarArticuloEcontrado(IdArticulo, articulos);
+
         return new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
     }
-    private static Modelo validarArticulo(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
-        Modelo articuloEncontrado = null;
-        for (Modelo articulo : articulos) {
-            if (articulo.Id == idArticulo) {
-                articuloEncontrado = articulo;
-                break;
-            }
-        }
-        if (articuloEncontrado == null) {
-            throw new Exception("Articulo seleccionado no existe ");
-        }
-        return articuloEncontrado;
-    }
+
+
 }

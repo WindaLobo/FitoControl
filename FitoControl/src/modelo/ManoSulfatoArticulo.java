@@ -21,49 +21,57 @@ public class ManoSulfatoArticulo extends Modelo {
         this.cantidad = cantidad;
 
     }
-    public int  getIdManoSulfato() {
+
+    public int getIdManoSulfato() {
         return idManoSulfato;
     }
 
-    public void setIdManoSulfato(int  idManoSulfato) {
+    public void setIdManoSulfato(int idManoSulfato) {
         this.idManoSulfato = idManoSulfato;
     }
+
     /**
      * @return idArticulo
      */
     public Articulo getIdArticulo() {
         return idArticulo;
     }
+
     /**
      * @param idArticulo
      */
     public void setIdArticulo(Articulo idArticulo) {
         this.idArticulo = idArticulo;
     }
+
     /**
      * @return idMedida
      */
     public TipoMedida getIdMedida() {
         return idMedida;
     }
+
     /**
      * @param idMedida
      */
     public void setIdMedida(TipoMedida idMedida) {
         this.idMedida = idMedida;
     }
+
     /**
      * @return cantidad
      */
     public int getCantidad() {
         return cantidad;
     }
+
     /**
      * @param cantidad
      */
     public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
+
     /**
      * @return toString
      */

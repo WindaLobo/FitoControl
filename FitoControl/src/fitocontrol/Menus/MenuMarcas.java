@@ -1,14 +1,14 @@
 package fitocontrol.Menus;
 
 import fitocontrol.Repositorio;
-
 import javax.swing.JOptionPane;
-
 import modelo.Marca;
+import static validaciones.validaciones.validadNombreDeLAMarca;
 
 public class MenuMarcas {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
+
     public static void mostrar() throws Exception {
         String Opcion;
 
@@ -30,15 +30,17 @@ public class MenuMarcas {
             }
         } while (!Opcion.equalsIgnoreCase("Volver atras"));
     }
+
     private static void añadirMarca() throws Exception {
 
         String nombre = JOptionPane.showInputDialog("Introduce el nombre de la marca");
 
-        if (nombre.isEmpty() ) {
-            throw new Exception("No has añadido ninguna marca");
-        }
+        validadNombreDeLAMarca(nombre);
+
         Marca marca = new Marca(nombre);
+
         Repositorio.Marcas.Añadir(marca);
+
         JOptionPane.showMessageDialog(null, "Marca creada correctamente.");
     }
     private static void mostraTodaLasMarcas() {

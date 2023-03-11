@@ -10,9 +10,8 @@ public class Articulo extends Modelo {
     private TipoMedida tipoMedida;
     private int idMarca;
     private double cantidad;
- 
+
     /**
-     *
      * @param nombre
      * @param tipoMedida
      * @param idMarca
@@ -22,13 +21,13 @@ public class Articulo extends Modelo {
         this.tipoMedida = tipoMedida;
         this.idMarca = idMarca;
     }
-    
-    public Articulo() {
-    }
+
+
     public double getCantidad() {
 
         return cantidad;
     }
+
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
     }
@@ -50,7 +49,7 @@ public class Articulo extends Modelo {
     /**
      * @return idInventario
      */
-  
+
     /**
      * @return idMedida
      */
@@ -78,6 +77,7 @@ public class Articulo extends Modelo {
     public void setIdMarca(int idMarca) {
         this.idMarca = idMarca;
     }
+
     /**
      * @return toString
      */
