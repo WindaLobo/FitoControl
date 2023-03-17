@@ -1,10 +1,11 @@
 package validaciones;
 
+import fitocontrol.Repositorio;
 import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
 
-import javax.swing.*;
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class validaciones {
@@ -12,7 +13,7 @@ public class validaciones {
 
         if (nombre.isEmpty()) {
 
-            throw new Exception("No has añadido ninguna Articulo");
+            throw new Exception("No has añadido nada");
         }
     }
 
@@ -35,13 +36,7 @@ public class validaciones {
         }
     }
 
-    public static void validadNombreDeLAMarca(String nombre) throws Exception {
 
-        if (nombre.isEmpty()) {
-
-            throw new Exception("No has añadido ninguna marca");
-        }
-    }
 
     public static Modelo validarArticuloEcontrado(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
 
@@ -81,4 +76,10 @@ public class validaciones {
         }
         return detalleCompra;
     }
+    public static void validacionCargarDesdeFichero() throws IOException {
+        Repositorio.Marcas.cargarDesdeFichero();
+        Repositorio.Articulos.cargarDesdeFichero();
+
+    }
+
 }

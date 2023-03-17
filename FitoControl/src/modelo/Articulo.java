@@ -22,6 +22,13 @@ public class Articulo extends Modelo {
         this.idMarca = idMarca;
     }
 
+    public Articulo(int Id, String nombre, TipoMedida tipoMedida, int idMarca) {
+        super.Id = Id;
+        this.nombre = nombre;
+        this.tipoMedida = tipoMedida;
+        this.idMarca = idMarca;
+    }
+
 
     public double getCantidad() {
 
@@ -87,6 +94,10 @@ public class Articulo extends Modelo {
                 + ", nombre : " + nombre
                 + ", tipoMedida : " + tipoMedida
                 + ", idMarca : " + idMarca + ", la cantidad es : " + cantidad + "\n";
+    }
+
+    public String toStringFichero() {
+        return Id + "," +nombre + "," + tipoMedida.ordinal() + "," + idMarca + "," + cantidad;
     }
 }
 

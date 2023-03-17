@@ -6,7 +6,8 @@ import javax.swing.JOptionPane;
 
 import modelo.Marca;
 
-import static validaciones.validaciones.validadNombreDeLAMarca;
+
+import static validaciones.validaciones.validarnombre;
 
 public class MenuMarcas {
 
@@ -44,7 +45,7 @@ public class MenuMarcas {
 
         String nombre = JOptionPane.showInputDialog("Introduce el nombre de la marca");
 
-        validadNombreDeLAMarca(nombre);
+        validarnombre(nombre);
 
         Marca marca = new Marca(nombre);
 
