@@ -1,5 +1,6 @@
 package repositorio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.*;
@@ -77,6 +78,16 @@ public class ManoSulfatoRepositorio implements IRepositorio {
 
             ManosSulfato.set(index, manoSulfato);
         }
+    }
+
+    @Override
+    public void cargarDesdeFichero() {
+
+    }
+
+    @Override
+    public void guardarEnFichero() throws IOException {
+
     }
 
     @Override

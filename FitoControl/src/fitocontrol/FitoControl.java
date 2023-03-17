@@ -4,8 +4,10 @@ import fitocontrol.Menus.MenuArticulos;
 import fitocontrol.Menus.MenuCompras;
 import fitocontrol.Menus.MenuManosSulfato;
 import fitocontrol.Menus.MenuMarcas;
+import repositorio.MarcaRepositorio;
 
 import javax.swing.JOptionPane;
+import java.io.FileNotFoundException;
 
 
 /**
@@ -13,10 +15,11 @@ import javax.swing.JOptionPane;
  */
 public class FitoControl {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException {
 
         String[] opciones = {"Marcas", "Articulos", "Compras", "Mano Sulfatos", "Salir"};
         String Opcion = "";
+        Repositorio.Marcas.cargarDesdeFichero();
 
         do {
             try {

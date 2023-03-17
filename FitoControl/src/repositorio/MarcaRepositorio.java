@@ -1,7 +1,11 @@
 package repositorio;
 
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
+import fitocontrol.Repositorio;
+import modelo.Marca;
 import modelo.Modelo;
 
 /**
@@ -25,7 +29,7 @@ public class MarcaRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo marca) {
+    public Modelo Añadir(Modelo marca) throws IOException {
 
         if (!Marcas.isEmpty()) {
 
@@ -37,6 +41,8 @@ public class MarcaRepositorio implements IRepositorio {
             marca.Id = 1;
         }
         Marcas.add(marca);
+
+        guardarEnFichero();
 
         return marca;
     }
@@ -58,10 +64,41 @@ public class MarcaRepositorio implements IRepositorio {
         }
     }
 
+
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
 
         return Marcas;
     }
+
+    @Override
+    public void cargarDesdeFichero() throws FileNotFoundException {
+        File archivo = new File("Marca.txt");
+        Scanner scanner = new Scanner(archivo);
+        try {
+            while (scanner.hasNextLine()) {
+                String[] split = scanner.nextLine().split(",");
+                Marcas.add(new Marca(Integer.parseInt(split[0]), split[1]));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            scanner.close();
+        }
+    }
+
+    @Override
+    public void guardarEnFichero() throws IOException {
+        File fichero = new File("Marca.txt");
+        FileWriter fileWriter = new FileWriter(fichero, false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        for (Modelo marca : Marcas) {
+            printWriter.println(((Marca)marca).toStringFichero());
+
+        }
+        fileWriter.close();
+
+    }
+
 
 }

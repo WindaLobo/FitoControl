@@ -1,5 +1,6 @@
 package repositorio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.*;
@@ -66,6 +67,16 @@ public class CompraRepositorio implements IRepositorio {
             Compras.set(index, compra);
         }
         throw new Exception("No se puede modificar");
+    }
+
+    @Override
+    public void cargarDesdeFichero() {
+
+    }
+
+    @Override
+    public void guardarEnFichero() throws IOException {
+
     }
 
     @Override

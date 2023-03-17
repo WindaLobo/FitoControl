@@ -6,12 +6,20 @@ package modelo;
 public class Marca extends Modelo {
     private String nombre;
 
+
     /**
      * @param nombre
      */
     public Marca(String nombre) {
+
         this.nombre = nombre;
     }
+    public Marca(int Id ,String nombre) {
+        super.Id=Id;
+        this.nombre = nombre;
+
+    }
+
 
     /**
      * Constructor vacio
@@ -39,6 +47,12 @@ public class Marca extends Modelo {
     @Override
     public String toString() {
 
-        return "\n Id : " + Id + ", Nombre :" + nombre + "\n";
+        return "\n Id : " + Id + " Nombre :" + nombre + "\n";
     }
+
+    public  String toStringFichero() {
+
+        return  Id + "," + nombre;
+    }
+
 }

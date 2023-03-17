@@ -1,5 +1,6 @@
 package repositorio;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import modelo.Modelo;
@@ -53,6 +54,16 @@ public class ArticuloRepositorio implements IRepositorio {
         if (index > -1) {
             Articulos.set(index, articulo);
         }
+    }
+
+    @Override
+    public void cargarDesdeFichero() {
+
+    }
+
+    @Override
+    public void guardarEnFichero() throws IOException {
+
     }
 
     @Override
