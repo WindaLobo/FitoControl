@@ -86,7 +86,7 @@ public class Articulo extends Modelo {
         return "Articulo : " + Id
                 + ", nombre : " + nombre
                 + ", tipoMedida : " + tipoMedida
-                + ", idMarca : " + idMarca + ", la cantidad es : " + cantidad;
+                + ", idMarca : " + idMarca + ", la cantidad es : " + cantidad + "\n";
     }
 }
 

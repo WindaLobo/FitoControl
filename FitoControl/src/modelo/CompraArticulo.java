@@ -91,6 +91,6 @@ public class CompraArticulo extends Modelo {
                 + "Articulo=" + articulo
                 + ", idCompra=" + idCompra
                 + ", cantidad=" + cantidad
-                + ", precio=" + precio;
+                + ", precio=" + precio + "\n";
     }
 }

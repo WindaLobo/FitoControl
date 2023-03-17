@@ -81,6 +81,6 @@ public class ManoSulfatoArticulo extends Modelo {
                 + "idManoSulfato=" + idManoSulfato
                 + "idArticulo=" + idArticulo
                 + ", idMedida=" + idMedida
-                + ", cantidad=" + cantidad ;
+                + ", cantidad=" + cantidad + "\n";
     }
 }
