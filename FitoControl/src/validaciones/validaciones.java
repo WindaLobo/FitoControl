@@ -1,11 +1,11 @@
 package validaciones;
 
 import fitocontrol.Repositorio;
+import modelo.Articulo;
 import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
 
-import java.io.IOException;
 import java.util.ArrayList;
 
 public class validaciones {
@@ -37,7 +37,6 @@ public class validaciones {
     }
 
 
-
     public static Modelo validarArticuloEcontrado(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
 
         Modelo articuloEncontrado = null;
@@ -66,20 +65,17 @@ public class validaciones {
             throw new Exception("La cantidad no puede ser negativo");
         }
     }
-    public static Modelo validarCompraDetalle( Compra compra, CompraArticulo detalleCompra ) throws Exception {
-        for (CompraArticulo compraDetalle : compra.getArticulos()){
 
-            if(compraDetalle.getArticulo().Id == detalleCompra.getArticulo().Id){
+    public static Modelo validarCompraDetalle(Compra compra, CompraArticulo detalleCompra) throws Exception {
+        for (CompraArticulo compraDetalle : compra.getArticulos()) {
+
+            if (compraDetalle.getArticulo().Id == detalleCompra.getArticulo().Id) {
 
                 throw new Exception("El articulo introducido ya existe en la compra");
             }
         }
         return detalleCompra;
     }
-    public static void validacionCargarDesdeFichero() throws IOException {
-        Repositorio.Marcas.cargarDesdeFichero();
-        Repositorio.Articulos.cargarDesdeFichero();
 
-    }
 
 }

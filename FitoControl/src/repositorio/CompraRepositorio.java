@@ -1,9 +1,15 @@
 package repositorio;
 
-import java.io.IOException;
+import java.io.*;
+import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Scanner;
 
 import modelo.*;
+
+import javax.xml.crypto.Data;
 
 public class CompraRepositorio implements IRepositorio {
     private static final ArrayList<Modelo> Compras = new ArrayList<>();
@@ -22,7 +28,7 @@ public class CompraRepositorio implements IRepositorio {
     }
 
     @Override
-    public Modelo Añadir(Modelo modelo) {
+    public Modelo Añadir(Modelo modelo) throws IOException {
 
         Compra compra = (Compra) modelo;
 
@@ -69,15 +75,6 @@ public class CompraRepositorio implements IRepositorio {
         throw new Exception("No se puede modificar");
     }
 
-    @Override
-    public void cargarDesdeFichero() {
-
-    }
-
-    @Override
-    public void guardarEnFichero() throws IOException {
-
-    }
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
@@ -85,4 +82,71 @@ public class CompraRepositorio implements IRepositorio {
         return Compras;
     }
 
+    @Override
+    public void cargarDesdeFichero() throws FileNotFoundException {
+
+        File archivo = new File("Compra.txt");
+        Scanner scanner = new Scanner(archivo);
+        try {
+            while (scanner.hasNextLine()) {
+                String[] split = scanner.nextLine().split(",");
+                SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                Compras.add(new Compra(Integer.parseInt(split[0]), formatoFecha.parse(split[1])));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            scanner.close();
+        }
+
+        ArrayList<Modelo> CompraArticulo = new ArrayList<>();
+        archivo = new File("CompraArticulo.txt");
+        scanner = new Scanner(archivo);
+        try {
+            while (scanner.hasNextLine()) {
+                String[] split = scanner.nextLine().split(",");
+                CompraArticulo.add(new CompraArticulo(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), Double.parseDouble(split[3]), Double.parseDouble(split[4])));
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        } finally {
+            scanner.close();
+        }
+
+        for (Modelo recorrerCompra : Compras) {
+            Compra compra = (Compra) recorrerCompra;
+            for (Modelo detalleDeCompraArticulo : CompraArticulo) {
+                CompraArticulo compraArticulo = (CompraArticulo) detalleDeCompraArticulo;
+                if (compra.Id == compraArticulo.getIdCompra()) {
+                    compra.añadirProducto(compraArticulo);
+                }
+            }
+        }
+    }
+
+
+    @Override
+    public void guardarEnFichero() throws IOException {
+        File fichero = new File("Compra.txt");
+        FileWriter fileWriter = new FileWriter(fichero, false);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        for (Modelo compra : Compras) {
+            printWriter.println(((Compra) compra).toStringFichero());
+
+        }
+        fileWriter.close();
+
+        fichero = new File("CompraArticulo.txt");
+        fileWriter = new FileWriter(fichero, false);
+        printWriter = new PrintWriter(fileWriter);
+        for (Modelo compra : Compras) {
+            for (Modelo detalleCompra : ((Compra) compra).getArticulos()) {
+                printWriter.println(((CompraArticulo) detalleCompra).toStringFichero());
+
+            }
+
+        }
+        fileWriter.close();
+
+    }
 }

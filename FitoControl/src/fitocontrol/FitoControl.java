@@ -1,28 +1,21 @@
 package fitocontrol;
-
 import fitocontrol.Menus.MenuArticulos;
 import fitocontrol.Menus.MenuCompras;
 import fitocontrol.Menus.MenuManosSulfato;
 import fitocontrol.Menus.MenuMarcas;
-
-
 import javax.swing.JOptionPane;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-
-import static validaciones.validaciones.validacionCargarDesdeFichero;
-
+import static fitocontrol.CargadorDeDatos.cargarDatos;
 
 /**
  * @author Windar
  */
 public class FitoControl {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
 
         String[] opciones = {"Marcas", "Articulos", "Compras", "Mano Sulfatos", "Salir"};
         String Opcion = "";
-        validacionCargarDesdeFichero();
+        cargarDatos();
 
         do {
             try {
@@ -62,4 +55,5 @@ public class FitoControl {
             }
         } while (!Opcion.equalsIgnoreCase("SALIR"));
     }
+
 }

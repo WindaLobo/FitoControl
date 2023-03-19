@@ -73,7 +73,7 @@ public class ArticuloRepositorio implements IRepositorio {
         try {
             while (scanner.hasNextLine()) {
                 String[] split = scanner.nextLine().split(",");
-                Articulos.add(new Articulo(Integer.parseInt(split[0]), split[1], TipoMedida.values()[Integer.parseInt(split[2])], Integer.parseInt(split[3])));
+                Articulos.add(new Articulo(Integer.parseInt(split[0]), split[1], TipoMedida.values()[Integer.parseInt(split[2])], Integer.parseInt(split[3]), Double.parseDouble(split[4])));
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

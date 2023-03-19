@@ -70,6 +70,8 @@ public class MenuCompras {
                         throw new Exception("La compra no contiene nigun articulo");
                     }
                     Repositorio.Compra.Añadir(compra);
+                    Repositorio.Compra.guardarEnFichero();
+                    Repositorio.Articulos.guardarEnFichero();
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("Finalizar Compra"));

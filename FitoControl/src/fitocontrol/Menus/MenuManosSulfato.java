@@ -1,8 +1,6 @@
 package fitocontrol.Menus;
-
 import fitocontrol.Repositorio;
 import modelo.*;
-
 import javax.swing.*;
 import java.util.ArrayList;
 

@@ -83,4 +83,5 @@ public class ManoSulfatoArticulo extends Modelo {
                 + ", idMedida=" + idMedida
                 + ", cantidad=" + cantidad + "\n";
     }
+
 }

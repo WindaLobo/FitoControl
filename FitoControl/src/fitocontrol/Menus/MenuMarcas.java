@@ -1,14 +1,8 @@
 package fitocontrol.Menus;
-
 import fitocontrol.Repositorio;
-
 import javax.swing.JOptionPane;
-
 import modelo.Marca;
-
-
 import static validaciones.validaciones.validarnombre;
-
 public class MenuMarcas {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};

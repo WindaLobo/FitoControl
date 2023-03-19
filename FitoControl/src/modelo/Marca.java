@@ -47,7 +47,7 @@ public class Marca extends Modelo {
     @Override
     public String toString() {
 
-        return "\n Id : " + Id + " Nombre :" + nombre + "\n";
+        return "\nId :" + Id + ",Nombre :" + nombre ;
     }
 
     public  String toStringFichero() {
