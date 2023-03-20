@@ -1,51 +1,53 @@
 package modelo;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 
-/**
- * @author ManoSulfato
- */
 public class ManoSulfato extends Modelo {
     private Date fecha;
-    private ArrayList<ManoSulfatoArticulo> productos;
+    private ArrayList<ManoSulfatoArticulo> articulos;
 
-    /**
-     *
-     */
     public ManoSulfato() {
         this.fecha = Date.from(Instant.now());
-        this.productos = new ArrayList<>();
+        this.articulos = new ArrayList<>();
     }
 
-    public ArrayList<ManoSulfatoArticulo> getProductos() {
-        return productos;
-    }
-
-    /**
-     * @return fecha
-     */
-    public Date getFecha() {
-        return fecha;
-    }
-
-    /**
-     * @param fecha
-     */
-    public void setFecha(Date fecha) {
+    public ManoSulfato(int Id, Date fecha) {
+        super.Id = Id;
         this.fecha = fecha;
+        this.articulos = new ArrayList<>();
     }
 
-    public void añadirProducto(ManoSulfatoArticulo producto) {
-        this.productos.add(producto);
+    public ArrayList<ManoSulfatoArticulo> getArticulos() {
+        return articulos;
     }
 
-    /**
-     * @return toString
-     */
+    public void añadirArticulo(ManoSulfatoArticulo articulo) {
+        this.articulos.add(articulo);
+    }
+
     @Override
     public String toString() {
-        return fecha.toString() + productos.toString() + "\n";
+
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        String compraString = "";
+
+        compraString = "ManosSulfato: " + Id + " - Fecha: " + formatoFecha.format(fecha) + "\n";
+        for (Modelo detalle : articulos) {
+            ManoSulfatoArticulo manoSulfatoArticulo = (ManoSulfatoArticulo) detalle;
+            compraString += "   Detalle " + manoSulfatoArticulo.Id + " - Articulo " + manoSulfatoArticulo.getArticulo().getNombre() + "\n";
+            compraString += "      => Unidades " + manoSulfatoArticulo.getCantidad() + "\n";
+            compraString += "      => Medida " + manoSulfatoArticulo.getIdMedida();
+
+        }
+        return compraString + "\n";
+    }
+
+    public String toStringFichero() {
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        return Id + "," + formatoFecha.format(fecha);
+
     }
 }

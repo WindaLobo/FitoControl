@@ -1,6 +1,8 @@
 package fitocontrol.Menus;
+
 import fitocontrol.Repositorio;
 import modelo.*;
+
 import javax.swing.*;
 import java.util.ArrayList;
 
@@ -30,9 +32,11 @@ public class MenuManosSulfato {
                 case "AÑADIR":
                     opcionesMenuManoDeSulfato();
                     break;
+
                 case "OBTENER TODOS":
                     mostraTodaLasManosDeSulfato();
                     break;
+
                 case "VOLVER ATRAS":
                     break;
             }
@@ -60,27 +64,35 @@ public class MenuManosSulfato {
 
                 case "AGREGAR ARTICULO":
                     ManoSulfatoArticulo producto = añadirManoSulfato();
-                    manoSulfato.añadirProducto(producto);
+
+                    manoSulfato.añadirArticulo(producto);
                     break;
 
                 case "FINALIZAR":
-                    if (manoSulfato.getProductos().size() == 0) {
+                    if (manoSulfato.getArticulos().size() == 0) {
+
                         throw new Exception("La manoSulfato no contiene nigun producto");
                     }
                     Repositorio.ManoSulfato.Añadir(manoSulfato);
+
+                    Repositorio.ManoSulfato.guardarEnFichero();
+
+                    Repositorio.Articulos.guardarEnFichero();
                     break;
             }
         } while (!Opcion.equalsIgnoreCase("Finalizar"));
     }
 
     private static void mostraTodaLasManosDeSulfato() {
+
         JOptionPane.showMessageDialog(null, Repositorio.ManoSulfato.ObtenerTodos());
     }
 
     private static ManoSulfatoArticulo añadirManoSulfato() throws Exception {
+
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 
-        int IdArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo" + articulos.toString()));
+        int IdArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo \n " + articulos.toString()));
 
         TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog("Introduce el tipo de medida \n0--> Litros \n1-->"
                 + " Kilos \n2--> Centilitros \n3--> Mililitros"))];

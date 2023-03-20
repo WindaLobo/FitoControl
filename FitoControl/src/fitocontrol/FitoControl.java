@@ -1,16 +1,15 @@
 package fitocontrol;
+
 import fitocontrol.Menus.MenuArticulos;
 import fitocontrol.Menus.MenuCompras;
 import fitocontrol.Menus.MenuManosSulfato;
 import fitocontrol.Menus.MenuMarcas;
+
 import javax.swing.JOptionPane;
+
 import static fitocontrol.CargadorDeDatos.cargarDatos;
 
-/**
- * @author Windar
- */
 public class FitoControl {
-
     public static void main(String[] args) throws Exception {
 
         String[] opciones = {"Marcas", "Articulos", "Compras", "Mano Sulfatos", "Salir"};
@@ -27,7 +26,6 @@ public class FitoControl {
 
                     JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
                 }
-
 
                 switch (Opcion.toUpperCase()) {
 
@@ -55,5 +53,4 @@ public class FitoControl {
             }
         } while (!Opcion.equalsIgnoreCase("SALIR"));
     }
-
 }

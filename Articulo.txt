@@ -1,2 +1,4 @@
-1,sulfato,0,1,35.0
-2,sol,0,2,12.0
+1,Insecticidas,0,1,45.0
+2,Fungicidas,0,2,40.0
+3,Feromonas,1,3,50.0
+

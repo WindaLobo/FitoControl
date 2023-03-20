@@ -1,19 +1,25 @@
 package validaciones;
 
-import fitocontrol.Repositorio;
-import modelo.Articulo;
 import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 public class validaciones {
     public static void validarnombre(String nombre) throws Exception {
+        if (nombre == null) {
+
+            nombre = "";
+
+            JOptionPane.showMessageDialog(null, "No has añadido nada.", "Aviso", JOptionPane.WARNING_MESSAGE);
+        }
 
         if (nombre.isEmpty()) {
 
-            throw new Exception("No has añadido nada");
+            throw new Exception("Añade un nombre");
+
         }
     }
 
@@ -35,7 +41,6 @@ public class validaciones {
             throw new Exception("Articulo seleccionado no existe ");
         }
     }
-
 
     public static Modelo validarArticuloEcontrado(int idArticulo, ArrayList<Modelo> articulos) throws Exception {
 
@@ -76,6 +81,5 @@ public class validaciones {
         }
         return detalleCompra;
     }
-
 
 }

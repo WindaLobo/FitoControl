@@ -1,25 +1,33 @@
 package modelo;
 
-/**
- * @author Windar
- */
 public class ManoSulfatoArticulo extends Modelo {
     private int idManoSulfato;
-    private Articulo idArticulo;
+    private Articulo articulo;
+    private int idArticulo;
     private TipoMedida idMedida;
     private int cantidad;
 
-    /**
-     * @param idArticulo
-     * @param idMedida
-     * @param cantidad
-     */
-    public ManoSulfatoArticulo(Articulo idArticulo, TipoMedida idMedida, int cantidad) {
+    public ManoSulfatoArticulo(Articulo articulo, TipoMedida idMedida, int cantidad) {
 
-        this.idArticulo = idArticulo;
+        this.articulo = articulo;
         this.idMedida = idMedida;
         this.cantidad = cantidad;
 
+    }
+
+    public ManoSulfatoArticulo(int Id, Articulo articulo, TipoMedida idMedida, int cantidad) {
+        super.Id = Id;
+        this.idMedida = idMedida;
+        this.cantidad = cantidad;
+        this.articulo = articulo;
+    }
+
+    public ManoSulfatoArticulo(int Id, int idManoSulfato, int idArticulo, TipoMedida idMedida, int cantidad) {
+        super.Id = Id;
+        this.idManoSulfato = idManoSulfato;
+        this.idArticulo = idArticulo;
+        this.cantidad = cantidad;
+        this.idMedida = idMedida;
     }
 
     public int getIdManoSulfato() {
@@ -30,58 +38,31 @@ public class ManoSulfatoArticulo extends Modelo {
         this.idManoSulfato = idManoSulfato;
     }
 
-    /**
-     * @return idArticulo
-     */
-    public Articulo getIdArticulo() {
+    public int getIdArticulo() {
         return idArticulo;
     }
-
-    /**
-     * @param idArticulo
-     */
-    public void setIdArticulo(Articulo idArticulo) {
-        this.idArticulo = idArticulo;
+    public Articulo getArticulo() {
+        return articulo;
     }
-
-    /**
-     * @return idMedida
-     */
+    public void setArticulo(Articulo articulo) {
+        this.articulo = articulo;
+    }
     public TipoMedida getIdMedida() {
         return idMedida;
     }
 
-    /**
-     * @param idMedida
-     */
-    public void setIdMedida(TipoMedida idMedida) {
-        this.idMedida = idMedida;
-    }
-
-    /**
-     * @return cantidad
-     */
     public int getCantidad() {
         return cantidad;
     }
 
-    /**
-     * @param cantidad
-     */
-    public void setCantidad(int cantidad) {
-        this.cantidad = cantidad;
-    }
-
-    /**
-     * @return toString
-     */
     @Override
     public String toString() {
-        return "ManoSulfatoArticulo"
-                + "idManoSulfato=" + idManoSulfato
-                + "idArticulo=" + idArticulo
-                + ", idMedida=" + idMedida
-                + ", cantidad=" + cantidad + "\n";
+        return   articulo
+                + ", cantidad=" + cantidad
+                + ", idMedida=" + idMedida + "\n";
     }
+    public String toStringFichero() {
+        return Id + "," + idManoSulfato + "," + articulo.Id + "," + idMedida.ordinal() + "," + cantidad;
 
+    }
 }

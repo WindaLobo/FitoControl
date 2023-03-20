@@ -2,30 +2,13 @@ package repositorio;
 
 import java.io.*;
 import java.text.SimpleDateFormat;
-import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Scanner;
 
 import modelo.*;
 
-import javax.xml.crypto.Data;
-
 public class CompraRepositorio implements IRepositorio {
     private static final ArrayList<Modelo> Compras = new ArrayList<>();
-
-    @Override
-    public Modelo Obtener(int id) throws Exception {
-
-        for (Modelo compras : Compras) {
-
-            if (compras.Id == id) {
-
-                return compras;
-            }
-        }
-        throw new Exception("Compra no encontrado");
-    }
 
     @Override
     public Modelo Añadir(Modelo modelo) throws IOException {
@@ -56,25 +39,6 @@ public class CompraRepositorio implements IRepositorio {
 
         return compra;
     }
-
-    @Override
-    public void Eliminar(Modelo compra) {
-
-        Compras.remove(compra);
-    }
-
-    @Override
-    public void Modificar(Modelo compra) throws Exception {
-
-        int index = Compras.indexOf(compra);
-
-        if (index > -1) {
-
-            Compras.set(index, compra);
-        }
-        throw new Exception("No se puede modificar");
-    }
-
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
@@ -118,12 +82,11 @@ public class CompraRepositorio implements IRepositorio {
             for (Modelo detalleDeCompraArticulo : CompraArticulo) {
                 CompraArticulo compraArticulo = (CompraArticulo) detalleDeCompraArticulo;
                 if (compra.Id == compraArticulo.getIdCompra()) {
-                    compra.añadirProducto(compraArticulo);
+                    compra.añadirArticulo(compraArticulo);
                 }
             }
         }
     }
-
 
     @Override
     public void guardarEnFichero() throws IOException {

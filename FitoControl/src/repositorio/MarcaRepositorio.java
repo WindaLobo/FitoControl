@@ -4,29 +4,12 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import fitocontrol.Repositorio;
 import modelo.Marca;
 import modelo.Modelo;
 
-/**
- * @author Windar
- */
 public class MarcaRepositorio implements IRepositorio {
 
     private final ArrayList<Modelo> Marcas = new ArrayList<>();
-
-    @Override
-    public Modelo Obtener(int id) throws Exception {
-
-        for (Modelo marca : Marcas) {
-
-            if (marca.Id == id) {
-
-                return marca;
-            }
-        }
-        throw new Exception(" Marca no encontrado");
-    }
 
     @Override
     public Modelo Añadir(Modelo marca) throws IOException {
@@ -46,24 +29,6 @@ public class MarcaRepositorio implements IRepositorio {
 
         return marca;
     }
-
-    @Override
-    public void Eliminar(Modelo marca) {
-
-        Marcas.remove(marca);
-    }
-
-    @Override
-    public void Modificar(Modelo marca) {
-
-        int index = Marcas.indexOf(marca);
-
-        if (index > -1) {
-
-            Marcas.set(index, marca);
-        }
-    }
-
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() {
@@ -93,12 +58,10 @@ public class MarcaRepositorio implements IRepositorio {
         FileWriter fileWriter = new FileWriter(fichero, false);
         PrintWriter printWriter = new PrintWriter(fileWriter);
         for (Modelo marca : Marcas) {
-            printWriter.println(((Marca)marca).toStringFichero());
+            printWriter.println(((Marca) marca).toStringFichero());
 
         }
         fileWriter.close();
 
     }
-
-
 }

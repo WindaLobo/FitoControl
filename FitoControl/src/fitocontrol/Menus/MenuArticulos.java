@@ -1,7 +1,10 @@
 package fitocontrol.Menus;
+
 import fitocontrol.Repositorio;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+
 import modelo.Articulo;
 import modelo.Modelo;
 import modelo.TipoMedida;
@@ -27,12 +30,15 @@ public class MenuArticulos {
             }
 
             switch (Opcion.toUpperCase()) {
+
                 case "AÑADIR":
                     añadirArticulos();
                     break;
+
                 case "OBTENER TODOS":
                     mostraTodoLosArticulo();
                     break;
+
                 case "VOLVER ATRAS":
                     break;
             }
@@ -45,6 +51,7 @@ public class MenuArticulos {
         ArrayList<Modelo> marcas = Repositorio.Marcas.ObtenerTodos();
 
         String nombre = JOptionPane.showInputDialog("Introduce el nombre de la articulo");
+
         validarnombre(nombre);
 
         TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog("Introduce el tipo de medida \n0--> Litros \n1-->"

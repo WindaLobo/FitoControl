@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Compra.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/CompraArticulo.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/CargadorDeDatos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Articulo.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Articulo.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" afterDir="false" />
@@ -10,12 +14,13 @@
       <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" beforeDir="false" afterPath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Marca.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Marca.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,5 +94,31 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

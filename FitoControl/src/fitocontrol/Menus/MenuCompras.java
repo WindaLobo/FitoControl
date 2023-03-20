@@ -28,12 +28,15 @@ public class MenuCompras {
                 JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
             }
             switch (Opcion.toUpperCase()) {
+
                 case "AÑADIR":
                     opcionesAñadirCompra();
                     break;
+
                 case "OBTENER TODOS":
                     mostraTodaLasCompras();
                     break;
+
                 case "VOLVER ATRAS":
                     break;
             }
@@ -62,7 +65,7 @@ public class MenuCompras {
 
                     validarCompraDetalle(compra, detalleCompra);
 
-                    compra.añadirProducto(detalleCompra);
+                    compra.añadirArticulo(detalleCompra);
                     break;
 
                 case "FINALIZAR COMPRA":
@@ -70,7 +73,9 @@ public class MenuCompras {
                         throw new Exception("La compra no contiene nigun articulo");
                     }
                     Repositorio.Compra.Añadir(compra);
+
                     Repositorio.Compra.guardarEnFichero();
+
                     Repositorio.Articulos.guardarEnFichero();
                     break;
             }

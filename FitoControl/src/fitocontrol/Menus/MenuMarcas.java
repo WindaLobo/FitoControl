@@ -1,8 +1,14 @@
 package fitocontrol.Menus;
+
 import fitocontrol.Repositorio;
+
 import javax.swing.JOptionPane;
+
 import modelo.Marca;
+
 import static validaciones.validaciones.validarnombre;
+
+
 public class MenuMarcas {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -23,12 +29,13 @@ public class MenuMarcas {
             switch (Opcion.toUpperCase()) {
 
                 case "AÑADIR":
-
                     añadirMarca();
                     break;
+
                 case "OBTENER TODOS":
                     mostraTodaLasMarcas();
                     break;
+
                 case "VOLVER ATRAS":
                     break;
             }
@@ -49,6 +56,7 @@ public class MenuMarcas {
     }
 
     private static void mostraTodaLasMarcas() {
+
         JOptionPane.showMessageDialog(null, Repositorio.Marcas.ObtenerTodos());
     }
 }
