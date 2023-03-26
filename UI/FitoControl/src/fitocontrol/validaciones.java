@@ -1,8 +1,6 @@
 package fitocontrol;
 
-import modelo.Compra;
-import modelo.CompraArticulo;
-import modelo.Modelo;
+import modelo.*;
 
 import java.util.ArrayList;
 

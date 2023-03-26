@@ -63,6 +63,5 @@ public class ManoSulfatoArticulo extends Modelo {
     }
     public String toStringFichero() {
         return Id + "," + idManoSulfato + "," + articulo.Id + "," + idMedida.ordinal() + "," + cantidad;
-
     }
 }

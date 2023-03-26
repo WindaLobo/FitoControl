@@ -1,8 +1,9 @@
 package modelo;
 
 public enum TipoMedida {
-    Litros,
     Kilos,
+    Gramos,
+    Litros,
     Centilitros,
     Mililitros,
 }

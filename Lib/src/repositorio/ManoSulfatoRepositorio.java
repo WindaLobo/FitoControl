@@ -1,6 +1,8 @@
 package repositorio;
 
 import java.io.*;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -14,6 +16,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
     public Modelo Añadir(Modelo modelo) throws Exception {
 
         ManoSulfato manoSulfato = (ManoSulfato) modelo;
+
 
         if (!ManosSulfato.isEmpty()) {
 
@@ -34,13 +37,15 @@ public class ManoSulfatoRepositorio implements IRepositorio {
 
             Articulo articulo = detalleManoSulfato.getArticulo();
 
-            if (articulo.getCantidad() - detalleManoSulfato.getCantidad() < 0) {
+            double cantidad = obtenerCantidadAjustadaATipoMedida(articulo, detalleManoSulfato.getIdMedida(), detalleManoSulfato.getCantidad());
 
+            if (articulo.getCantidad() - cantidad < 0) {
                 throw new Exception("No puedes aplicar mano sulfato por que no tienes suficiente stock");
-
             } else {
+                BigDecimal value = new BigDecimal(articulo.getCantidad() - cantidad)
+                        .setScale(2, RoundingMode.HALF_UP);
 
-                articulo.setCantidad(articulo.getCantidad() - detalleManoSulfato.getCantidad());
+                articulo.setCantidad(value.doubleValue());
             }
         }
 
@@ -121,5 +126,53 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         }
         fileWriter.close();
 
+    }
+
+    private double obtenerCantidadAjustadaATipoMedida(Articulo articulo, TipoMedida tipoMedida, double cantidad) {
+
+        if (articulo.getTipoMedida() == tipoMedida) {
+            return cantidad;
+        }
+
+        switch (articulo.getTipoMedida()) {
+            case Kilos:
+                cantidad = cantidad / 1000;
+                break;
+            case Gramos:
+                cantidad = cantidad * 1000;
+                break;
+            case Litros:
+                switch (tipoMedida) {
+                    case Centilitros:
+                        cantidad = cantidad / 100;
+                        break;
+                    case Mililitros:
+                        cantidad = cantidad / 1000;
+                        break;
+                }
+                break;
+            case Centilitros:
+                switch (tipoMedida) {
+                    case Litros:
+                        cantidad = cantidad * 100;
+                        break;
+                    case Mililitros:
+                        cantidad = cantidad / 10;
+                        break;
+                }
+                break;
+            case Mililitros:
+                switch (tipoMedida) {
+                    case Centilitros:
+                        cantidad = cantidad * 10;
+                        break;
+                    case Litros:
+                        cantidad = cantidad * 1000;
+                        break;
+                }
+                break;
+        }
+
+        return cantidad;
     }
 }

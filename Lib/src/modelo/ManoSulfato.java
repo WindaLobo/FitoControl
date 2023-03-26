@@ -32,15 +32,14 @@ public class ManoSulfato extends Modelo {
     public String toString() {
 
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        String compraString = "";
+        String compraString;
+
 
         compraString = "ManosSulfato: " + Id + " - Fecha: " + formatoFecha.format(fecha) + "\n";
         for (Modelo detalle : articulos) {
             ManoSulfatoArticulo manoSulfatoArticulo = (ManoSulfatoArticulo) detalle;
             compraString += "   Detalle " + manoSulfatoArticulo.Id + " - Articulo " + manoSulfatoArticulo.getArticulo().getNombre() + "\n";
-            compraString += "      => Unidades " + manoSulfatoArticulo.getCantidad() + "\n";
-            compraString += "      => Medida " + manoSulfatoArticulo.getIdMedida();
-
+            compraString += "      => Unidades " + manoSulfatoArticulo.getCantidad() + " " + manoSulfatoArticulo.getIdMedida();
         }
         return compraString + "\n\n";
     }

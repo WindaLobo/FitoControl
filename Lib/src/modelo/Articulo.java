@@ -33,6 +33,10 @@ public class Articulo extends Modelo {
         return nombre;
     }
 
+    public TipoMedida getTipoMedida() {
+        return tipoMedida;
+    }
+
     @Override
     public String toString() {
         return " Articulo : " + Id

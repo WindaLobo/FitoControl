@@ -1,13 +1,13 @@
 package fitocontrol.menus;
 
 import fitocontrol.Repositorio;
+import fitocontrol.Utiles;
 import modelo.*;
 
 import javax.swing.*;
 import java.util.ArrayList;
 
-import static fitocontrol.validaciones.validarArticuloEcontrado;
-import static fitocontrol.validaciones.validarCantidadIntroducida;
+import static fitocontrol.validaciones.*;
 
 public class MenuManosSulfato {
 
@@ -89,16 +89,17 @@ public class MenuManosSulfato {
 
         String IdArticuloString = JOptionPane.showInputDialog("Introduce el Id del articulo \n " + articulos.toString());
 
-        Modelo articuloEncontrado = validarArticuloEcontrado(IdArticuloString, articulos);
+        Articulo articuloEncontrado = (Articulo)validarArticuloEcontrado(IdArticuloString, articulos);
 
-        TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog("Introduce el tipo de medida \n0--> Litros \n1-->"
-                + " Kilos \n2--> Centilitros \n3--> Mililitros"))];
+        TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog(Utiles.obtenerTiposMedida(articuloEncontrado.getTipoMedida())))];
 
         String cantidadString = JOptionPane.showInputDialog("Introduce la cantidad");
 
         double cantidad = validarCantidadIntroducida(cantidadString);
 
-        return new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
+        return new ManoSulfatoArticulo(articuloEncontrado, tipoMedida, cantidad);
     }
+
+
 
 }
