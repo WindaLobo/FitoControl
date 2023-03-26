@@ -9,8 +9,8 @@ import modelo.Articulo;
 import modelo.Modelo;
 import modelo.TipoMedida;
 
-import static validaciones.validaciones.validarIdMarca;
-import static validaciones.validaciones.validarnombre;
+import static fitocontrol.validaciones.validarIdMarca;
+import static fitocontrol.validaciones.validarnombre;
 
 public class MenuArticulos {
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -54,11 +54,11 @@ public class MenuArticulos {
         TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog("Introduce el tipo de medida \n0--> Litros \n1-->"
                 + " Kilos \n2--> Centilitros \n3--> Mililitros"))];
 
-        int IdDeMarca = Integer.parseInt(JOptionPane.showInputDialog(" Introduce el Id de Marca " + marcas.toString()));
+        String IdMarcaString = JOptionPane.showInputDialog("Introduce el Id de Marca " + marcas.toString());
 
-        validarIdMarca(IdDeMarca, marcas);
+        int idMarca = validarIdMarca(IdMarcaString, marcas);
 
-        Articulo articulo = new Articulo(nombre, tipoMedida, IdDeMarca);
+        Articulo articulo = new Articulo(nombre, tipoMedida, idMarca);
 
         Repositorio.Articulos.Añadir(articulo);
 

@@ -77,7 +77,7 @@ public class ManoSulfatoRepositorio implements IRepositorio {
         try {
             while (scanner.hasNextLine()) {
                 String[] split = scanner.nextLine().split(",");
-                ManoSulfatoArticulo.add(new ManoSulfatoArticulo(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), TipoMedida.values()[Integer.parseInt(split[3])], Integer.parseInt(split[4])));
+                ManoSulfatoArticulo.add(new ManoSulfatoArticulo(Integer.parseInt(split[0]), Integer.parseInt(split[1]), Integer.parseInt(split[2]), TipoMedida.values()[Integer.parseInt(split[3])], Double.parseDouble(split[4])));
             }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());

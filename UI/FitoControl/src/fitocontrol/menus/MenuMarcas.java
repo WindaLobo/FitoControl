@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 import modelo.Marca;
 
-import static validaciones.validaciones.validarnombre;
+import static fitocontrol.validaciones.validarnombre;
 
 
 public class MenuMarcas {
@@ -54,7 +54,6 @@ public class MenuMarcas {
     }
 
     private static void mostraTodaLasMarcas() {
-
         JOptionPane.showMessageDialog(null, Repositorio.Marcas.ObtenerTodos());
     }
 }

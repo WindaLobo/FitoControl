@@ -6,8 +6,8 @@ import modelo.*;
 import javax.swing.*;
 import java.util.ArrayList;
 
-import static validaciones.validaciones.validarArticuloEcontrado;
-import static validaciones.validaciones.validarCantidadIntroducida;
+import static fitocontrol.validaciones.validarArticuloEcontrado;
+import static fitocontrol.validaciones.validarCantidadIntroducida;
 
 public class MenuManosSulfato {
 
@@ -50,11 +50,9 @@ public class MenuManosSulfato {
 
             Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null,
                     opcionesMenuCompra, opcionesMenuCompra[0]);
+
             if (Opcion == null) {
-
-                Opcion = "";
-
-                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+               break;
             }
 
             switch (Opcion.toUpperCase()) {
@@ -89,19 +87,18 @@ public class MenuManosSulfato {
 
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 
-        int IdArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo \n " + articulos.toString()));
+        String IdArticuloString = JOptionPane.showInputDialog("Introduce el Id del articulo \n " + articulos.toString());
+
+        Modelo articuloEncontrado = validarArticuloEcontrado(IdArticuloString, articulos);
 
         TipoMedida tipoMedida = TipoMedida.values()[Integer.parseInt(JOptionPane.showInputDialog("Introduce el tipo de medida \n0--> Litros \n1-->"
                 + " Kilos \n2--> Centilitros \n3--> Mililitros"))];
 
-        int cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
+        String cantidadString = JOptionPane.showInputDialog("Introduce la cantidad");
 
-        validarCantidadIntroducida(cantidad);
-
-        Modelo articuloEncontrado = validarArticuloEcontrado(IdArticulo, articulos);
+        double cantidad = validarCantidadIntroducida(cantidadString);
 
         return new ManoSulfatoArticulo((Articulo) articuloEncontrado, tipoMedida, cantidad);
     }
-
 
 }

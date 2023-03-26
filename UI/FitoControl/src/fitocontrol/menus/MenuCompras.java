@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 import modelo.Articulo;
 
-import static validaciones.validaciones.*;
+import static fitocontrol.validaciones.*;
 
 public class MenuCompras {
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};
@@ -53,11 +53,9 @@ public class MenuCompras {
                     opcionesMenuCompra, opcionesMenuCompra[0]);
 
             if (Opcion == null) {
-
-                Opcion = "";
-
-                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                break;
             }
+
             switch (Opcion.toUpperCase()) {
 
                 case "AGREGAR ARTICULO":
@@ -89,19 +87,15 @@ public class MenuCompras {
     private static CompraArticulo añadirArticulo() throws Exception {
         ArrayList<Modelo> articulos = Repositorio.Articulos.ObtenerTodos();
 
-        int idArticulo = Integer.parseInt(JOptionPane.showInputDialog("Introduce el Id del articulo " + articulos.toString()));
+        String idArticuloString = JOptionPane.showInputDialog("Introduce el Id del articulo " + articulos.toString());
+        Modelo articuloEncontrado = validarArticuloEcontrado(idArticuloString, articulos);
 
-        double cantidad = Integer.parseInt(JOptionPane.showInputDialog("Introduce la cantidad "));
+        String cantidadString = JOptionPane.showInputDialog("Introduce la cantidad");
+        double cantidad = validarCantidadIntroducida(cantidadString);
 
-        validarCantidadIntroducida(cantidad);
-
-        double precio = Integer.parseInt(JOptionPane.showInputDialog("Introduce el precio "));
-
-        Modelo articuloEncontrado = validarArticuloEcontrado(idArticulo, articulos);
+        String precioString = JOptionPane.showInputDialog("Introduce el precio");
+        double precio = validarCantidadIntroducida(precioString);
 
         return new CompraArticulo((Articulo) articuloEncontrado, cantidad, precio);
-
     }
-
-
 }

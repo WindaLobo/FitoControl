@@ -5,9 +5,9 @@ public class ManoSulfatoArticulo extends Modelo {
     private Articulo articulo;
     private int idArticulo;
     private TipoMedida idMedida;
-    private int cantidad;
+    private double cantidad;
 
-    public ManoSulfatoArticulo(Articulo articulo, TipoMedida idMedida, int cantidad) {
+    public ManoSulfatoArticulo(Articulo articulo, TipoMedida idMedida, double cantidad) {
 
         this.articulo = articulo;
         this.idMedida = idMedida;
@@ -15,14 +15,14 @@ public class ManoSulfatoArticulo extends Modelo {
 
     }
 
-    public ManoSulfatoArticulo(int Id, Articulo articulo, TipoMedida idMedida, int cantidad) {
+    public ManoSulfatoArticulo(int Id, Articulo articulo, TipoMedida idMedida, double cantidad) {
         super.Id = Id;
         this.idMedida = idMedida;
         this.cantidad = cantidad;
         this.articulo = articulo;
     }
 
-    public ManoSulfatoArticulo(int Id, int idManoSulfato, int idArticulo, TipoMedida idMedida, int cantidad) {
+    public ManoSulfatoArticulo(int Id, int idManoSulfato, int idArticulo, TipoMedida idMedida, double cantidad) {
         super.Id = Id;
         this.idManoSulfato = idManoSulfato;
         this.idArticulo = idArticulo;
@@ -51,7 +51,7 @@ public class ManoSulfatoArticulo extends Modelo {
         return idMedida;
     }
 
-    public int getCantidad() {
+    public double getCantidad() {
         return cantidad;
     }
 
