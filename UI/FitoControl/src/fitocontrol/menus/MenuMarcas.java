@@ -8,7 +8,6 @@ import modelo.Marca;
 
 import static fitocontrol.validaciones.validarnombre;
 
-
 public class MenuMarcas {
 
     private static final String[] opcionesMenu = {"Añadir", "Obtener Todos", "Volver atras"};

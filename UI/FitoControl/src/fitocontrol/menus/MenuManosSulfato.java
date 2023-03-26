@@ -100,6 +100,4 @@ public class MenuManosSulfato {
         return new ManoSulfatoArticulo(articuloEncontrado, tipoMedida, cantidad);
     }
 
-
-
 }

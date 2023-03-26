@@ -1,3 +1,4 @@
-1,Opponent 
+1,Delan Pro
 2,Enervin Pro
-3,Quant LB Pro
+3,Oximur 50
+4,Folpan 80WG

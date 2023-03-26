@@ -48,7 +48,6 @@ public class Compra extends Modelo {
 
         return compraString + "\n\n";
     }
-
     public String toStringFichero() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         return Id + "," + formatoFecha.format(fecha);

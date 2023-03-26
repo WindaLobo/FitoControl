@@ -1,4 +1,4 @@
-1,Insecticidas,0,1,45.0
-2,Fungicidas,0,2,40.0
-3,Feromonas,1,3,50.0
-
+1,Fungicida ,2,4,3.0
+2,Fungicida ,2,1,0.0
+3,Fungicida,2,2,0.0
+4,Fungicida,0,3,0.0
