@@ -1,9 +1,9 @@
 package fitocontrol;
 
-import fitocontrol.Menus.MenuArticulos;
-import fitocontrol.Menus.MenuCompras;
-import fitocontrol.Menus.MenuManosSulfato;
-import fitocontrol.Menus.MenuMarcas;
+import fitocontrol.menus.MenuArticulos;
+import fitocontrol.menus.MenuCompras;
+import fitocontrol.menus.MenuManosSulfato;
+import fitocontrol.menus.MenuMarcas;
 
 import javax.swing.JOptionPane;
 
@@ -18,36 +18,35 @@ public class FitoControl {
 
         do {
             try {
-                Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion",
+                Opcion = (String) JOptionPane.showInputDialog(null, "FitoControl", "Opcion",
                         JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);
+
                 if (Opcion == null) {
-
-                    Opcion = "";
-
-                    JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                  break;
                 }
 
-                switch (Opcion.toUpperCase()) {
+                    switch (Opcion.toUpperCase()) {
 
-                    case "MARCAS":
-                        MenuMarcas.mostrar();
-                        break;
+                        case "MARCAS":
+                            MenuMarcas.mostrar();
+                            break;
 
-                    case "ARTICULOS":
-                        MenuArticulos.mostrar();
-                        break;
+                        case "ARTICULOS":
+                            MenuArticulos.mostrar();
+                            break;
 
-                    case "COMPRAS":
-                        MenuCompras.mostrar();
-                        break;
+                        case "COMPRAS":
+                            MenuCompras.mostrar();
+                            break;
 
-                    case "MANO SULFATOS":
-                        MenuManosSulfato.mostrar();
-                        break;
+                        case "MANO SULFATOS":
+                            MenuManosSulfato.mostrar();
+                            break;
 
-                    case "SALIR":
-                        break;
-                }
+                        case "SALIR":
+                            break;
+                    }
+
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(null, ex.getMessage());
             }

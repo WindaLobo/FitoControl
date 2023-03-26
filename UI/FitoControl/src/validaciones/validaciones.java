@@ -4,22 +4,13 @@ import modelo.Compra;
 import modelo.CompraArticulo;
 import modelo.Modelo;
 
-import javax.swing.*;
 import java.util.ArrayList;
 
 public class validaciones {
     public static void validarnombre(String nombre) throws Exception {
-        if (nombre == null) {
 
-            nombre = "";
-
-            JOptionPane.showMessageDialog(null, "No has añadido nada.", "Aviso", JOptionPane.WARNING_MESSAGE);
-        }
-
-        if (nombre.isEmpty()) {
-
+        if (nombre == null || nombre.isEmpty()) {
             throw new Exception("Añade un nombre");
-
         }
     }
 

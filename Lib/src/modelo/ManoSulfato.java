@@ -42,7 +42,7 @@ public class ManoSulfato extends Modelo {
             compraString += "      => Medida " + manoSulfatoArticulo.getIdMedida();
 
         }
-        return compraString + "\n";
+        return compraString + "\n\n";
     }
 
     public String toStringFichero() {

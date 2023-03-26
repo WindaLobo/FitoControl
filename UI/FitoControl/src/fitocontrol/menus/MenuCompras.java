@@ -1,4 +1,4 @@
-package fitocontrol.Menus;
+package fitocontrol.menus;
 
 import fitocontrol.Repositorio;
 import modelo.Compra;
@@ -20,13 +20,13 @@ public class MenuCompras {
         String Opcion;
 
         do {
-            Opcion = (String) JOptionPane.showInputDialog(null, "Selecione una opcion", "Opcion", JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
+            Opcion = (String) JOptionPane.showInputDialog(null, "Compras",
+                    "Opcion", JOptionPane.QUESTION_MESSAGE, null, opcionesMenu, opcionesMenu[0]);
+
             if (Opcion == null) {
-
-                Opcion = "";
-
-                JOptionPane.showMessageDialog(null, "No se seleccionó ninguna opción.", "Aviso", JOptionPane.WARNING_MESSAGE);
+                break;
             }
+
             switch (Opcion.toUpperCase()) {
 
                 case "AÑADIR":

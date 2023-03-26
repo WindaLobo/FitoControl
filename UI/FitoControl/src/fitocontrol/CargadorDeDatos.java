@@ -21,7 +21,7 @@ public class CargadorDeDatos {
 
                 CompraArticulo compraArticulo = (CompraArticulo) recorrerDetalle;
 
-                compraArticulo.setArticulo(obtenerArticulo(compraArticulo));
+                compraArticulo.setArticulo(obtenerArticuloCompra(compraArticulo));
             }
 
         }
@@ -33,14 +33,11 @@ public class CargadorDeDatos {
 
                 ManoSulfatoArticulo manoSulfatoArticulo = (ManoSulfatoArticulo) recorrerDetalle;
 
-                manoSulfatoArticulo.setArticulo(obtenerManoSulfato(manoSulfatoArticulo));
+                manoSulfatoArticulo.setArticulo(obtenerManoSulfatoArticulo(manoSulfatoArticulo));
             }
-
         }
-
     }
-
-    private static Articulo obtenerArticulo(CompraArticulo compraArticulo) throws Exception {
+    private static Articulo obtenerArticuloCompra(CompraArticulo compraArticulo) throws Exception {
 
         for (Modelo recorrerArticulo : Repositorio.Articulos.ObtenerTodos()) {
 
@@ -52,8 +49,7 @@ public class CargadorDeDatos {
 
         throw new Exception("Articulo no encontrado");
     }
-
-    private static Articulo obtenerManoSulfato(ManoSulfatoArticulo manoSulfatoArticulo) throws Exception {
+    private static Articulo obtenerManoSulfatoArticulo(ManoSulfatoArticulo manoSulfatoArticulo) throws Exception {
 
         for (Modelo recorrerArticulo : Repositorio.Articulos.ObtenerTodos()) {
 
@@ -62,8 +58,6 @@ public class CargadorDeDatos {
                 return (Articulo) recorrerArticulo;
             }
         }
-
         throw new Exception("Articulo no encontrado");
-
     }
 }
