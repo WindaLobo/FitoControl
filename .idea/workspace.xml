@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Articulo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Compra.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CompraArticulo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EsquemaBD/Articulo.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EsquemaBD/FitoControl.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EsquemaBD/Grafo-EntidadDeRelacion.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EsquemaBD/Tabla sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EsquemaBD/~$afo-EntidadDeRelacion.docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/FitoControl.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/built-jar.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/.netbeans_automatic_build" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/.netbeans_update_resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/CargadorDeDatos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/FitoControl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/Menus/MenuArticulos.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/Menus/MenuCompras.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/Menus/MenuManosSulfato.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/Menus/MenuMarcas.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/fitocontrol/Repositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/Articulo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/Compra.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/CompraArticulo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/Inventario.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/ManoSulfato.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/ManoSulfatoArticulo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/Marca.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/Modelo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/TipoMedida.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/modelo/prueba.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/repositorio/ArticuloRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/repositorio/CompraRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/repositorio/IRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/repositorio/ManoSulfatoRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/build/classes/repositorio/MarcaRepositorio.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/private/private.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/private/private.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/CargadorDeDatos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/FitoControl.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuArticulos.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuCompras.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuManosSulfato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Menus/MenuMarcas.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/fitocontrol/Repositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Articulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Compra.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/CompraArticulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfato.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/ManoSulfatoArticulo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Marca.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/Modelo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/modelo/TipoMedida.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/IRepositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/ManoSulfatoRepositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/repositorio/MarcaRepositorio.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/FitoControl/src/validaciones/validaciones.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Manosulfato.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ManosulfatoArticulo.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Marca.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TABOA PROXECTO 2ª AVA (1)(2).docx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/workspace.xml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="windar" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Mgt7v0KPJ5rO6h4mNJyF7LHSHZ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Datos Windar/FitoControl&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Datos Windar\FitoControl" />
+      <recent name="C:\Datos Windar\FitoControl\FitoControl" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="Unnamed" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="fitocontrol.FitoControl" />
+      <module name="FitoControl" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2892c3f1-bc20-414f-bfc0-a49fd52ddc23" name="Changes" comment="" />
+      <created>1678200889716</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678200889716</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>87</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>52</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/ArticuloRepositorio.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/FitoControl/src/repositorio/CompraRepositorio.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
