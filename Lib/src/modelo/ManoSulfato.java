@@ -34,7 +34,6 @@ public class ManoSulfato extends Modelo {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String compraString;
 
-
         compraString = "ManosSulfato: " + Id + " - Fecha: " + formatoFecha.format(fecha) + "\n";
         for (Modelo detalle : articulos) {
             ManoSulfatoArticulo manoSulfatoArticulo = (ManoSulfatoArticulo) detalle;
