@@ -1,0 +1,16 @@
+# Default ignored files
+# Project exclude paths
+/out/
+/shelf/
+/workspace.xml
+
+out
+test/
+*.iml
+pom.xml
+.idea*
+*.iws
+resources
+log/
+target/
+/Lib/target/

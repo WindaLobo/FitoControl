@@ -1,4 +1,4 @@
-package modelo;
+package FitoControl.DataBase.modelo;
 
 public class Articulo extends Modelo {
     private String nombre;
