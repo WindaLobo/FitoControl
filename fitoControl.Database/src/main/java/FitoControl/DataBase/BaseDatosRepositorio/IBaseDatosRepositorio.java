@@ -9,6 +9,7 @@ public interface IBaseDatosRepositorio {
 
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException;
 
-    public Modelo Añadir(Modelo modelo) throws Exception;
-
+    public Modelo añadir(Modelo modelo) throws Exception;
+    public void actualizar(Modelo modelo)throws SQLException, ClassNotFoundException;
+    public void eliminar(Modelo modelo)throws SQLException, ClassNotFoundException;
 }
