@@ -108,18 +108,17 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
     @Override
     public void eliminar(Modelo modelo) throws SQLException, ClassNotFoundException {
         Connection conexion = BaseDatosConexion.obtener();
-        ManoSulfato manoSulfato = (ManoSulfato) modelo;
 
         // Eliminar los CompraArticulo asociados a la Compra
         String sql1 = "DELETE FROM ManoSulfatoArticulo WHERE IdManosulfato = ?";
         PreparedStatement statement1 = conexion.prepareStatement(sql1);
-        statement1.setInt(1, manoSulfato.Id);
+        statement1.setInt(1, modelo.Id);
         statement1.executeUpdate();
 
         // Eliminar la Compra
         String sql2 = "DELETE FROM manoSulfato WHERE IdManosulfato = ?";
         PreparedStatement statement2 = conexion.prepareStatement(sql2);
-        statement2.setInt(1, manoSulfato.Id);
+        statement2.setInt(1, modelo.Id);
         statement2.executeUpdate();
         conexion.close();
 

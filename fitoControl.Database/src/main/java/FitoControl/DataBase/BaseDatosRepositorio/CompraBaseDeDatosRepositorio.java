@@ -110,16 +110,15 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
         Connection conexion = BaseDatosConexion.obtener();
 
         // Eliminar los CompraArticulo asociados a la Compra
-        Compra compra = (Compra) modelo;
         String sql1 = "DELETE FROM CompraArticulo WHERE IdCompra = ?";
         PreparedStatement statement1 = conexion.prepareStatement(sql1);
-        statement1.setInt(1, compra.Id);
+        statement1.setInt(1, modelo.Id);
         statement1.executeUpdate();
 
         // Eliminar la Compra
         String sql2 = "DELETE FROM Compra WHERE IdCompra = ?";
         PreparedStatement statement2 = conexion.prepareStatement(sql2);
-        statement2.setInt(1, compra.Id);
+        statement2.setInt(1, modelo.Id);
         statement2.executeUpdate();
         conexion.close();
     }
