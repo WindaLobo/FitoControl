@@ -30,6 +30,7 @@ public class ManoSulfatoArticulo extends Modelo {
         this.idMedida = idMedida;
     }
 
+
     public int getIdManoSulfato() {
         return idManoSulfato;
     }
@@ -54,6 +55,7 @@ public class ManoSulfatoArticulo extends Modelo {
     public double getCantidad() {
         return cantidad;
     }
+
 
     @Override
     public String toString() {

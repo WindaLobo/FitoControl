@@ -1,15 +1,25 @@
 package FitoControl.DataBase.BaseDatosRepositorio;
 
-import FitoControl.DataBase.modelo.Articulo;
 import FitoControl.DataBase.modelo.Marca;
 import FitoControl.DataBase.modelo.Modelo;
-import FitoControl.DataBase.modelo.TipoMedida;
 
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Esta clase implementa la interfaz IBaseDatosRepositorio y proporciona
+ * métodos para acceder y manipular los datos de la tabla Marca en la base de datos.
+ */
 public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
     private final ArrayList<Modelo> Marcas = new ArrayList<>();
+
+    /**
+     * Obtiene todos los registros de la tabla Marca de la base de datos.
+     *
+     * @return una lista de objetos Modelo que representan los registros de Marca.
+     * @throws SQLException           si ocurre algún error al interactuar con la base de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase para la conexión a la base de datos.
+     */
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException {
@@ -29,6 +39,15 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
     }
 
 
+    /**
+     * Añade un registro de Marca a la base de datos.
+     *
+     * @param modelo el objeto Modelo que se va a añadir.
+     * @return el objeto Modelo añadido.
+     * @throws Exception              si ocurre algún error al interactuar con la base de datos.
+     * @throws SQLException           si ocurre algún error al ejecutar las consultas SQL.
+     * @throws ClassNotFoundException si no se encuentra la clase para la conexión a la base de datos.
+     */
     @Override
     public Modelo añadir(Modelo modelo) throws Exception {
         Marca marca = (Marca) modelo;
@@ -43,12 +62,20 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
             if (generatedKeys.next()) {
                 marca.Id = generatedKeys.getInt(1);
             } else {
-                throw new SQLException("Error al obtener el id del articulo.");
+                throw new SQLException("Error al obtener el id del marca.");
             }
         }
         conexion.close();
         return modelo;
     }
+
+    /**
+     * Actualiza un registro de Marca en la base de datos.
+     *
+     * @param modelo el objeto Modelo que se va a actualizar.
+     * @throws SQLException           si ocurre algún error al interactuar con la base de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase para la conexión a la base de datos.
+     */
 
     @Override
     public void actualizar(Modelo modelo) throws SQLException, ClassNotFoundException {
@@ -62,6 +89,13 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
         conexion.close();
     }
 
+    /**
+     * Elimina un registro de Marca de la base de datos.
+     *
+     * @param modelo el objeto Modelo que se va a eliminar.
+     * @throws SQLException           si ocurre algún error al interactuar con la base de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase para la conexión a la base de datos.
+     */
     @Override
     public void eliminar(Modelo modelo) throws SQLException, ClassNotFoundException {
         Connection conexion = BaseDatosConexion.obtener();

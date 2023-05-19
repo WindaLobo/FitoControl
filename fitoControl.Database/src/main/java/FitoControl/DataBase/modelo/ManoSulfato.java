@@ -20,6 +20,10 @@ public class ManoSulfato extends Modelo {
         this.articulos = new ArrayList<>();
     }
 
+    public Date getFecha() {
+        return fecha;
+    }
+
     public ArrayList<ManoSulfatoArticulo> getArticulos() {
         return articulos;
     }

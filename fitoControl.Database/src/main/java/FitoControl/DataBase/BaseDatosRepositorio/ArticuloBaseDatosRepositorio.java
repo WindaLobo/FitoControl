@@ -7,9 +7,20 @@ import FitoControl.DataBase.modelo.TipoMedida;
 import java.sql.*;
 import java.util.ArrayList;
 
+/**
+ * Clase que implementa la interfaz IBaseDatosRepositorio y proporciona
+ * la funcionalidad para interactuar con la base de datos en relación a los artículos.
+ */
 public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
     private static final ArrayList<Modelo> Articulos = new ArrayList<>();
 
+    /**
+     * Obtiene todos los registros de artículos de la base de datos.
+     *
+     * @return Lista de objetos Modelo que representan los artículos obtenidos.
+     * @throws ClassNotFoundException Si no se encuentra la clase del controlador de la base de datos.
+     * @throws SQLException           Si ocurre un error al ejecutar la consulta SQL.
+     */
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws ClassNotFoundException, SQLException {
         Connection conexion = BaseDatosConexion.obtener();
@@ -31,6 +42,15 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         conexion.close();
         return Articulos;
     }
+
+
+    /**
+     * Agrega un nuevo registro de artículo a la base de datos.
+     *
+     * @param modelo Objeto Modelo que representa el artículo a añadir.
+     * @return El objeto Modelo añadido.
+     * @throws Exception Si ocurre un error durante la operación.
+     */
 
     @Override
     public Modelo añadir(Modelo modelo) throws Exception {
@@ -59,6 +79,15 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         return modelo;
     }
 
+
+    /**
+     * Actualiza un registro de artículo en la base de datos.
+     *
+     * @param modelo Objeto Modelo que representa el artículo a actualizar.
+     * @throws SQLException           Si ocurre un error al ejecutar la consulta SQL.
+     * @throws ClassNotFoundException Si no se encuentra la clase del controlador de la base de datos.
+     */
+
     @Override
     public void actualizar(Modelo modelo) throws SQLException, ClassNotFoundException {
         Articulo articulo = (Articulo) modelo;
@@ -72,6 +101,14 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         statement.executeUpdate();
         conexion.close();
     }
+
+    /**
+     * Elimina un registro de artículo de la base de datos.
+     *
+     * @param modelo Objeto Modelo que representa el artículo a eliminar.
+     * @throws SQLException           Si ocurre un error al ejecutar la consulta SQL.
+     * @throws ClassNotFoundException Si no se encuentra la clase del controlador de la base de datos.
+     */
     @Override
     public void eliminar(Modelo modelo) throws SQLException, ClassNotFoundException {
         Connection conexion = BaseDatosConexion.obtener();

@@ -24,9 +24,6 @@ public class Compra extends Modelo {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
-    }
 
     public ArrayList<CompraArticulo> getArticulos() {
         return articulos;
