@@ -1,21 +1,15 @@
-
 package view;
 
-import java.awt.Dimension;
-
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Menu extends javax.swing.JFrame {
-    
-  
+
     public Menu() {
-         initComponents(); 
+        initComponents();
         this.setLocationRelativeTo(this);
-     
-       
-       
-        
     }
-    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -109,27 +103,37 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMarcaMouseClicked
-        Marca marca = new Marca();
-        marca.setVisible(true);
+        MarcaView marca = null;
+        try {
+            marca = new MarcaView();
+            marca.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JMarcaMouseClicked
 
     private void JArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JArticuloMouseClicked
-        Articulo articulo = new Articulo();
-        articulo.setVisible(true);
+        ArticuloView articulo = null;
+        try {
+            articulo = new ArticuloView();
+            articulo.setVisible(true);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_JArticuloMouseClicked
 
     private void jCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCompraMouseClicked
-        Compra compra = new Compra ();
+        Compra compra = new Compra();
         compra.setVisible(true);
     }//GEN-LAST:event_jCompraMouseClicked
 
     private void jManoSulfatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jManoSulfatoMouseClicked
-       ManoSulfato manoSulfato = new ManoSulfato ();
+        ManoSulfato manoSulfato = new ManoSulfato();
         manoSulfato.setVisible(true);
     }//GEN-LAST:event_jManoSulfatoMouseClicked
 
-    
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JArticulo;

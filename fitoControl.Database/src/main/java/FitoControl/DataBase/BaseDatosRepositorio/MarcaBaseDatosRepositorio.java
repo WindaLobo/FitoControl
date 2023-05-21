@@ -11,8 +11,6 @@ import java.util.ArrayList;
  * métodos para acceder y manipular los datos de la tabla Marca en la base de datos.
  */
 public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
-    private final ArrayList<Modelo> Marcas = new ArrayList<>();
-
     /**
      * Obtiene todos los registros de la tabla Marca de la base de datos.
      *
@@ -23,19 +21,20 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException {
+        ArrayList<Modelo> marcas = new ArrayList<>();
         Connection conexion = BaseDatosConexion.obtener();
         String sql = " Select IdMarca, Nombre from marca";
         Statement statement = conexion.createStatement();
         ResultSet resultado = statement.executeQuery(sql);
 
         while (resultado.next()) {
-            Marca marcas = new Marca(
+            Marca marca = new Marca(
                     resultado.getInt("IdMarca"),
                     resultado.getString("Nombre"));
-            Marcas.add(marcas);
+            marcas.add(marca);
         }
         conexion.close();
-        return Marcas;
+        return marcas;
     }
 
 

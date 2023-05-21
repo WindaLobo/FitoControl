@@ -1,6 +1,7 @@
 package FitoControl.DataBase.BaseDatosRepositorio;
 
 import FitoControl.DataBase.modelo.Articulo;
+import FitoControl.DataBase.modelo.Marca;
 import FitoControl.DataBase.modelo.Modelo;
 import FitoControl.DataBase.modelo.TipoMedida;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
  * la funcionalidad para interactuar con la base de datos en relación a los artículos.
  */
 public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
-    private static final ArrayList<Modelo> Articulos = new ArrayList<>();
+
 
     /**
      * Obtiene todos los registros de artículos de la base de datos.
@@ -23,24 +24,29 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
      */
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws ClassNotFoundException, SQLException {
+         ArrayList<Modelo> articulos = new ArrayList<>();
         Connection conexion = BaseDatosConexion.obtener();
-        String sql = " Select IdArticulo, Nombre, Cantidad,IdMArca,IdMedida from articulo";
+        String sql = " Select articulo.IdArticulo, articulo.Nombre as NombreArticulo, articulo.Cantidad,articulo.IdMedida, " +
+                     " marca.idMarca, marca.nombre as NombreMarca  " +
+                     " from articulo " +
+                     " inner join marca on articulo.idMarca = marca.idMarca";
+
         Statement statement = conexion.createStatement();
         ResultSet resultado = statement.executeQuery(sql);
 
         while (resultado.next()) {
             Articulo ariculo = new Articulo(
                     resultado.getInt("IdArticulo"),
-                    resultado.getString("Nombre"),
+                    resultado.getString("NombreArticulo"),
                     TipoMedida.values()[resultado.getInt("IdMedida")],
-                    resultado.getInt("IdMArca"),
+                    new Marca(resultado.getInt("idMarca"), resultado.getString("NombreMarca")),
                     resultado.getDouble("Cantidad"));
 
-            Articulos.add(ariculo);
+            articulos.add(ariculo);
         }
 
         conexion.close();
-        return Articulos;
+        return articulos;
     }
 
 

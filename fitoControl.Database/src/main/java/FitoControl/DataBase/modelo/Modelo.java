@@ -1,6 +1,8 @@
 package FitoControl.DataBase.modelo;
 
-public abstract class Modelo {
+import java.util.Observable;
+
+public abstract class Modelo extends Observable {
     public int Id;
 
     @Override
