@@ -33,6 +33,10 @@ public class Compra extends Modelo {
         this.articulos.add(articulo);
     }
 
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     @Override
     public String toString() {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");

@@ -13,7 +13,6 @@ import java.util.ArrayList;
  */
 
 public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
-    private static final ArrayList<Modelo> Compras = new ArrayList<>();
 
     /**
      * Obtiene todos los registros de la tabla Compra de la base de datos.
@@ -25,6 +24,7 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
 
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException {
+       ArrayList<Modelo> Compras = new ArrayList<>();
         Connection conexion = BaseDatosConexion.obtener();
         String sql = " Select IdCompra, fecha from compra";
         Statement statement = conexion.createStatement();

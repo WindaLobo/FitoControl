@@ -125,8 +125,13 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_JArticuloMouseClicked
 
     private void jCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCompraMouseClicked
-        Compra compra = new Compra();
-        compra.setVisible(true);
+        CompraView compra = null;
+        try {
+            compra = new CompraView();
+            compra.setVisible(true);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jCompraMouseClicked
 
     private void jManoSulfatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jManoSulfatoMouseClicked

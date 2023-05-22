@@ -14,8 +14,8 @@ import view.ArticuloView;
 public class ArticuloController {
 
     private final MarcaBaseDatosRepositorio marcaReposiorio = new MarcaBaseDatosRepositorio();
-    private ArticuloBaseDatosRepositorio articuloReposiorio = new ArticuloBaseDatosRepositorio();
-    private ArticuloView view;
+    private final ArticuloBaseDatosRepositorio articuloReposiorio = new ArticuloBaseDatosRepositorio();
+    private final ArticuloView view;
     private ArrayList<Modelo> articulos = new ArrayList<>();
     private ArrayList<Modelo> marcas = new ArrayList<>();
     private Articulo articuloSeleccionada = new Articulo();
@@ -30,11 +30,11 @@ public class ArticuloController {
     public void cargar() throws ClassNotFoundException, SQLException {
         articulos = articuloReposiorio.ObtenerTodos();
         marcas = marcaReposiorio.ObtenerTodos();
- 
+
         for (Modelo articulo : articulos) {
             articulo.addObserver(observer);
         }
-            
+
         view.cargar(articulos, marcas);
     }
 
@@ -42,8 +42,9 @@ public class ArticuloController {
 
         articuloSeleccionada.setNombre(nombre);
         articuloSeleccionada.setTipoMedida(tipoDeMedida);
-        articuloSeleccionada.setMarca(marca);
         articuloSeleccionada.setIdMarca(marca.Id);
+        articuloSeleccionada.setMarca(marca);
+        
 
         if (articuloSeleccionada.Id == 0) {
             articuloSeleccionada = (Articulo) articuloReposiorio.añadir(articuloSeleccionada);
@@ -66,7 +67,7 @@ public class ArticuloController {
             if (modelo.Id == id) {
                 Articulo articulo = (Articulo) modelo;
                 articuloSeleccionada = articulo;
-                articuloSeleccionada.setNombre(articulo.getNombre());      
+                articuloSeleccionada.setNombre(articulo.getNombre());
                 break;
             }
         }
@@ -76,6 +77,5 @@ public class ArticuloController {
         articuloReposiorio.eliminar(articuloSeleccionada);
         nuevo();
     }
-
 
 }

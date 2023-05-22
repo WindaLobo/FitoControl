@@ -115,9 +115,9 @@ public class ArticuloView extends javax.swing.JFrame {
         jLabelCantidaArticulo.setText("Cantidad:");
         jLabelCantidaArticulo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jComboBoxtipodeMedida.addActionListener(new java.awt.event.ActionListener() {
+        jComboBoxMarcas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxtipodeMedidaActionPerformed(evt);
+                jComboBoxMarcasActionPerformed(evt);
             }
         });
 
@@ -177,22 +177,21 @@ public class ArticuloView extends javax.swing.JFrame {
                     .addComponent(jLabelNombreArticulo1)
                     .addComponent(jComboBoxtipodeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(9, 9, 9)
-                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelArticuloLayout.createSequentialGroup()
-                        .addComponent(jLabelIDMarcas)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCantidaArticulo))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonNuevoAr)
-                            .addComponent(jButtonGuardarAr)
-                            .addComponent(jButtonEliminarAr)))
+                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelIDMarcas)
                     .addComponent(jComboBoxMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(23, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCantidaArticulo))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonNuevoAr)
+                    .addComponent(jButtonGuardarAr)
+                    .addComponent(jButtonEliminarAr))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
 
         jPanelArticuloLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextCantidadArticulo, jTextIDArticulo, jTextNombreArticulo1});
@@ -242,9 +241,9 @@ public class ArticuloView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuardarArActionPerformed
 
-    private void jComboBoxtipodeMedidaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxtipodeMedidaActionPerformed
-
-    }//GEN-LAST:event_jComboBoxtipodeMedidaActionPerformed
+    private void jComboBoxMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxMarcasActionPerformed
 
     public void cargar(ArrayList<Modelo> articulos, ArrayList<Modelo> marcas) {
 
@@ -272,6 +271,7 @@ public class ArticuloView extends javax.swing.JFrame {
         for (Modelo modelo : marcas) {
             Marca marca = (Marca) modelo;
             jComboBoxMarcas.addItem(marca);
+          
         }
     }
 
