@@ -3,6 +3,7 @@ package FitoControl.DataBase.BaseDatosRepositorio;
 import FitoControl.DataBase.modelo.*;
 
 import java.sql.*;
+import java.time.Instant;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +11,6 @@ import java.util.ArrayList;
  * métodos para acceder y manipular los datos de la tabla ManoSulfato en la base de datos.
  */
 public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio {
-    private final ArrayList<Modelo> ManosSulfato = new ArrayList<>();
 
     /**
      * Obtiene todos los registros de la tabla ManoSulfato de la base de datos.
@@ -21,6 +21,7 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
      */
     @Override
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException {
+        ArrayList<Modelo> ManosSulfato = new ArrayList<>();
         Connection conexion = BaseDatosConexion.obtener();
         String sql = " Select IdManoSulfato, fecha from ManoSulfato";
         Statement statement = conexion.createStatement();

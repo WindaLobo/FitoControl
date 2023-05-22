@@ -1,29 +1,30 @@
-
 package controllers;
+
 import FitoControl.DataBase.BaseDatosRepositorio.CompraBaseDeDatosRepositorio;
 import FitoControl.DataBase.modelo.Compra;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
 import view.CompraView;
 
 public class CompraController {
-     private final CompraBaseDeDatosRepositorio compraReposiorio = new CompraBaseDeDatosRepositorio();
+
+    private final CompraBaseDeDatosRepositorio compraReposiorio = new CompraBaseDeDatosRepositorio();
     private final CompraView view;
-    private  ArrayList<Modelo> compras = new ArrayList<>();
-    private  Compra compraSeleccionada = new Compra();
+    private ArrayList<Modelo> compras = new ArrayList<>();
+    private Compra compraSeleccionada = new Compra();
 
     public CompraController(CompraView view) {
         this.view = view;
-        
+
     }
-     public void cargar() throws SQLException, ClassNotFoundException {
+
+    public void cargar() throws SQLException, ClassNotFoundException {
         compras = compraReposiorio.ObtenerTodos();
-       view.cargar(compras);
+        view.cargar(compras);
     }
-     
-       public void seleccionar(int id) {
+
+    public void seleccionar(int id) {
         for (Modelo modelo : compras) {
             if (modelo.Id == id) {
                 Compra compra = (Compra) modelo;
@@ -33,16 +34,16 @@ public class CompraController {
             }
         }
     }
-      
+
     public void nuevo() {
-       compraSeleccionada = new Compra();
-    compraSeleccionada.setFecha(null);
-    
-    
+        compraSeleccionada = new Compra();
+        compraSeleccionada.setFecha(null);
+
     }
-      public void eliminar() throws Exception {
+
+    public void eliminar() throws Exception {
         compraReposiorio.eliminar(compraSeleccionada);
         nuevo();
     }
-    
+
 }

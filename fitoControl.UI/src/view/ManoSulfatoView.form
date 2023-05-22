@@ -28,10 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
-              <Component id="jPanel6" max="32767" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
-          </Group>
+          <Component id="jPanel6" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -46,35 +43,17 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelManoSulfato" min="-2" pref="176" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabelIDManoSulfato" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelFechaManos" alignment="0" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jTextFechaManoSulfato" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="jTextIDManoSulfato" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-              </Group>
-              <Component id="jScrollPane7" alignment="0" pref="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="162" max="-2" attributes="0"/>
+              <Component id="jScrollPane7" alignment="0" pref="407" max="32767" attributes="0"/>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
                   <Component id="jButtonNuevoMano" min="-2" pref="76" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonGuardarMano" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Component id="jButtonEliminarMano" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jLabelManoSulfato" min="-2" pref="176" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
@@ -84,25 +63,14 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
                   <Component id="jLabelManoSulfato" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextIDManoSulfato" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelIDManoSulfato" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextFechaManoSulfato" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabelFechaManos" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
                   <Component id="jScrollPane7" min="-2" pref="175" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jButtonNuevoMano" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButtonGuardarMano" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonEliminarMano" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="30" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -115,28 +83,6 @@
             </Property>
             <Property name="horizontalAlignment" type="int" value="2"/>
             <Property name="text" type="java.lang.String" value="ManoSulfato"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelIDManoSulfato">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Serif" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ID:"/>
-            <Property name="horizontalTextPosition" type="int" value="4"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabelFechaManos">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Serif" size="18" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Fecha"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextIDManoSulfato">
-          <Properties>
-            <Property name="editable" type="boolean" value="false"/>
           </Properties>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane7">
@@ -158,6 +104,9 @@
                   </Table>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTableManoSulfatoMouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -168,14 +117,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Nuevo"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButtonGuardarMano">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Serif" size="12" style="1"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Guardar"/>
-          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonNuevoManoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="jButtonEliminarMano">
           <Properties>
@@ -184,8 +128,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Eliminar"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="jTextFechaManoSulfato">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonEliminarManoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

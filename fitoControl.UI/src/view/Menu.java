@@ -1,5 +1,6 @@
 package view;
 
+import FitoControl.DataBase.modelo.ManoSulfato;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -135,8 +136,15 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jCompraMouseClicked
 
     private void jManoSulfatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jManoSulfatoMouseClicked
-        ManoSulfato manoSulfato = new ManoSulfato();
-        manoSulfato.setVisible(true);
+        ManoSulfatoView manoSulfato =null;
+        try {
+            manoSulfato = new ManoSulfatoView();
+            manoSulfato.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jManoSulfatoMouseClicked
 
 

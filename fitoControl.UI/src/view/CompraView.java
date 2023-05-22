@@ -5,7 +5,9 @@ import FitoControl.DataBase.modelo.Modelo;
 import controllers.CompraController;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -150,14 +152,15 @@ public class CompraView extends javax.swing.JFrame {
             Compra compra = (Compra) modelo;
             Object[] fila = new Object[2];
             fila[0] = compra.Id;
-            fila[1] = compra.getFecha();
+            Date fechaActual = Date.from(Instant.now());
+            SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            String fechaFormateada = formatoFecha.format(fechaActual);
+            fila[1] = fechaFormateada;
             modeloTabla.addRow(fila);
         }
 
         jTableCompra.setModel(modeloTabla);
     }
-
-   
 
     private void nuevo() throws Exception {
         controller.nuevo();

@@ -20,6 +20,10 @@ public class ManoSulfato extends Modelo {
         this.articulos = new ArrayList<>();
     }
 
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
     public Date getFecha() {
         return fecha;
     }
