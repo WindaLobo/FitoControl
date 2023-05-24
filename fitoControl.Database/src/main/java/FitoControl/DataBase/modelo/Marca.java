@@ -32,6 +32,7 @@ public class Marca extends Modelo {
         return nombre;
     }
 
+
     public String toStringFichero() {
 
         return Id + "," + nombre;

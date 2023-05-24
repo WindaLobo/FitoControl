@@ -138,8 +138,16 @@ public class ManoSulfatoView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableManoSulfatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableManoSulfatoMouseClicked
-        int filaSeleccionada = jTableManoSulfato.getSelectedRow();
-        controller.seleccionar((int) jTableManoSulfato.getValueAt(filaSeleccionada, 0));
+        try {
+            int filaSeleccionada = jTableManoSulfato.getSelectedRow();
+            controller.seleccionar((int) jTableManoSulfato.getValueAt(filaSeleccionada, 0));
+            ManoSulfatoArticuloView manoSulfato = new ManoSulfatoArticuloView();
+            manoSulfato.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(ManoSulfatoView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(ManoSulfatoView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTableManoSulfatoMouseClicked
 
     private void jButtonNuevoManoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoManoActionPerformed

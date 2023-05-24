@@ -4,9 +4,13 @@ public class Articulo extends Modelo {
     private String nombre;
     private TipoMedida tipoMedida;
     private int idMarca;
-
     private Marca marca;
     private double cantidad;
+
+    public Articulo(int Id, String nombre) {
+        super.Id = Id;
+        this.nombre = nombre;
+    }
 
     public Articulo(int Id, String nombre, TipoMedida tipoMedida, Marca marca, double cantidad) {
         super.Id = Id;
@@ -27,6 +31,7 @@ public class Articulo extends Modelo {
     public Articulo() {
     }
 
+
     public double getCantidad() {
         return cantidad;
     }
@@ -42,11 +47,13 @@ public class Articulo extends Modelo {
         notifyObservers(this);
     }
 
+
     public void setTipoMedida(TipoMedida tipoMedida) {
         this.tipoMedida = tipoMedida;
         setChanged();
         notifyObservers(this);
     }
+
 
     public void setIdMarca(int idMarca) {
         this.idMarca = idMarca;
@@ -78,13 +85,10 @@ public class Articulo extends Modelo {
         notifyObservers(this);
     }
 
+
     @Override
     public String toString() {
-        return " Articulo : " + Id
-                + " , nombre : " + nombre
-                + " , tipoMedida : " + tipoMedida
-                + " , idMarca : " + idMarca
-                + " , la cantidad es : " + cantidad + "\n";
+        return nombre;
     }
 
     public String toStringFichero() {

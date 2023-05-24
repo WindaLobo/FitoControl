@@ -5,6 +5,7 @@ import FitoControl.DataBase.modelo.Compra;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import view.CompraArticuloView;
 import view.CompraView;
 
 public class CompraController {
@@ -24,7 +25,7 @@ public class CompraController {
         view.cargar(compras);
     }
 
-    public void seleccionar(int id) {
+    public void seleccionar(int id) throws SQLException, ClassNotFoundException {
         for (Modelo modelo : compras) {
             if (modelo.Id == id) {
                 Compra compra = (Compra) modelo;
@@ -33,17 +34,24 @@ public class CompraController {
                 break;
             }
         }
+
+        AbrirArticulosView();
     }
 
-    public void nuevo() {
+    public void nuevo() throws SQLException, ClassNotFoundException {
         compraSeleccionada = new Compra();
         compraSeleccionada.setFecha(null);
-
+        AbrirArticulosView();
     }
 
     public void eliminar() throws Exception {
         compraReposiorio.eliminar(compraSeleccionada);
         nuevo();
+    }
+
+    private void AbrirArticulosView() throws SQLException, ClassNotFoundException {
+        CompraArticuloView compraArticulo = new CompraArticuloView(compraSeleccionada);
+        compraArticulo.setVisible(true);
     }
 
 }

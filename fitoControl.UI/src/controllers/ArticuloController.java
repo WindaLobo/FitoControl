@@ -56,7 +56,6 @@ public class ArticuloController {
     public void nuevo() {
         articuloSeleccionada = new Articulo();
         articuloSeleccionada.addObserver(observer);
-        articuloSeleccionada.setNombre("");
         articuloSeleccionada.setMarca(new Marca());
         articuloSeleccionada.setTipoMedida(null);
         articuloSeleccionada.setCantidad(0);
@@ -67,7 +66,7 @@ public class ArticuloController {
             if (modelo.Id == id) {
                 Articulo articulo = (Articulo) modelo;
                 articuloSeleccionada = articulo;
-                articuloSeleccionada.setNombre(articulo.getNombre());
+                articuloSeleccionada.setMarca(articulo.getMarca());
                 break;
             }
         }

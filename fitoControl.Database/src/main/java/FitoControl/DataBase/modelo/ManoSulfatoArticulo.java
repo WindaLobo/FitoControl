@@ -36,7 +36,10 @@ public class ManoSulfatoArticulo extends Modelo {
     }
 
     public void setIdManoSulfato(int idManoSulfato) {
+
         this.idManoSulfato = idManoSulfato;
+        setChanged();
+        notifyObservers(this);
     }
 
     public int getIdArticulo() {
@@ -47,6 +50,8 @@ public class ManoSulfatoArticulo extends Modelo {
     }
     public void setArticulo(Articulo articulo) {
         this.articulo = articulo;
+        setChanged();
+        notifyObservers(this);
     }
     public TipoMedida getIdMedida() {
         return idMedida;
@@ -56,6 +61,23 @@ public class ManoSulfatoArticulo extends Modelo {
         return cantidad;
     }
 
+    public void setCantidad(double cantidad) {
+        this.cantidad = cantidad;
+        setChanged();
+        notifyObservers(this);
+    }
+
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
+        setChanged();
+        notifyObservers(this);
+    }
+
+    public void setIdMedida(TipoMedida idMedida) {
+        this.idMedida = idMedida;
+        setChanged();
+        notifyObservers(this);
+    }
 
     @Override
     public String toString() {

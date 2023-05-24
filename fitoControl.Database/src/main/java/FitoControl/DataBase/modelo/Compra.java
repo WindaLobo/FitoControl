@@ -9,6 +9,7 @@ public class Compra extends Modelo {
     private Date fecha;
     private ArrayList<CompraArticulo> articulos;
 
+
     public Compra() {
         this.fecha = Date.from(Instant.now());
         this.articulos = new ArrayList<>();
@@ -39,6 +40,7 @@ public class Compra extends Modelo {
 
     @Override
     public String toString() {
+
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         String compraString = "";
         double total = 0;

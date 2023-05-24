@@ -126,7 +126,7 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_JArticuloMouseClicked
 
     private void jCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCompraMouseClicked
-        CompraView compra = null;
+            CompraView compra = null;
         try {
             compra = new CompraView();
             compra.setVisible(true);

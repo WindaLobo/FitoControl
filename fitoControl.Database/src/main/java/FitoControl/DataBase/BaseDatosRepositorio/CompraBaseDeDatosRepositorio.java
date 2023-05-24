@@ -1,5 +1,6 @@
 package FitoControl.DataBase.BaseDatosRepositorio;
 
+import FitoControl.DataBase.modelo.Articulo;
 import FitoControl.DataBase.modelo.Compra;
 import FitoControl.DataBase.modelo.CompraArticulo;
 import FitoControl.DataBase.modelo.Modelo;
@@ -121,6 +122,35 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
         statement2.setInt(1, modelo.Id);
         statement2.executeUpdate();
         conexion.close();
+    }
+
+    public ArrayList<Modelo> ObtenerArticulos(int idCompra) throws SQLException, ClassNotFoundException {
+        ArrayList<Modelo> compraArticulos = new ArrayList<>();
+
+        Connection conexion = BaseDatosConexion.obtener();
+        String sql = "SELECT IdCompraArticulo, IdCompra, Articulo.IdArticulo, " +
+                "       Articulo.Nombre, CompraArticulo.Cantidad, Precio " +
+                " FROM CompraArticulo " +
+                " INNER JOIN Articulo ON CompraArticulo.IdArticulo = Articulo.IdArticulo " +
+                " WHERE IdCompra = " + idCompra;
+
+        Statement statement = conexion.createStatement();
+        ResultSet resultado = statement.executeQuery(sql);
+
+        while (resultado.next()) {
+            Articulo articulo = new Articulo(resultado.getInt("IdArticulo"), resultado.getString("Nombre"));
+
+            CompraArticulo compraArticulo = new CompraArticulo(resultado.getInt("IdCompraArticulo"),
+                    resultado.getInt("IdCompra"),
+                    articulo,
+                    resultado.getInt("Cantidad"),
+                    resultado.getDouble("Precio"));
+
+            compraArticulos.add(compraArticulo);
+        }
+
+        conexion.close();
+        return compraArticulos;
     }
 
 }

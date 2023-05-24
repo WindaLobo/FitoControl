@@ -115,12 +115,6 @@ public class ArticuloView extends javax.swing.JFrame {
         jLabelCantidaArticulo.setText("Cantidad:");
         jLabelCantidaArticulo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
-        jComboBoxMarcas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBoxMarcasActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout jPanelArticuloLayout = new javax.swing.GroupLayout(jPanelArticulo);
         jPanelArticulo.setLayout(jPanelArticuloLayout);
         jPanelArticuloLayout.setHorizontalGroup(
@@ -241,18 +235,14 @@ public class ArticuloView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuardarArActionPerformed
 
-    private void jComboBoxMarcasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxMarcasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxMarcasActionPerformed
-
     public void cargar(ArrayList<Modelo> articulos, ArrayList<Modelo> marcas) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn(" ID ");
         modeloTabla.addColumn(" Nombre ");
         modeloTabla.addColumn(" Tipo de medidas ");
-        modeloTabla.addColumn(" Marca ");
-        modeloTabla.addColumn(" Cantidad ");
+        modeloTabla.addColumn(" Marca");
+        modeloTabla.addColumn(" Cantidad");
 
         for (Modelo modelo : articulos) {
             Articulo articulo = (Articulo) modelo;
@@ -260,7 +250,7 @@ public class ArticuloView extends javax.swing.JFrame {
             fila[0] = articulo.Id;
             fila[1] = articulo.getNombre();
             fila[2] = articulo.getTipoMedida();
-            fila[3] = articulo.getMarca();
+            fila[3] = articulo.getMarca().getNombre();
             fila[4] = articulo.getCantidad();
             modeloTabla.addRow(fila);
         }
@@ -269,6 +259,7 @@ public class ArticuloView extends javax.swing.JFrame {
 
         jComboBoxMarcas.removeAllItems();
         for (Modelo modelo : marcas) {
+           
             Marca marca = (Marca) modelo;
             jComboBoxMarcas.addItem(marca);
           
@@ -279,8 +270,9 @@ public class ArticuloView extends javax.swing.JFrame {
         jTextIDArticulo.setText(String.valueOf(articulo.Id));
         jTextNombreArticulo1.setText(articulo.getNombre());
         jComboBoxtipodeMedida.setSelectedItem(articulo.getTipoMedida());
-        jComboBoxMarcas.setSelectedItem(articulo.getMarca());
+        jComboBoxMarcas.setSelectedItem(articulo.getMarca().getNombre());
         jTextCantidadArticulo.setText(String.valueOf(articulo.getCantidad()));
+        
 
     }
 

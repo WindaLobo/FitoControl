@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,11 +19,8 @@ public class CompraView extends javax.swing.JFrame {
     public CompraView() throws SQLException, ClassNotFoundException {
         initComponents();
         this.setLocationRelativeTo(this);
-
         controller = new CompraController(this);
         controller.cargar();
-        controller.nuevo();
-
     }
 
     @SuppressWarnings("unchecked")
@@ -46,7 +42,6 @@ public class CompraView extends javax.swing.JFrame {
         jLabelCompra.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabelCompra.setText("Compras");
 
-        jTableCompra.setAutoCreateRowSorter(true);
         jTableCompra.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jTableCompra.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -84,12 +79,11 @@ public class CompraView extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                        .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addContainerGap())
+                    .addComponent(jScrollPane7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(jLabelCompra, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -122,8 +116,16 @@ public class CompraView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompraMouseClicked
+
         int filaSeleccionada = jTableCompra.getSelectedRow();
-        controller.seleccionar((int) jTableCompra.getValueAt(filaSeleccionada, 0));
+
+        try {
+            controller.seleccionar((int) jTableCompra.getValueAt(filaSeleccionada, 0));
+        } catch (SQLException ex) {
+            Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jTableCompraMouseClicked
 
     private void jButtonEliminarComActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarComActionPerformed
