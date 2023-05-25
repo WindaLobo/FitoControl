@@ -214,11 +214,6 @@ public class ArticuloView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonNuevoArActionPerformed
 
-    private void jTableArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableArticuloMouseClicked
-        int filaSeleccionada = jTableArticulo.getSelectedRow();
-        controller.seleccionar((int) jTableArticulo.getValueAt(filaSeleccionada, 0));
-    }//GEN-LAST:event_jTableArticuloMouseClicked
-
     private void jButtonEliminarArActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarArActionPerformed
         try {
             eliminar();
@@ -235,6 +230,11 @@ public class ArticuloView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButtonGuardarArActionPerformed
 
+    private void jTableArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableArticuloMouseClicked
+        int filaSeleccionada = jTableArticulo.rowAtPoint(evt.getPoint());
+        controller.seleccionar((int) jTableArticulo.getValueAt(filaSeleccionada, 0));
+    }//GEN-LAST:event_jTableArticuloMouseClicked
+
     public void cargar(ArrayList<Modelo> articulos, ArrayList<Modelo> marcas) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
@@ -250,7 +250,7 @@ public class ArticuloView extends javax.swing.JFrame {
             fila[0] = articulo.Id;
             fila[1] = articulo.getNombre();
             fila[2] = articulo.getTipoMedida();
-            fila[3] = articulo.getMarca().getNombre();
+            fila[3] = articulo.getMarca();
             fila[4] = articulo.getCantidad();
             modeloTabla.addRow(fila);
         }
@@ -259,20 +259,19 @@ public class ArticuloView extends javax.swing.JFrame {
 
         jComboBoxMarcas.removeAllItems();
         for (Modelo modelo : marcas) {
-           
             Marca marca = (Marca) modelo;
             jComboBoxMarcas.addItem(marca);
-          
+
         }
     }
 
     public void actualizarView(Articulo articulo) {
+
         jTextIDArticulo.setText(String.valueOf(articulo.Id));
         jTextNombreArticulo1.setText(articulo.getNombre());
         jComboBoxtipodeMedida.setSelectedItem(articulo.getTipoMedida());
-        jComboBoxMarcas.setSelectedItem(articulo.getMarca().getNombre());
+        jComboBoxMarcas.setSelectedItem(articulo.getMarca());
         jTextCantidadArticulo.setText(String.valueOf(articulo.getCantidad()));
-        
 
     }
 
@@ -293,7 +292,6 @@ public class ArticuloView extends javax.swing.JFrame {
         controller.eliminar();
         controller.cargar();
     }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminarAr;

@@ -12,19 +12,20 @@ import observers.CompraArticuloObserver;
 import view.CompraArticuloView;
 
 public class CompraArticuloController {
- private final ArticuloBaseDatosRepositorio articuloReposiorio = new ArticuloBaseDatosRepositorio();
+
+    private final ArticuloBaseDatosRepositorio articuloReposiorio = new ArticuloBaseDatosRepositorio();
     private final CompraBaseDeDatosRepositorio CompraArticuloReposiorio = new CompraBaseDeDatosRepositorio();
     private final CompraArticuloView view;
     private final Compra compra;
     private ArrayList<Modelo> compraArticulos = new ArrayList<>();
-    private ArrayList<Modelo>articulos=new ArrayList<>();
+    private ArrayList<Modelo> articulos = new ArrayList<>();
     private CompraArticulo CompraArticuloSeleccionada = new CompraArticulo();
     private CompraArticuloObserver observer = null;
 
     public CompraArticuloController(CompraArticuloView view, Compra compra) {
         this.view = view;
         this.compra = compra;
-        
+
         observer = new CompraArticuloObserver(view);
         view.setViewMode(compra);
     }
@@ -32,7 +33,7 @@ public class CompraArticuloController {
     public void cargar() throws SQLException, ClassNotFoundException {
         compraArticulos = CompraArticuloReposiorio.ObtenerArticulos(compra.Id);
         articulos = articuloReposiorio.ObtenerTodos();
-        view.cargar(compraArticulos,articulos);
+        view.cargar(compraArticulos, articulos);
     }
 
     public void seleccionar(int id) {
@@ -45,22 +46,30 @@ public class CompraArticuloController {
             }
         }
     }
-     public void eliminar() throws Exception {
+
+    public void eliminar() throws Exception {
         CompraArticuloReposiorio.eliminar(CompraArticuloSeleccionada);
         nuevo();
     }
-      public void nuevo()  {
-         CompraArticuloSeleccionada = new CompraArticulo();
+
+    public void nuevo() {
+        CompraArticuloSeleccionada = new CompraArticulo();
         CompraArticuloSeleccionada.addObserver(observer);
         CompraArticuloSeleccionada.setCantidad(0);
-        CompraArticuloSeleccionada.setArticulo(new Articulo());
         CompraArticuloSeleccionada.setPrecio(0);
-     
-       
-      
+
     }
 
-    
+    public void guardarActualizar(Articulo articulo, double cantidad, double precio) throws Exception {
+        CompraArticuloSeleccionada.setArticulo(articulo);
+        CompraArticuloSeleccionada.setCantidad(0);
+        CompraArticuloSeleccionada.setPrecio(0);
 
+        if (CompraArticuloSeleccionada.Id == 0) {
+            CompraArticuloSeleccionada = (CompraArticulo) CompraArticuloReposiorio.añadir(CompraArticuloSeleccionada);
+        } else {
+            CompraArticuloReposiorio.actualizar(CompraArticuloSeleccionada);
+        }
+    }
 
 }

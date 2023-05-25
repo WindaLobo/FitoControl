@@ -5,6 +5,7 @@ import FitoControl.DataBase.modelo.ManoSulfato;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import view.ManoSulfatoArticuloView;
 import view.ManoSulfatoView;
 
 public class ManoSulfatoController {
@@ -24,7 +25,7 @@ public class ManoSulfatoController {
         view.cargar(manosSulfato);
     }
 
-    public void seleccionar(int id) {
+    public void seleccionar(int id) throws SQLException, ClassNotFoundException {
         for (Modelo modelo : manosSulfato) {
             if (modelo.Id == id) {
                 ManoSulfato manoSulfato = (ManoSulfato) modelo;
@@ -33,17 +34,24 @@ public class ManoSulfatoController {
                 break;
             }
         }
+        AbrirArticulosView();
     }
 
-    public void nuevo() {
+    public void nuevo() throws SQLException, ClassNotFoundException {
         manoSulfatoSeleccionada = new ManoSulfato();
         manoSulfatoSeleccionada.setFecha(null);
+        AbrirArticulosView();
 
     }
 
     public void eliminar() throws Exception {
         manoSulfatoReposiorio.eliminar(manoSulfatoSeleccionada);
         nuevo();
+    }
+
+    private void AbrirArticulosView() throws SQLException, ClassNotFoundException {
+        ManoSulfatoArticuloView manoSulfato = new ManoSulfatoArticuloView(manoSulfatoSeleccionada);
+        manoSulfato.setVisible(true);
     }
 
 }

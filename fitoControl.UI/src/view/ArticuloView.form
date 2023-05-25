@@ -246,22 +246,13 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxtipodeMedida">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;TipoMedida&gt;"/>
           </AuxValues>
         </Component>
         <Component class="javax.swing.JComboBox" name="jComboBoxMarcas">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
           <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ArticuloView_jComboBoxMarcas"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Marca&gt;"/>
           </AuxValues>
         </Component>

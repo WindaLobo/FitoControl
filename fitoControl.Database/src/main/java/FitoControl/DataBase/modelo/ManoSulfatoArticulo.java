@@ -15,8 +15,18 @@ public class ManoSulfatoArticulo extends Modelo {
 
     }
 
+    public ManoSulfatoArticulo() {
+    }
+
     public ManoSulfatoArticulo(int Id, Articulo articulo, TipoMedida idMedida, double cantidad) {
         super.Id = Id;
+        this.idMedida = idMedida;
+        this.cantidad = cantidad;
+        this.articulo = articulo;
+    }
+    public ManoSulfatoArticulo(int Id, int idManoSulfato , Articulo articulo, TipoMedida idMedida, double cantidad) {
+        super.Id = Id;
+        this.idManoSulfato=idManoSulfato;
         this.idMedida = idMedida;
         this.cantidad = cantidad;
         this.articulo = articulo;

@@ -78,14 +78,7 @@ public class MarcaView extends javax.swing.JFrame {
             }
         });
 
-        jTableMarcas.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
-            }
-        ));
+        jTableMarcas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTableMarcas.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTableMarcasMouseClicked(evt);
@@ -210,8 +203,10 @@ public class MarcaView extends javax.swing.JFrame {
             fila[1] = marca.getNombre();
             modeloTabla.addRow(fila);
         }
+        
 
         jTableMarcas.setModel(modeloTabla);
+ 
      }
 
     public void actualizarView(Marca marca) {

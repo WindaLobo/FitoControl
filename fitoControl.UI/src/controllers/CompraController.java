@@ -48,6 +48,7 @@ public class CompraController {
         compraReposiorio.eliminar(compraSeleccionada);
         nuevo();
     }
+    
 
     private void AbrirArticulosView() throws SQLException, ClassNotFoundException {
         CompraArticuloView compraArticulo = new CompraArticuloView(compraSeleccionada);

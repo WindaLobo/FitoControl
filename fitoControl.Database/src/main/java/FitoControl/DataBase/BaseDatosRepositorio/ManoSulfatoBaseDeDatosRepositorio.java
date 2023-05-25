@@ -3,7 +3,6 @@ package FitoControl.DataBase.BaseDatosRepositorio;
 import FitoControl.DataBase.modelo.*;
 
 import java.sql.*;
-import java.time.Instant;
 import java.util.ArrayList;
 
 /**
@@ -124,4 +123,36 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
         conexion.close();
 
     }
+
+
+
+    public ArrayList<Modelo> ObtenerArticulos(int IdManosulfato) throws SQLException, ClassNotFoundException {
+        ArrayList<Modelo> manoSulfatoArticulos = new ArrayList<>();
+
+        Connection conexion = BaseDatosConexion.obtener();
+        String sql = " select IdmanoSulfatoArticulo , Articulo.idArticulo,IdmanoSulfato,Articulo.Nombre,manoSulfatoArticulo.IdMedida, manoSulfatoArticulo.cantidad  " +
+                " from manoSulfatoArticulo " +
+                " INNER JOIN Articulo ON manoSulfatoArticulo.IdArticulo = Articulo.IdArticulo " +
+                " WHERE IdmanoSulfato = " + IdManosulfato;
+
+        Statement statement = conexion.createStatement();
+        ResultSet resultado = statement.executeQuery(sql);
+
+        while (resultado.next()) {
+            Articulo articulo = new Articulo(resultado.getInt("IdArticulo"), resultado.getString("Nombre"));
+
+            ManoSulfatoArticulo manoSulfatoArticulo = new ManoSulfatoArticulo(resultado.getInt("IdmanoSulfatoArticulo"),
+                    resultado.getInt("IdmanoSulfato"),
+                    articulo,
+                    TipoMedida.values()[resultado.getInt("IdMedida")],
+                    resultado.getDouble("cantidad"));
+
+            manoSulfatoArticulos.add(manoSulfatoArticulo);
+        }
+
+        conexion.close();
+        return manoSulfatoArticulos;
+    }
+
+
 }

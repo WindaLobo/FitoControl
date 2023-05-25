@@ -21,7 +21,7 @@ public class ManoSulfatoView extends javax.swing.JFrame {
         this.setLocationRelativeTo(this);
         controller = new ManoSulfatoController(this);
         controller.cargar();
-        controller.nuevo();
+       
     }
 
     @SuppressWarnings("unchecked")
@@ -141,11 +141,8 @@ public class ManoSulfatoView extends javax.swing.JFrame {
         try {
             int filaSeleccionada = jTableManoSulfato.getSelectedRow();
             controller.seleccionar((int) jTableManoSulfato.getValueAt(filaSeleccionada, 0));
-            ManoSulfatoArticuloView manoSulfato = new ManoSulfatoArticuloView();
-            manoSulfato.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(ManoSulfatoView.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
+          
+        } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(ManoSulfatoView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTableManoSulfatoMouseClicked

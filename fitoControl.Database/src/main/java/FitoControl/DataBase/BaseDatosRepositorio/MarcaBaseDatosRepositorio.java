@@ -23,7 +23,7 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
     public ArrayList<Modelo> ObtenerTodos() throws SQLException, ClassNotFoundException {
         ArrayList<Modelo> marcas = new ArrayList<>();
         Connection conexion = BaseDatosConexion.obtener();
-        String sql = " Select IdMarca, Nombre from marca";
+        String sql = " Select IdMarca, Nombre from marca   ";
         Statement statement = conexion.createStatement();
         ResultSet resultado = statement.executeQuery(sql);
 

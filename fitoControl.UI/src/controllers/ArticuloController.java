@@ -25,16 +25,18 @@ public class ArticuloController {
 
         this.view = view;
         observer = new ArticuloObserver(view);
+        
     }
 
     public void cargar() throws ClassNotFoundException, SQLException {
         articulos = articuloReposiorio.ObtenerTodos();
         marcas = marcaReposiorio.ObtenerTodos();
-
+        
+        
         for (Modelo articulo : articulos) {
             articulo.addObserver(observer);
         }
-
+                   
         view.cargar(articulos, marcas);
     }
 
@@ -55,10 +57,9 @@ public class ArticuloController {
 
     public void nuevo() {
         articuloSeleccionada = new Articulo();
-        articuloSeleccionada.addObserver(observer);
-        articuloSeleccionada.setMarca(new Marca());
-        articuloSeleccionada.setTipoMedida(null);
-        articuloSeleccionada.setCantidad(0);
+        articuloSeleccionada.addObserver(observer);  
+        articuloSeleccionada.setNombre("");
+      
     }
 
     public void seleccionar(int id) {
@@ -67,7 +68,7 @@ public class ArticuloController {
                 Articulo articulo = (Articulo) modelo;
                 articuloSeleccionada = articulo;
                 articuloSeleccionada.setMarca(articulo.getMarca());
-                break;
+                 break;
             }
         }
     }

@@ -63,4 +63,26 @@ public class Compra extends Modelo {
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         return Id + "," + formatoFecha.format(fecha);
     }
+
+
+    @Override
+    public boolean equals(Object o) {
+
+        // If the object is compared with itself then return true
+        if (o == this) {
+            return true;
+        }
+
+        /* Check if o is an instance of Complex or not
+          "null instanceof [type]" also returns false */
+        if (!(o instanceof Compra)) {
+            return false;
+        }
+
+        // typecast o to Complex so that we can compare data members
+        Compra c = (Compra) o;
+
+        // Compare the data members and return accordingly
+        return Id == c.Id;
+    }
 }

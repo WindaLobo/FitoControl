@@ -7,11 +7,15 @@ import FitoControl.DataBase.modelo.Modelo;
 import controllers.CompraArticuloController;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class CompraArticuloView extends javax.swing.JFrame {
 
     private final CompraArticuloController controller;
+    private Compra compra;
 
     public CompraArticuloView(Compra compra) throws SQLException, ClassNotFoundException {
         initComponents();
@@ -55,15 +59,11 @@ public class CompraArticuloView extends javax.swing.JFrame {
         jTextPrecioCompraArticulo.setEditable(false);
 
         jTableCompraArticulo.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
-        jTableCompraArticulo.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-
+        jTableCompraArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableCompraArticuloMouseClicked(evt);
             }
-        ));
-        jTableCompraArticulo.getTableHeader().setReorderingAllowed(false);
+        });
         jScrollPane7.setViewportView(jTableCompraArticulo);
 
         jLabelPrecioCompraArticulo.setFont(new java.awt.Font("Serif", 1, 18)); // NOI18N
@@ -78,6 +78,11 @@ public class CompraArticuloView extends javax.swing.JFrame {
 
         jButtonEliminar.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jButtonAñadir.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonAñadir.setText("Añadir");
@@ -92,6 +97,11 @@ public class CompraArticuloView extends javax.swing.JFrame {
 
         jButtonGuardar.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelBottonesLayout = new javax.swing.GroupLayout(jPanelBottones);
         jPanelBottones.setLayout(jPanelBottonesLayout);
@@ -194,10 +204,43 @@ public class CompraArticuloView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
-
+        try {
+            nuevo();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonNuevoActionPerformed
 
-    public void cargar(ArrayList<Modelo> compraArticulos,ArrayList<Modelo> articulos) {
+    private void jTableCompraArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompraArticuloMouseClicked
+        int filaSeleccionada = jTableCompraArticulo.rowAtPoint(evt.getPoint());
+        Object valorCelda = jTableCompraArticulo.getValueAt(filaSeleccionada, 0);
+        if (valorCelda instanceof Integer) {
+            int valorEntero = (int) valorCelda;
+            controller.seleccionar(valorEntero);
+        } else {
+            JOptionPane.showMessageDialog(null, "El valor seleccionado no es un número entero válido.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+
+
+    }//GEN-LAST:event_jTableCompraArticuloMouseClicked
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        try {
+            eliminar();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+        try {
+            guardarActualizar();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    public void cargar(ArrayList<Modelo> compraArticulos, ArrayList<Modelo> articulos) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("Articulo");
@@ -207,53 +250,71 @@ public class CompraArticuloView extends javax.swing.JFrame {
         for (Modelo modelo : compraArticulos) {
             CompraArticulo compraArticulo = (CompraArticulo) modelo;
             Object[] fila = new Object[3];
-            fila[0] = compraArticulo.getArticulo().getNombre();
+            fila[0] = compraArticulo.getArticulo();
             fila[1] = compraArticulo.getCantidad();
             fila[2] = compraArticulo.getPrecio();
 
             modeloTabla.addRow(fila);
-            
+
         }
 
         jTableCompraArticulo.setModel(modeloTabla);
-        
-         jComboBoxArticulo.removeAllItems();
-         
+
+        jComboBoxArticulo.removeAllItems();
+
         for (Modelo modelos : articulos) {
             Articulo articulo = (Articulo) modelos;
             jComboBoxArticulo.addItem(articulo);
-          
+
         }
     }
 
     public void setViewMode(Compra compra) {
 
         boolean esNuevaCompra = compra.Id == 0;
-           
+
         if (esNuevaCompra) {
 
             jLabelArticulos.setText("NUEVA COMPRA");
             jButtonNuevo.setVisible(true);
             jPanelBottones.setVisible(true);
             jTextCantida.setEditable(true);
+            jTextPrecioCompraArticulo.setEditable(true);
+
         } else {
 
             jLabelArticulos.setText("COMPRA " + compra.Id);
             jPanelBottones.setVisible(false);
             jTextCantida.setEditable(false);
+
         }
-        
+
     }
-  
+
     private void eliminar() throws Exception {
         controller.eliminar();
         controller.cargar();
     }
+
     public void actualizarView(CompraArticulo compraArticulo) {
-          jTextPrecioCompraArticulo.setText(String.valueOf(compraArticulo.getPrecio()));
+        jTextPrecioCompraArticulo.setText(String.valueOf(compraArticulo.getPrecio()));
         jTextCantida.setText(String.valueOf(compraArticulo.getCantidad()));
-        jComboBoxArticulo.setSelectedItem(compraArticulo.getArticulo().getNombre());
-       
+        jComboBoxArticulo.setSelectedItem(compraArticulo.getArticulo());
+
+    }
+
+    private void guardarActualizar() throws Exception {
+        Double precio = Double.valueOf(jTextPrecioCompraArticulo.getText());
+        Double cantidad = Double.valueOf(jTextCantida.getText());
+              
+       Articulo articulo = (Articulo) jComboBoxArticulo.getSelectedItem();
+
+        controller.guardarActualizar(articulo, cantidad, precio);
+        controller.cargar();
+    }
+
+    private void nuevo() throws Exception {
+        controller.nuevo();
     }
 
 
@@ -275,7 +336,4 @@ public class CompraArticuloView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextPrecioCompraArticulo;
     // End of variables declaration//GEN-END:variables
 
-    
-
-   
 }
