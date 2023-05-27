@@ -33,7 +33,7 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
 
             ManosSulfato.add(manoSulfato);
         }
-        conexion.close();
+
         return ManosSulfato;
     }
 
@@ -75,7 +75,7 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
 
             PreparedStatement statement2 = conexion.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
             statement2.setInt(1, manoSulfato.Id);
-            statement2.setInt(2, articulo.getIdArticulo());
+            statement2.setInt(2, articulo.getArticulo().Id);
             statement2.setInt(3, articulo.getIdMedida().ordinal());
             statement2.setDouble(4, articulo.getCantidad());
             statement2.executeUpdate();
@@ -87,8 +87,15 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
                     throw new SQLException("Error al obtener el id de la manosulfato");
                 }
             }
+
+
+            String sql3 = "UPDATE Articulo SET Cantidad = Cantidad - ? WHERE IdArticulo = ?";
+            PreparedStatement statement3 = conexion.prepareStatement(sql3);
+            statement3.setDouble(1, articulo.getCantidad());
+            statement3.setInt(2, articulo.getArticulo().Id);
+            statement3.executeUpdate();
         }
-        conexion.close();
+
         return modelo;
     }
 
@@ -120,14 +127,18 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
         PreparedStatement statement2 = conexion.prepareStatement(sql2);
         statement2.setInt(1, modelo.Id);
         statement2.executeUpdate();
-        conexion.close();
-
     }
 
-
-
-    public ArrayList<Modelo> ObtenerArticulos(int IdManosulfato) throws SQLException, ClassNotFoundException {
-        ArrayList<Modelo> manoSulfatoArticulos = new ArrayList<>();
+    /**
+     * Obtiene una lista de ManoSulfatoArticulo asociados a un ManoSulfato específico.
+     *
+     * @param IdManosulfato el identificador del ManoSulfato para el cual se obtienen los artículos.
+     * @return una lista de ManoSulfatoArticulo asociados al ManoSulfato.
+     * @throws SQLException si ocurre algún error al interactuar con la base de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de conexión a la base de datos.
+     */
+    public ArrayList<ManoSulfatoArticulo> obtenerArticulos(int IdManosulfato) throws SQLException, ClassNotFoundException {
+        ArrayList<ManoSulfatoArticulo> manoSulfatoArticulos = new ArrayList<>();
 
         Connection conexion = BaseDatosConexion.obtener();
         String sql = " select IdmanoSulfatoArticulo , Articulo.idArticulo,IdmanoSulfato,Articulo.Nombre,manoSulfatoArticulo.IdMedida, manoSulfatoArticulo.cantidad  " +
@@ -150,7 +161,6 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
             manoSulfatoArticulos.add(manoSulfatoArticulo);
         }
 
-        conexion.close();
         return manoSulfatoArticulos;
     }
 

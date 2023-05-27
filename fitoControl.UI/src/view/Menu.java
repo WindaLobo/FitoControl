@@ -103,9 +103,9 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMarcaMouseClicked
-        MarcaView marca = null;
+      
         try {
-            marca = new MarcaView();
+            MarcaView marca = new MarcaView();
             marca.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);

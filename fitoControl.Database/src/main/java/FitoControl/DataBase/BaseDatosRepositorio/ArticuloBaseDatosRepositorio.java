@@ -45,7 +45,6 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
             articulos.add(ariculo);
         }
 
-        conexion.close();
         return articulos;
     }
 
@@ -80,7 +79,6 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
                 throw new SQLException("Error al obtener el id del articulo.");
             }
         }
-        conexion.close();
 
         return modelo;
     }
@@ -105,7 +103,6 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         statement.setInt(3, articulo.getIdMarca());
         statement.setInt(4, articulo.Id);
         statement.executeUpdate();
-        conexion.close();
     }
 
     /**
@@ -122,6 +119,5 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         PreparedStatement statement = conexion.prepareStatement(sql);
         statement.setInt(1, modelo.Id);
         statement.executeUpdate();
-        conexion.close();
     }
 }

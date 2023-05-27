@@ -106,9 +106,7 @@ public class CompraView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -116,13 +114,16 @@ public class CompraView extends javax.swing.JFrame {
 
     private void jTableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompraMouseClicked
 
-        int filaSeleccionada = jTableCompra.getSelectedRow();
+      
 
         try {
+              int filaSeleccionada = jTableCompra.getSelectedRow();
             controller.seleccionar((int) jTableCompra.getValueAt(filaSeleccionada, 0));
         } catch (SQLException ex) {
             Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
             Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jTableCompraMouseClicked
@@ -170,6 +171,7 @@ public class CompraView extends javax.swing.JFrame {
     private void eliminar() throws Exception {
         controller.eliminar();
         controller.cargar();
+        
     }
 
 

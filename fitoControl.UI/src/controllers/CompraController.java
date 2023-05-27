@@ -25,7 +25,7 @@ public class CompraController {
         view.cargar(compras);
     }
 
-    public void seleccionar(int id) throws SQLException, ClassNotFoundException {
+    public void seleccionar(int id) throws SQLException, ClassNotFoundException, Exception {
         for (Modelo modelo : compras) {
             if (modelo.Id == id) {
                 Compra compra = (Compra) modelo;
@@ -35,23 +35,23 @@ public class CompraController {
             }
         }
 
-        AbrirArticulosView();
+        abrirArticulosView();
     }
 
-    public void nuevo() throws SQLException, ClassNotFoundException {
+    public void nuevo() throws SQLException, ClassNotFoundException, Exception {
         compraSeleccionada = new Compra();
         compraSeleccionada.setFecha(null);
-        AbrirArticulosView();
+        abrirArticulosView();
     }
 
     public void eliminar() throws Exception {
         compraReposiorio.eliminar(compraSeleccionada);
         nuevo();
     }
-    
+   
 
-    private void AbrirArticulosView() throws SQLException, ClassNotFoundException {
-        CompraArticuloView compraArticulo = new CompraArticuloView(compraSeleccionada);
+    private void abrirArticulosView() throws SQLException, ClassNotFoundException, Exception {
+        CompraArticuloView compraArticulo = new CompraArticuloView(this,compraSeleccionada);
         compraArticulo.setVisible(true);
     }
 

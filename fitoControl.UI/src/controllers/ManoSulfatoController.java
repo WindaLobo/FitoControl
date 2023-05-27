@@ -25,7 +25,7 @@ public class ManoSulfatoController {
         view.cargar(manosSulfato);
     }
 
-    public void seleccionar(int id) throws SQLException, ClassNotFoundException {
+    public void seleccionar(int id) throws SQLException, ClassNotFoundException, Exception {
         for (Modelo modelo : manosSulfato) {
             if (modelo.Id == id) {
                 ManoSulfato manoSulfato = (ManoSulfato) modelo;
@@ -34,13 +34,13 @@ public class ManoSulfatoController {
                 break;
             }
         }
-        AbrirArticulosView();
+        abrirArticulosView();
     }
 
-    public void nuevo() throws SQLException, ClassNotFoundException {
+    public void nuevo() throws SQLException, ClassNotFoundException, Exception {
         manoSulfatoSeleccionada = new ManoSulfato();
         manoSulfatoSeleccionada.setFecha(null);
-        AbrirArticulosView();
+        abrirArticulosView();
 
     }
 
@@ -49,8 +49,8 @@ public class ManoSulfatoController {
         nuevo();
     }
 
-    private void AbrirArticulosView() throws SQLException, ClassNotFoundException {
-        ManoSulfatoArticuloView manoSulfato = new ManoSulfatoArticuloView(manoSulfatoSeleccionada);
+    private void abrirArticulosView() throws SQLException, ClassNotFoundException, Exception {
+        ManoSulfatoArticuloView manoSulfato = new ManoSulfatoArticuloView(this,manoSulfatoSeleccionada);
         manoSulfato.setVisible(true);
     }
 

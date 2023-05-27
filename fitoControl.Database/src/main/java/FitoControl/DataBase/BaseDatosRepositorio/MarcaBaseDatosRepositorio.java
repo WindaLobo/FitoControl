@@ -33,7 +33,7 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
                     resultado.getString("Nombre"));
             marcas.add(marca);
         }
-        conexion.close();
+
         return marcas;
     }
 
@@ -64,7 +64,7 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
                 throw new SQLException("Error al obtener el id del marca.");
             }
         }
-        conexion.close();
+
         return modelo;
     }
 
@@ -85,7 +85,7 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
         statement.setString(1, marca.getNombre());
         statement.setInt(2, marca.Id);
         statement.executeUpdate();
-        conexion.close();
+
     }
 
     /**
@@ -102,6 +102,5 @@ public class MarcaBaseDatosRepositorio implements IBaseDatosRepositorio {
         PreparedStatement statement = conexion.prepareStatement(sql);
         statement.setInt(1, modelo.Id);
         statement.executeUpdate();
-        conexion.close();
     }
 }

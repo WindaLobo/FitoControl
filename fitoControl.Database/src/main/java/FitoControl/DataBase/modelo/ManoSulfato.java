@@ -19,6 +19,9 @@ public class ManoSulfato extends Modelo {
         this.fecha = fecha;
         this.articulos = new ArrayList<>();
     }
+    public void setArticulos(ArrayList<ManoSulfatoArticulo> articulos){
+        this.articulos = articulos;
+    }
 
     public void setFecha(Date fecha) {
         this.fecha = fecha;

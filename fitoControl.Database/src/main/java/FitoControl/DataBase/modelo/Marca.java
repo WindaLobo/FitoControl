@@ -39,25 +39,26 @@ public class Marca extends Modelo  {
         return Id + "," + nombre;
     }
 
-    // Overriding equals() to compare two Complex objects
+    /**
+     * Compara este objeto Marca con otro objeto para determinar si son iguales.
+     *
+     * @param o el objeto a comparar con esta instancia de Marca.
+     * @return true si los objetos son iguales, false de lo contrario.
+     */
     @Override
     public boolean equals(Object o) {
 
-        // If the object is compared with itself then return true
+
         if (o == this) {
             return true;
         }
 
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
         if (!(o instanceof Marca)) {
             return false;
         }
 
-        // typecast o to Complex so that we can compare data members
         Marca c = (Marca) o;
 
-        // Compare the data members and return accordingly
         return Id == c.Id;
     }
 }

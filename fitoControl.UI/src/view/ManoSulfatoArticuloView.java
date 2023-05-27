@@ -6,23 +6,26 @@ import FitoControl.DataBase.modelo.ManoSulfatoArticulo;
 import FitoControl.DataBase.modelo.Modelo;
 import FitoControl.DataBase.modelo.TipoMedida;
 import controllers.ManoSulfatoArticuloController;
+import controllers.ManoSulfatoController;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ManoSulfatoArticuloView extends javax.swing.JFrame {
 
     private final ManoSulfatoArticuloController controller;
-    private ManoSulfato manoSulfato;
+ 
 
-    public ManoSulfatoArticuloView(ManoSulfato manoSulfato) throws SQLException, ClassNotFoundException {
+    public ManoSulfatoArticuloView(ManoSulfatoController manoSulfatoController,ManoSulfato manoSulfato)throws SQLException, ClassNotFoundException, Exception {
         initComponents();
         this.setLocationRelativeTo(this);
 
-        controller = new ManoSulfatoArticuloController(this, manoSulfato);
+        controller = new ManoSulfatoArticuloController(manoSulfatoController,this, manoSulfato);
         controller.cargar();
-          controller.nuevo();
-
+       
         jComboBoxtipodeMedida.addItem(TipoMedida.Centilitros);
         jComboBoxtipodeMedida.addItem(TipoMedida.Gramos);
         jComboBoxtipodeMedida.addItem(TipoMedida.Kilos);
@@ -90,22 +93,42 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
 
         jButtonGuardar.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
 
         jButtonEliminar.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonEliminar.setText("Eliminar");
+        jButtonEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEliminarActionPerformed(evt);
+            }
+        });
 
         jButtonNuevo.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonNuevo.setText("Nuevo");
+        jButtonNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonNuevoActionPerformed(evt);
+            }
+        });
 
         jButtonañadir.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
         jButtonañadir.setText("Añadir");
+        jButtonañadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonañadirActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelButonLayout = new javax.swing.GroupLayout(jPanelButon);
         jPanelButon.setLayout(jPanelButonLayout);
         jPanelButonLayout.setHorizontalGroup(
             jPanelButonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelButonLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelButonLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButtonañadir)
@@ -118,13 +141,13 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         jPanelButonLayout.setVerticalGroup(
             jPanelButonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelButonLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(jPanelButonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonEliminar)
                     .addComponent(jButtonNuevo)
                     .addComponent(jButtonañadir))
-                .addGap(23, 23, 23))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout jPanelMAnoSulfatoArticuloLayout = new javax.swing.GroupLayout(jPanelMAnoSulfatoArticulo);
@@ -132,26 +155,27 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         jPanelMAnoSulfatoArticuloLayout.setHorizontalGroup(
             jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 551, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanelButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 24, Short.MAX_VALUE))
-            .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
-                        .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelCantidaManoSulfatoArticulo)
-                            .addComponent(jLabelTipoMedidaManoSulfatoArticulo)
-                            .addComponent(jLabelNombreManoSulfatoArticulo))
-                        .addGap(90, 90, 90)
-                        .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxtipodeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextCantida, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jPanelButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
+                            .addContainerGap()
+                            .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 420, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
+                                    .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelCantidaManoSulfatoArticulo)
+                                        .addComponent(jLabelTipoMedidaManoSulfatoArticulo)
+                                        .addComponent(jLabelNombreManoSulfatoArticulo))
+                                    .addGap(90, 90, 90)
+                                    .addGroup(jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jComboBoxtipodeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextCantida, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jComboBoxArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(jPanelMAnoSulfatoArticuloLayout.createSequentialGroup()
+                            .addGap(17, 17, 17)
+                            .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(26, Short.MAX_VALUE))
         );
         jPanelMAnoSulfatoArticuloLayout.setVerticalGroup(
             jPanelMAnoSulfatoArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -172,18 +196,16 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
                     .addComponent(jTextCantida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addComponent(jPanelButon, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addComponent(jPanelButon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanelMAnoSulfatoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanelMAnoSulfatoArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,35 +220,65 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         controller.seleccionar((int) jTableManoSulfatoArticulo.getValueAt(filaSeleccionada, 0));
     }//GEN-LAST:event_jTableManoSulfatoArticuloMouseClicked
 
-    public void cargar(ArrayList<Modelo> manosSulfatosArticulos, ArrayList<Modelo> articulos) {
+    private void jButtonañadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonañadirActionPerformed
+         double cantidad = Double.parseDouble(jTextCantida.getText());
+         TipoMedida  tipoMedida = (TipoMedida)jComboBoxtipodeMedida.getSelectedItem();
+        controller.añadir((Articulo) jComboBoxArticulo.getSelectedItem(),tipoMedida, cantidad);
+           
+        
+    }//GEN-LAST:event_jButtonañadirActionPerformed
+
+    private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
+        try {
+            nuevo();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonNuevoActionPerformed
+
+    private void jButtonEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEliminarActionPerformed
+        try {
+            eliminar();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonEliminarActionPerformed
+
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+       try {
+            guardar();
+        } catch (Exception ex) {
+            Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
+
+    public void cargar(ArrayList<ManoSulfatoArticulo> manosSulfatosArticulos, ArrayList<Modelo> articulos) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
+         modeloTabla.addColumn("Detalle");
         modeloTabla.addColumn(" Articulo");
         modeloTabla.addColumn(" Tipo de medida");
         modeloTabla.addColumn(" Cantidad ");
 
-        for (Modelo modelo : manosSulfatosArticulos) {
-            ManoSulfatoArticulo manoSulfatoArticulo = (ManoSulfatoArticulo) modelo;
-            Object[] fila = new Object[3];
-            fila[0] = manoSulfatoArticulo.getArticulo();
-            fila[1] = manoSulfatoArticulo.getIdMedida();
-            fila[2] = manoSulfatoArticulo.getCantidad();
+        for (ManoSulfatoArticulo manoSulfatoArticulo : manosSulfatosArticulos) {
+            Object[] fila = new Object[4];
+            fila[0] = manoSulfatoArticulo.Id;
+            fila[1] = manoSulfatoArticulo.getArticulo();
+            fila[2] = manoSulfatoArticulo.getIdMedida();
+            fila[3] = manoSulfatoArticulo.getCantidad();
 
             modeloTabla.addRow(fila);
         }
 
         jTableManoSulfatoArticulo.setModel(modeloTabla);
-
+        
         jComboBoxArticulo.removeAllItems();
-
         for (Modelo modelos : articulos) {
             Articulo articulo = (Articulo) modelos;
             jComboBoxArticulo.addItem(articulo);
-
         }
-
     }
-
+    
     public void actualizarView(ManoSulfatoArticulo manoSulfatoArticulo) {
         jComboBoxArticulo.setSelectedItem(manoSulfatoArticulo.getArticulo());
         jComboBoxtipodeMedida.setSelectedItem(manoSulfatoArticulo.getIdMedida());
@@ -239,33 +291,35 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         boolean esNuevaManoSulfato = manoSulfato.Id == 0;
 
         if (esNuevaManoSulfato) {
-
+            
             jLabelArticulos.setText("NUEVA MANOSULFATO");
             jButtonNuevo.setVisible(true);
             jPanelButon.setVisible(true);
             jTextCantida.setEditable(true);
+          
 
         } else {
 
             jLabelArticulos.setText("ManoSulfato " + manoSulfato.Id);
             jPanelButon.setVisible(false);
             jTextCantida.setEditable(false);
-
         }
-
     }
     
-     private void guardarActualizar() throws Exception {
-        Articulo nombreArticulo =(Articulo) jComboBoxArticulo.getSelectedItem();
-        TipoMedida tipoMedida = (TipoMedida) jComboBoxtipodeMedida.getSelectedItem();
-        Double  cantidad = Double.valueOf(jTextCantida.getText());
-
-        controller.guardarActualizar(cantidad, tipoMedida,nombreArticulo );
-        controller.cargar();
+     private void guardar() throws Exception {
+       controller.guardar();
+   
     }
    private void nuevo() throws Exception {
         controller.nuevo();
     }
+    private void eliminar() throws Exception {
+        controller.eliminar();
+        controller.cargar();
+    }
+   public void mostrarError(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminar;
@@ -284,5 +338,9 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
     private javax.swing.JTable jTableManoSulfatoArticulo;
     private javax.swing.JTextField jTextCantida;
     // End of variables declaration//GEN-END:variables
+
+   
+
+    
 
 }

@@ -185,7 +185,7 @@ public class ArticuloView extends javax.swing.JFrame {
                     .addComponent(jButtonNuevoAr)
                     .addComponent(jButtonGuardarAr)
                     .addComponent(jButtonEliminarAr))
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanelArticuloLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextCantidadArticulo, jTextIDArticulo, jTextNombreArticulo1});
@@ -198,9 +198,7 @@ public class ArticuloView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jPanelArticulo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanelArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -231,7 +229,7 @@ public class ArticuloView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonGuardarArActionPerformed
 
     private void jTableArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableArticuloMouseClicked
-        int filaSeleccionada = jTableArticulo.rowAtPoint(evt.getPoint());
+        int filaSeleccionada = jTableArticulo.getSelectedRow();
         controller.seleccionar((int) jTableArticulo.getValueAt(filaSeleccionada, 0));
     }//GEN-LAST:event_jTableArticuloMouseClicked
 

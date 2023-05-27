@@ -43,6 +43,12 @@ public class CompraArticulo extends Modelo {
         return idArticulo;
     }
 
+    public void setIdArticulo(int idArticulo) {
+        this.idArticulo = idArticulo;
+        setChanged();
+        notifyObservers(this);
+    }
+
     public Articulo getArticulo() {
         return articulo;
     }
@@ -67,26 +73,20 @@ public class CompraArticulo extends Modelo {
         return cantidad;
     }
 
-    public void setPrecio(double precio) {
-        this.precio = precio;
-        setChanged();
-        notifyObservers(this);
-    }
-
     public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
         setChanged();
         notifyObservers(this);
     }
 
-    public void setIdArticulo(int idArticulo) {
-        this.idArticulo = idArticulo;
-        setChanged();
-        notifyObservers(this);
-    }
-
     public double getPrecio() {
         return precio;
+    }
+
+    public void setPrecio(double precio) {
+        this.precio = precio;
+        setChanged();
+        notifyObservers(this);
     }
 
     @Override
@@ -100,25 +100,26 @@ public class CompraArticulo extends Modelo {
 
         return Id + "," + idCompra + "," + articulo.Id + "," + cantidad + "," + precio;
     }
+    /**
+     * Compara este objeto CompraArticulo con otro objeto para determinar si son iguales.
+     *
+     * @param o el objeto a CompraArticulo con esta instancia de CompraArticulo.
+     * @return true si los objetos son iguales, false de lo contrario.
+     */
 
     @Override
     public boolean equals(Object o) {
 
-        // If the object is compared with itself then return true
         if (o == this) {
             return true;
         }
 
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
         if (!(o instanceof CompraArticulo)) {
             return false;
         }
 
-        // typecast o to Complex so that we can compare data members
         CompraArticulo c = (CompraArticulo) o;
 
-        // Compare the data members and return accordingly
         return Id == c.Id;
     }
 }

@@ -38,7 +38,7 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
 
             Compras.add(compra);
         }
-        conexion.close();
+
         return Compras;
     }
 
@@ -76,7 +76,7 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
 
             PreparedStatement statement2 = conexion.prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
             statement2.setInt(1, compra.Id);
-            statement2.setInt(2, articulo.getIdArticulo());
+            statement2.setInt(2, articulo.getArticulo().Id);
             statement2.setDouble(3, articulo.getCantidad());
             statement2.setDouble(4, articulo.getPrecio());
             statement2.executeUpdate();
@@ -88,8 +88,15 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
                     throw new SQLException("Error al obtener el id de la compra");
                 }
             }
+
+            String sql3 = "UPDATE Articulo SET Cantidad = Cantidad + ? WHERE IdArticulo = ?";
+            PreparedStatement statement3 = conexion.prepareStatement(sql3);
+            statement3.setDouble(1, articulo.getCantidad());
+            statement3.setInt(2, articulo.getArticulo().Id);
+            statement3.executeUpdate();
+
         }
-        conexion.close();
+
         return modelo;
     }
 
@@ -121,11 +128,17 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
         PreparedStatement statement2 = conexion.prepareStatement(sql2);
         statement2.setInt(1, modelo.Id);
         statement2.executeUpdate();
-        conexion.close();
     }
-
-    public ArrayList<Modelo> ObtenerArticulos(int idCompra) throws SQLException, ClassNotFoundException {
-        ArrayList<Modelo> compraArticulos = new ArrayList<>();
+    /**
+     * Obtiene una lista de objetos CompraArticulo asociados a una compra específica.
+     *
+     * @param idCompra el ID de la compra para la cual se desean obtener los artículos.
+     * @return una lista de objetos CompraArticulo asociados a la compra especificada.
+     * @throws SQLException si ocurre algún error al interactuar con la base de datos.
+     * @throws ClassNotFoundException si no se encuentra la clase de conexión a la base de datos.
+     */
+    public ArrayList<CompraArticulo> obtenerArticulos(int idCompra) throws SQLException, ClassNotFoundException {
+        ArrayList<CompraArticulo> compraArticulos = new ArrayList<>();
 
         Connection conexion = BaseDatosConexion.obtener();
         String sql = "SELECT IdCompraArticulo, IdCompra, Articulo.IdArticulo, " +
@@ -149,7 +162,6 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
             compraArticulos.add(compraArticulo);
         }
 
-        conexion.close();
         return compraArticulos;
     }
 

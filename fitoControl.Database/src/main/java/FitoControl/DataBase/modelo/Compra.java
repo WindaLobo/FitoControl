@@ -25,6 +25,9 @@ public class Compra extends Modelo {
         return fecha;
     }
 
+    public void setArticulos(ArrayList<CompraArticulo> articulos){
+        this.articulos = articulos;
+    }
 
     public ArrayList<CompraArticulo> getArticulos() {
         return articulos;
@@ -64,25 +67,27 @@ public class Compra extends Modelo {
         return Id + "," + formatoFecha.format(fecha);
     }
 
+    /**
+     * Compara este objeto Compra con otro objeto para determinar si son iguales.
+     *
+     * @param o el objeto a comparar con esta instancia de Compra.
+     * @return true si los objetos son iguales, false de lo contrario.
+     */
 
     @Override
     public boolean equals(Object o) {
 
-        // If the object is compared with itself then return true
+
         if (o == this) {
             return true;
         }
 
-        /* Check if o is an instance of Complex or not
-          "null instanceof [type]" also returns false */
         if (!(o instanceof Compra)) {
             return false;
         }
 
-        // typecast o to Complex so that we can compare data members
         Compra c = (Compra) o;
 
-        // Compare the data members and return accordingly
         return Id == c.Id;
     }
 }

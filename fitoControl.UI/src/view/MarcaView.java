@@ -12,7 +12,7 @@ import javax.swing.table.DefaultTableModel;
 public class MarcaView extends javax.swing.JFrame {
 
     private final MarcaController controller;
-    
+
     public MarcaView() throws SQLException, ClassNotFoundException {
         initComponents();
         this.setLocationRelativeTo(this);
@@ -21,6 +21,7 @@ public class MarcaView extends javax.swing.JFrame {
         controller.cargar();
         controller.nuevo();
     }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -36,6 +37,7 @@ public class MarcaView extends javax.swing.JFrame {
         jButtonEliminar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableMarcas = new javax.swing.JTable();
+        jButton1 = new javax.swing.JButton();
 
         setResizable(false);
 
@@ -86,6 +88,8 @@ public class MarcaView extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableMarcas);
 
+        jButton1.setText("Buscar");
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -100,7 +104,7 @@ public class MarcaView extends javax.swing.JFrame {
                         .addComponent(jButtonGuardar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButtonEliminar)
-                        .addGap(0, 18, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -110,7 +114,10 @@ public class MarcaView extends javax.swing.JFrame {
                                         .addGap(55, 55, 55)
                                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(jTextID, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(37, 37, 37)
+                                                .addComponent(jButton1))))
                                     .addComponent(jLabelIDMarcas)
                                     .addComponent(jLabelMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE))
@@ -132,7 +139,8 @@ public class MarcaView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelNombre)
-                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGap(34, 34, 34)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -140,7 +148,7 @@ public class MarcaView extends javax.swing.JFrame {
                     .addComponent(jButtonEliminar)
                     .addComponent(jButtonGuardar)
                     .addComponent(jButtonNuevo))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -151,9 +159,7 @@ public class MarcaView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 36, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -195,7 +201,7 @@ public class MarcaView extends javax.swing.JFrame {
         DefaultTableModel modeloTabla = new DefaultTableModel();
         modeloTabla.addColumn("ID");
         modeloTabla.addColumn("Nombre");
-        
+
         for (Modelo modelo : marcas) {
             Marca marca = (Marca) modelo;
             Object[] fila = new Object[2];
@@ -203,11 +209,10 @@ public class MarcaView extends javax.swing.JFrame {
             fila[1] = marca.getNombre();
             modeloTabla.addRow(fila);
         }
-        
 
         jTableMarcas.setModel(modeloTabla);
- 
-     }
+
+    }
 
     public void actualizarView(Marca marca) {
         jTextID.setText(String.valueOf(marca.Id));
@@ -222,12 +227,14 @@ public class MarcaView extends javax.swing.JFrame {
     private void nuevo() throws Exception {
         controller.nuevo();
     }
+
     private void eliminar() throws Exception {
         controller.eliminar();
         controller.cargar();
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonEliminar;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonNuevo;
