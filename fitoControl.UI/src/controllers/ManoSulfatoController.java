@@ -1,6 +1,6 @@
 package controllers;
 
-import FitoControl.DataBase.BaseDatosRepositorio.ManoSulfatoBaseDeDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.ManoSulfatoBaseDeDatosRepositorio;
 import FitoControl.DataBase.modelo.ManoSulfato;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;
@@ -41,12 +41,10 @@ public class ManoSulfatoController {
         manoSulfatoSeleccionada = new ManoSulfato();
         manoSulfatoSeleccionada.setFecha(null);
         abrirArticulosView();
-
     }
 
     public void eliminar() throws Exception {
         manoSulfatoReposiorio.eliminar(manoSulfatoSeleccionada);
-        nuevo();
     }
 
     private void abrirArticulosView() throws SQLException, ClassNotFoundException, Exception {

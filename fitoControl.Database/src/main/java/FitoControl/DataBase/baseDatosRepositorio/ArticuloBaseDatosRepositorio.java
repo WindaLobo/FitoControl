@@ -1,9 +1,6 @@
-package FitoControl.DataBase.BaseDatosRepositorio;
+package FitoControl.DataBase.baseDatosRepositorio;
 
-import FitoControl.DataBase.modelo.Articulo;
-import FitoControl.DataBase.modelo.Marca;
-import FitoControl.DataBase.modelo.Modelo;
-import FitoControl.DataBase.modelo.TipoMedida;
+import FitoControl.DataBase.modelo.*;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -119,5 +116,17 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         PreparedStatement statement = conexion.prepareStatement(sql);
         statement.setInt(1, modelo.Id);
         statement.executeUpdate();
+    }
+
+    public void actualizar(ArrayList<Articulo> articulos) throws SQLException, ClassNotFoundException {
+        Connection conexion = BaseDatosConexion.obtener();
+
+        for (Articulo articulo : articulos) {
+            String sql = "UPDATE Articulo SET Cantidad = ? WHERE IdArticulo = ?";
+            PreparedStatement statement = conexion.prepareStatement(sql);
+            statement.setDouble(1, articulo.getCantidad());
+            statement.setInt(2, articulo.Id);
+            statement.executeUpdate();
+        }
     }
 }

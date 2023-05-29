@@ -1,4 +1,4 @@
-package FitoControl.DataBase.BaseDatosRepositorio;
+package FitoControl.DataBase.baseDatosRepositorio;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

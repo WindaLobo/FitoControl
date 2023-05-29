@@ -15,8 +15,6 @@ public class Menu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         JMarca = new javax.swing.JMenu();
         JArticulo = new javax.swing.JMenu();
@@ -24,21 +22,7 @@ public class Menu extends javax.swing.JFrame {
         jManoSulfato = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(728, 455));
         setResizable(false);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 479, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagen/viñas.jpg"))); // NOI18N
 
         jMenuBar1.setBorder(null);
 
@@ -46,8 +30,8 @@ public class Menu extends javax.swing.JFrame {
         JMarca.setToolTipText("");
         JMarca.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JMarca.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JMarcaMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JMarcaMousePressed(evt);
             }
         });
         jMenuBar1.add(JMarca);
@@ -55,8 +39,8 @@ public class Menu extends javax.swing.JFrame {
         JArticulo.setText("Articulos");
         JArticulo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         JArticulo.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                JArticuloMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                JArticuloMousePressed(evt);
             }
         });
         jMenuBar1.add(JArticulo);
@@ -64,8 +48,8 @@ public class Menu extends javax.swing.JFrame {
         jCompra.setText("Compras");
         jCompra.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jCompra.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jCompraMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jCompraMousePressed(evt);
             }
         });
         jMenuBar1.add(jCompra);
@@ -73,8 +57,8 @@ public class Menu extends javax.swing.JFrame {
         jManoSulfato.setText("ManosSulfato");
         jManoSulfato.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jManoSulfato.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jManoSulfatoMouseClicked(evt);
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jManoSulfatoMousePressed(evt);
             }
         });
         jMenuBar1.add(jManoSulfato);
@@ -85,57 +69,37 @@ public class Menu extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 25, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addGap(0, 728, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .addGap(0, 428, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void JMarcaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMarcaMouseClicked
-      
+    private void jCompraMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCompraMousePressed
+             
         try {
-            MarcaView marca = new MarcaView();
-            marca.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_JMarcaMouseClicked
-
-    private void JArticuloMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JArticuloMouseClicked
-        ArticuloView articulo = null;
-        try {
-            articulo = new ArticuloView();
-            articulo.setVisible(true);
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_JArticuloMouseClicked
-
-    private void jCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jCompraMouseClicked
-            CompraView compra = null;
-        try {
-            compra = new CompraView();
+          CompraView  compra = new CompraView();
             compra.setVisible(true);
         } catch (SQLException | ClassNotFoundException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jCompraMouseClicked
+    }//GEN-LAST:event_jCompraMousePressed
 
-    private void jManoSulfatoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jManoSulfatoMouseClicked
-        ManoSulfatoView manoSulfato =null;
+    private void JArticuloMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JArticuloMousePressed
+         try {
+          ArticuloView  articulo = new ArticuloView();
+            articulo.setVisible(true);
+        } catch (ClassNotFoundException | SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JArticuloMousePressed
+
+    private void jManoSulfatoMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jManoSulfatoMousePressed
+         ManoSulfatoView manoSulfato =null;
         try {
             manoSulfato = new ManoSulfatoView();
             manoSulfato.setVisible(true);
@@ -144,16 +108,25 @@ public class Menu extends javax.swing.JFrame {
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_jManoSulfatoMouseClicked
+    }//GEN-LAST:event_jManoSulfatoMousePressed
+
+    private void JMarcaMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JMarcaMousePressed
+        try {
+            MarcaView marca = new MarcaView();
+            marca.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_JMarcaMousePressed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu JArticulo;
     private javax.swing.JMenu JMarca;
     private javax.swing.JMenu jCompra;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jManoSulfato;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,4 +1,4 @@
-package FitoControl.DataBase.BaseDatosRepositorio;
+package FitoControl.DataBase.baseDatosRepositorio;
 
 import FitoControl.DataBase.modelo.Modelo;
 

@@ -1,7 +1,7 @@
 package controllers;
 
-import FitoControl.DataBase.BaseDatosRepositorio.ArticuloBaseDatosRepositorio;
-import FitoControl.DataBase.BaseDatosRepositorio.CompraBaseDeDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.ArticuloBaseDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.CompraBaseDeDatosRepositorio;
 import FitoControl.DataBase.modelo.Articulo;
 import FitoControl.DataBase.modelo.Compra;
 import FitoControl.DataBase.modelo.CompraArticulo;
@@ -74,14 +74,16 @@ public class CompraArticuloController {
     }
 
     public void guardar() throws Exception {
-           view.mostrarError("Seguro que desea guardarlo?");
-        compra.setFecha(Date.from(Instant.now()));
-        CompraArticuloReposiorio.añadir(compra);
-        compraController.cargar();
+        if (view.pedirConfirmacion("Seguro que desea guardarla?") == 0) {
+            compra.setFecha(Date.from(Instant.now()));
+            CompraArticuloReposiorio.añadir(compra);
+            compraController.cargar();
+            view.cerrar();
+        }
     }
 
     public void añadir(Articulo articulo, double cantidad, double precio) {
-     
+
         CompraArticulo detalle = new CompraArticulo(getNextId(), articulo, cantidad, precio);
         compra.añadirArticulo(detalle);
         CompraArticuloSeleccionada = detalle;
@@ -117,6 +119,5 @@ public class CompraArticuloController {
 
         return nextId;
     }
-  
 
 }

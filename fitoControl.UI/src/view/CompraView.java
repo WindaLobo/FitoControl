@@ -114,10 +114,8 @@ public class CompraView extends javax.swing.JFrame {
 
     private void jTableCompraMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableCompraMouseClicked
 
-      
-
         try {
-              int filaSeleccionada = jTableCompra.getSelectedRow();
+            int filaSeleccionada = jTableCompra.getSelectedRow();
             controller.seleccionar((int) jTableCompra.getValueAt(filaSeleccionada, 0));
         } catch (SQLException ex) {
             Logger.getLogger(CompraView.class.getName()).log(Level.SEVERE, null, ex);
@@ -154,9 +152,8 @@ public class CompraView extends javax.swing.JFrame {
             Compra compra = (Compra) modelo;
             Object[] fila = new Object[2];
             fila[0] = compra.Id;
-            Date fechaActual = Date.from(Instant.now());
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String fechaFormateada = formatoFecha.format(fechaActual);
+            String fechaFormateada = formatoFecha.format(compra.getFecha());
             fila[1] = fechaFormateada;
             modeloTabla.addRow(fila);
         }
@@ -171,7 +168,7 @@ public class CompraView extends javax.swing.JFrame {
     private void eliminar() throws Exception {
         controller.eliminar();
         controller.cargar();
-        
+
     }
 
 

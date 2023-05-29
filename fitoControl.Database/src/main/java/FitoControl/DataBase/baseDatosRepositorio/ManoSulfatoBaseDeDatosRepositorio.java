@@ -1,4 +1,4 @@
-package FitoControl.DataBase.BaseDatosRepositorio;
+package FitoControl.DataBase.baseDatosRepositorio;
 
 import FitoControl.DataBase.modelo.*;
 
@@ -57,7 +57,7 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
         String sql1 = "INSERT INTO manoSulfato (fecha)"
                 + "VALUES (?)";
         PreparedStatement statement1 = conexion.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-        statement1.setDate(1, new java.sql.Date(manoSulfato.getFecha().getTime()));
+        statement1.setTimestamp(1, new Timestamp(manoSulfato.getFecha().getTime()));
         statement1.executeUpdate();
 
         //Funcion utilizada para obtener el id autogenerado en base de datos y se asigna al id del articulo
@@ -87,13 +87,6 @@ public class ManoSulfatoBaseDeDatosRepositorio implements IBaseDatosRepositorio 
                     throw new SQLException("Error al obtener el id de la manosulfato");
                 }
             }
-
-
-            String sql3 = "UPDATE Articulo SET Cantidad = Cantidad - ? WHERE IdArticulo = ?";
-            PreparedStatement statement3 = conexion.prepareStatement(sql3);
-            statement3.setDouble(1, articulo.getCantidad());
-            statement3.setInt(2, articulo.getArticulo().Id);
-            statement3.executeUpdate();
         }
 
         return modelo;

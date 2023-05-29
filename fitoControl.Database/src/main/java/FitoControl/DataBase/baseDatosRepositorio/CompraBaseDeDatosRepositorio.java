@@ -1,4 +1,4 @@
-package FitoControl.DataBase.BaseDatosRepositorio;
+package FitoControl.DataBase.baseDatosRepositorio;
 
 import FitoControl.DataBase.modelo.Articulo;
 import FitoControl.DataBase.modelo.Compra;
@@ -59,7 +59,7 @@ public class CompraBaseDeDatosRepositorio implements IBaseDatosRepositorio {
         String sql1 = "INSERT INTO Compra (fecha)"
                 + "VALUES (?)";
         PreparedStatement statement1 = conexion.prepareStatement(sql1, Statement.RETURN_GENERATED_KEYS);
-        statement1.setDate(1, new java.sql.Date(compra.getFecha().getTime()));
+        statement1.setTimestamp(1, new Timestamp(compra.getFecha().getTime()));
         statement1.executeUpdate();
         //Funcion utilizada para obtener el id autogenerado en base de datos y se asigna al id del articulo
         try (ResultSet generatedKeys = statement1.getGeneratedKeys()) {

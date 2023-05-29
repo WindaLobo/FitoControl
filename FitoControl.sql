@@ -40,7 +40,7 @@ CREATE TABLE Articulo
 CREATE TABLE Compra 
     ( 
      IdCompra SERIAL NOT NULL, 
-     Fecha Date, 
+     Fecha timestamp, 
      PRIMARY KEY ( IdCompra )     
    );
 
@@ -48,7 +48,7 @@ CREATE TABLE Compra
 CREATE TABLE ManoSulfato 
     ( 
      IdManoSulfato SERIAL NOT NULL, 
-     Fecha Date NOT NULL,
+     Fecha timestamp NOT NULL,
      PRIMARY KEY ( IdManoSulfato )
      
   );

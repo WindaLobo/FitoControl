@@ -1,6 +1,6 @@
 package controllers;
 
-import FitoControl.DataBase.BaseDatosRepositorio.MarcaBaseDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.MarcaBaseDatosRepositorio;
 import FitoControl.DataBase.modelo.Marca;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;

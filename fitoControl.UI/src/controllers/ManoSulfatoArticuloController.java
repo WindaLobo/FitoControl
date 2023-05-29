@@ -1,13 +1,15 @@
 package controllers;
 
-import FitoControl.DataBase.BaseDatosRepositorio.ArticuloBaseDatosRepositorio;
-import FitoControl.DataBase.BaseDatosRepositorio.ManoSulfatoBaseDeDatosRepositorio;
-import FitoControl.DataBase.BaseDatosRepositorio.TipoMedidaUtil;
+import FitoControl.DataBase.baseDatosRepositorio.ArticuloBaseDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.ManoSulfatoBaseDeDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.TipoMedidaUtil;
 import FitoControl.DataBase.modelo.Articulo;
 import FitoControl.DataBase.modelo.ManoSulfato;
 import FitoControl.DataBase.modelo.ManoSulfatoArticulo;
 import FitoControl.DataBase.modelo.Modelo;
 import FitoControl.DataBase.modelo.TipoMedida;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.sql.SQLException;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -49,8 +51,8 @@ public class ManoSulfatoArticuloController {
         }
 
         view.setViewMode(manoSulfato);
-        view.cargar(manoSulfato.getArticulos(), articulos);
-
+        view.cargar(manoSulfato.getArticulos());
+        view.cargarProductos(articulos);
     }
 
     public void seleccionar(int id) {
@@ -66,38 +68,83 @@ public class ManoSulfatoArticuloController {
     public void nuevo() {
         manoSulfatoSeleccionada = new ManoSulfatoArticulo();
         manoSulfatoSeleccionada.addObserver(observer);
-        manoSulfatoSeleccionada.setCantidad(0);
-        manoSulfatoSeleccionada.setArticulo(new Articulo());
-        manoSulfatoSeleccionada.setIdMedida(null);
-
+        manoSulfatoSeleccionada.setArticulo((Articulo) articulos.get(0));
     }
 
     public void guardar() throws SQLException, Exception {
-        manoSulfato.setFecha(Date.from(Instant.now()));
-        manoSulfatoReposiorio.añadir(manoSulfato);
-        manoSulfatoController.cargar();
-
+        if (view.pedirConfirmacion("Seguro que desea guardarla?") == 0) {
+            manoSulfato.setFecha(Date.from(Instant.now()));
+            ArrayList<Articulo> articulosRecalculados = recalcularCantidadProductos();
+            manoSulfatoReposiorio.añadir(manoSulfato);
+            articuloReposiorio.actualizar(articulosRecalculados);
+            manoSulfatoController.cargar();
+            view.cerrar();
+        }
     }
 
     public void eliminar() throws Exception {
         manoSulfato.getArticulos().remove(manoSulfatoSeleccionada);
-        view.cargar(manoSulfato.getArticulos(), articulos);
+        view.cargar(manoSulfato.getArticulos());
         nuevo();
     }
 
     public void añadir(Articulo articulo, TipoMedida idMedida, double cantidad) {
 
-         TipoMedidaUtil.obtenerCantidadAjustadaATipoMedida(articulo, idMedida, cantidad);
+        double cantidadAjustada = 0;
 
-        if (articulo.getCantidad() - cantidad < 0) {
-            view.mostrarError("No puedes aplicar mano sulfato por que no tienes suficiente stock");
+        if (cantidad == 0) {
+            view.mostrarError("La cantidad no puede ser 0.");
+            return;
+        }
+
+        if (productoExiste(articulo)) {
+            view.mostrarError("Este articulo ya esta incluido en la mano de sulfato actual.");
+            return;
+        }
+
+        cantidadAjustada = TipoMedidaUtil.obtenerCantidadAjustadaATipoMedida(articulo, idMedida, cantidad);
+
+        if (articulo.getCantidad() - cantidadAjustada < 0) {
+            view.mostrarError("No puedes aplicar mano sulfato por que no tienes suficiente stock.");
         } else {
             ManoSulfatoArticulo detalle = new ManoSulfatoArticulo(getNextId(), articulo, idMedida, cantidad);
             manoSulfato.añadirArticulo(detalle);
             manoSulfatoSeleccionada = detalle;
             manoSulfatoSeleccionada.addObserver(observer);
-            view.cargar(manoSulfato.getArticulos(), articulos);
+            view.cargar(manoSulfato.getArticulos());
         }
+    }
+
+    private ArrayList<Articulo> recalcularCantidadProductos() {
+
+        ArrayList<Articulo> articulosRecalculados = new ArrayList<Articulo>();
+
+        for (ManoSulfatoArticulo detalle : manoSulfato.getArticulos()) {
+            Articulo articulo = detalle.getArticulo();
+
+            double cantidadAjustada
+                    = TipoMedidaUtil.obtenerCantidadAjustadaATipoMedida(articulo,
+                            detalle.getIdMedida(), detalle.getCantidad());
+
+            BigDecimal value = new BigDecimal(articulo.getCantidad() - cantidadAjustada)
+                    .setScale(2, RoundingMode.HALF_UP);
+
+            articulo.setCantidad(value.doubleValue());
+
+            articulosRecalculados.add(articulo);
+        }
+
+        return articulosRecalculados;
+    }
+
+    private boolean productoExiste(Articulo articuloAñadir) {
+        for (ManoSulfatoArticulo articulo : manoSulfato.getArticulos()) {
+            if (articulo.getArticulo().Id == articuloAñadir.Id) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private int getNextId() {

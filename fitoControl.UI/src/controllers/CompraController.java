@@ -1,6 +1,6 @@
 package controllers;
 
-import FitoControl.DataBase.BaseDatosRepositorio.CompraBaseDeDatosRepositorio;
+import FitoControl.DataBase.baseDatosRepositorio.CompraBaseDeDatosRepositorio;
 import FitoControl.DataBase.modelo.Compra;
 import FitoControl.DataBase.modelo.Modelo;
 import java.sql.SQLException;
@@ -46,7 +46,6 @@ public class CompraController {
 
     public void eliminar() throws Exception {
         compraReposiorio.eliminar(compraSeleccionada);
-        nuevo();
     }
    
 

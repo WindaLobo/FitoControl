@@ -178,9 +178,8 @@ public class ManoSulfatoView extends javax.swing.JFrame {
             Object[] fila = new Object[2];
             fila[0] = manoSulfato.Id;
             
-            Date fechaActual = Date.from(Instant.now());
             SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            String fechaFormateada = formatoFecha.format(fechaActual);
+            String fechaFormateada = formatoFecha.format(manoSulfato.getFecha());
 
             fila[1] = fechaFormateada;
             modeloTabla.addRow(fila);

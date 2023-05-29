@@ -1,4 +1,4 @@
-package FitoControl.DataBase.FicherosRepositorio;
+package FitoControl.DataBase.ficherosRepositorio;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

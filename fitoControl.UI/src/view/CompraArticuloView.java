@@ -239,10 +239,10 @@ public class CompraArticuloView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-       
+
         try {
             guardar();
-                        
+
         } catch (Exception ex) {
             Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -321,25 +321,27 @@ public class CompraArticuloView extends javax.swing.JFrame {
 
     }
 
+    public void cerrar() {
+        this.setVisible(false);
+    }
+
     private void guardar() throws Exception {
         controller.guardar();
-        this.setVisible(false);
     }
 
     private void nuevo() throws Exception {
         controller.nuevo();
     }
-    
+
     public void setTotal(double total) {
         jTextFieldTotal.setText(String.valueOf(total));
     }
-    public void mostrarError(String mensaje ) {
-      
-      JOptionPane.showConfirmDialog(null, mensaje,
-                "YES_NO_OPTION", JOptionPane.YES_NO_OPTION,
+
+    public int pedirConfirmacion(String mensaje) {
+        int respuesta = JOptionPane.showConfirmDialog(null, mensaje,
+                "Crear compra", JOptionPane.YES_NO_OPTION,
                 JOptionPane.INFORMATION_MESSAGE);
-      
-     
+        return respuesta;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -361,9 +363,5 @@ public class CompraArticuloView extends javax.swing.JFrame {
     private javax.swing.JTextField jTextFieldTotal;
     private javax.swing.JTextField jTextPrecio;
     // End of variables declaration//GEN-END:variables
-
-    
-
-
 
 }

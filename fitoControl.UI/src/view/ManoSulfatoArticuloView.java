@@ -17,20 +17,13 @@ import javax.swing.table.DefaultTableModel;
 public class ManoSulfatoArticuloView extends javax.swing.JFrame {
 
     private final ManoSulfatoArticuloController controller;
- 
 
-    public ManoSulfatoArticuloView(ManoSulfatoController manoSulfatoController,ManoSulfato manoSulfato)throws SQLException, ClassNotFoundException, Exception {
+    public ManoSulfatoArticuloView(ManoSulfatoController manoSulfatoController, ManoSulfato manoSulfato) throws SQLException, ClassNotFoundException, Exception {
         initComponents();
         this.setLocationRelativeTo(this);
 
-        controller = new ManoSulfatoArticuloController(manoSulfatoController,this, manoSulfato);
+        controller = new ManoSulfatoArticuloController(manoSulfatoController, this, manoSulfato);
         controller.cargar();
-       
-        jComboBoxtipodeMedida.addItem(TipoMedida.Centilitros);
-        jComboBoxtipodeMedida.addItem(TipoMedida.Gramos);
-        jComboBoxtipodeMedida.addItem(TipoMedida.Kilos);
-        jComboBoxtipodeMedida.addItem(TipoMedida.Litros);
-        jComboBoxtipodeMedida.addItem(TipoMedida.Mililitros);
     }
 
     @SuppressWarnings("unchecked")
@@ -150,6 +143,12 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jComboBoxArticulo.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jComboBoxArticuloItemStateChanged(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanelMAnoSulfatoArticuloLayout = new javax.swing.GroupLayout(jPanelMAnoSulfatoArticulo);
         jPanelMAnoSulfatoArticulo.setLayout(jPanelMAnoSulfatoArticuloLayout);
         jPanelMAnoSulfatoArticuloLayout.setHorizontalGroup(
@@ -221,11 +220,9 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
     }//GEN-LAST:event_jTableManoSulfatoArticuloMouseClicked
 
     private void jButtonañadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonañadirActionPerformed
-         double cantidad = Double.parseDouble(jTextCantida.getText());
-         TipoMedida  tipoMedida = (TipoMedida)jComboBoxtipodeMedida.getSelectedItem();
-        controller.añadir((Articulo) jComboBoxArticulo.getSelectedItem(),tipoMedida, cantidad);
-           
-        
+        double cantidad = Double.parseDouble(jTextCantida.getText());
+        TipoMedida tipoMedida = (TipoMedida) jComboBoxtipodeMedida.getSelectedItem();
+        controller.añadir((Articulo) jComboBoxArticulo.getSelectedItem(), tipoMedida, cantidad);
     }//GEN-LAST:event_jButtonañadirActionPerformed
 
     private void jButtonNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonNuevoActionPerformed
@@ -245,17 +242,35 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonEliminarActionPerformed
 
     private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
-       try {
+        try {
             guardar();
         } catch (Exception ex) {
             Logger.getLogger(CompraArticuloView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-    public void cargar(ArrayList<ManoSulfatoArticulo> manosSulfatosArticulos, ArrayList<Modelo> articulos) {
+    private void jComboBoxArticuloItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jComboBoxArticuloItemStateChanged
+        Articulo articulo = (Articulo) jComboBoxArticulo.getSelectedItem();
+        cargarTiposMedida(articulo.getTipoMedida());
+    }//GEN-LAST:event_jComboBoxArticuloItemStateChanged
+
+    private void cargarTiposMedida(TipoMedida tipoMedida) {
+        jComboBoxtipodeMedida.removeAllItems();
+
+        if (tipoMedida == TipoMedida.Kilos || tipoMedida == TipoMedida.Gramos) {
+            jComboBoxtipodeMedida.addItem(TipoMedida.Gramos);
+            jComboBoxtipodeMedida.addItem(TipoMedida.Kilos);
+        } else {
+            jComboBoxtipodeMedida.addItem(TipoMedida.Centilitros);
+            jComboBoxtipodeMedida.addItem(TipoMedida.Litros);
+            jComboBoxtipodeMedida.addItem(TipoMedida.Mililitros);
+        }
+    }
+
+    public void cargar(ArrayList<ManoSulfatoArticulo> manosSulfatosArticulos) {
 
         DefaultTableModel modeloTabla = new DefaultTableModel();
-         modeloTabla.addColumn("Detalle");
+        modeloTabla.addColumn("Detalle");
         modeloTabla.addColumn(" Articulo");
         modeloTabla.addColumn(" Tipo de medida");
         modeloTabla.addColumn(" Cantidad ");
@@ -271,14 +286,17 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         }
 
         jTableManoSulfatoArticulo.setModel(modeloTabla);
-        
+
+    }
+
+    public void cargarProductos(ArrayList<Modelo> articulos) {
         jComboBoxArticulo.removeAllItems();
         for (Modelo modelos : articulos) {
             Articulo articulo = (Articulo) modelos;
             jComboBoxArticulo.addItem(articulo);
         }
     }
-    
+
     public void actualizarView(ManoSulfatoArticulo manoSulfatoArticulo) {
         jComboBoxArticulo.setSelectedItem(manoSulfatoArticulo.getArticulo());
         jComboBoxtipodeMedida.setSelectedItem(manoSulfatoArticulo.getIdMedida());
@@ -291,12 +309,11 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
         boolean esNuevaManoSulfato = manoSulfato.Id == 0;
 
         if (esNuevaManoSulfato) {
-            
+
             jLabelArticulos.setText("NUEVA MANOSULFATO");
             jButtonNuevo.setVisible(true);
             jPanelButon.setVisible(true);
             jTextCantida.setEditable(true);
-          
 
         } else {
 
@@ -305,21 +322,33 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
             jTextCantida.setEditable(false);
         }
     }
-    
-     private void guardar() throws Exception {
-       controller.guardar();
-   
+
+    private void guardar() throws Exception {
+        controller.guardar();
     }
-   private void nuevo() throws Exception {
+
+    private void nuevo() throws Exception {
         controller.nuevo();
     }
+
     private void eliminar() throws Exception {
         controller.eliminar();
-        controller.cargar();
     }
-   public void mostrarError(String mensaje) {
+
+    public void cerrar() {
+        this.setVisible(false);
+    }
+
+    public void mostrarError(String mensaje) {
         JOptionPane.showMessageDialog(null, mensaje);
-   }
+    }
+
+    public int pedirConfirmacion(String mensaje) {
+        int respuesta = JOptionPane.showConfirmDialog(null, mensaje,
+                "Crear mano sulfato", JOptionPane.YES_NO_OPTION,
+                JOptionPane.INFORMATION_MESSAGE);
+        return respuesta;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminar;
@@ -338,9 +367,5 @@ public class ManoSulfatoArticuloView extends javax.swing.JFrame {
     private javax.swing.JTable jTableManoSulfatoArticulo;
     private javax.swing.JTextField jTextCantida;
     // End of variables declaration//GEN-END:variables
-
-   
-
-    
 
 }
