@@ -1,7 +1,7 @@
 ---
 ## Descripcion tecnica:
 
-**Aplicación para la gestión fitosanitaria en cultivos de uva.**
+Aplicación para la gestión fitosanitaria en cultivos de uva.
 
 *El objetivo principal de esta aplicación será:*
 + Gestión de marcas y productos fitosanitarios
