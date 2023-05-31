@@ -76,4 +76,23 @@ public class ArticuloController {
         nuevo();
     }
 
+    public void buscarArticuloPorNombre(String busqueda) {
+        ArrayList<Modelo> articulosEncontrados = new ArrayList<>();
+
+        if (busqueda == "") {
+            view.cargar(articulos, marcas);
+            return;
+        }
+
+        for (Modelo modelo : articulos) {
+            Articulo articulo = (Articulo) modelo;
+            if (articulo.getNombre().toLowerCase().contains(busqueda.toLowerCase()) || 
+                articulo.getMarca().getNombre().toLowerCase().contains(busqueda.toLowerCase())) {
+                articulosEncontrados.add(articulo);
+            }
+        }
+
+        view.cargar(articulosEncontrados, marcas);
+    }
+
 }

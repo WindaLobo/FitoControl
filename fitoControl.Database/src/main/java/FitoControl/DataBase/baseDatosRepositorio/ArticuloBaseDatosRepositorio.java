@@ -117,7 +117,13 @@ public class ArticuloBaseDatosRepositorio implements IBaseDatosRepositorio {
         statement.setInt(1, modelo.Id);
         statement.executeUpdate();
     }
-
+    /**
+     * Actualiza la cantidad de una lista de artículos en la base de datos.
+     *
+     * @param articulos La lista de artículos a actualizar.
+     * @throws SQLException           Si ocurre un error al ejecutar la consulta SQL.
+     * @throws ClassNotFoundException Si no se encuentra la clase del controlador de la base de datos.
+     */
     public void actualizar(ArrayList<Articulo> articulos) throws SQLException, ClassNotFoundException {
         Connection conexion = BaseDatosConexion.obtener();
 
