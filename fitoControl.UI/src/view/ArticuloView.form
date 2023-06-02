@@ -28,7 +28,7 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanelArticulo" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanelArticulo" min="-2" pref="479" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -43,41 +43,48 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
+              <Component id="jScrollPane7" alignment="0" pref="470" max="32767" attributes="0"/>
               <Group type="102" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jLabelCantidaArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelIDArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNombreArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabelNombreArticulo1" alignment="0" max="32767" attributes="0"/>
+                      <Component id="jLabelIDMarcas" alignment="0" max="32767" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jComboBoxMarcas" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextIDArticulo" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                      <Component id="jComboBoxtipodeMedida" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextCantidadArticulo" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                      <Component id="jTextNombreArticulo1" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="117" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jLabelArticulos" alignment="0" min="-2" pref="176" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabelArticulos" min="-2" pref="176" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jLabelCantidaArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelIDArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelNombreArticulo" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabelNombreArticulo1" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabelIDMarcas" alignment="0" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jTextCantidadArticulo" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="jTextNombreArticulo1" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="jTextIDArticulo" linkSize="1" alignment="0" min="-2" pref="179" max="-2" attributes="0"/>
-                              <Component id="jComboBoxtipodeMedida" min="-2" max="-2" attributes="0"/>
-                              <Component id="jComboBoxMarcas" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jTextBuscar" min="-2" pref="179" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jButtonNuevoAr" min="-2" pref="76" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButtonGuardarAr" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jButtonEliminarAr" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="jLabelIDArticulo1" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="127" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-              </Group>
-              <Component id="jScrollPane7" alignment="0" pref="470" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jButtonNuevoAr" min="-2" pref="76" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonGuardarAr" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jButtonEliminarAr" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -112,15 +119,18 @@
                       <Component id="jTextCantidadArticulo" linkSize="2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabelCantidaArticulo" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jScrollPane7" min="-2" pref="175" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane7" min="-2" pref="190" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="jLabelIDArticulo1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jTextBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonNuevoAr" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonGuardarAr" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jButtonEliminarAr" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -252,6 +262,20 @@
             <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="ArticuloView_jComboBoxMarcas"/>
             <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;Marca&gt;"/>
           </AuxValues>
+        </Component>
+        <Component class="javax.swing.JTextField" name="jTextBuscar">
+          <Events>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="jTextBuscarKeyReleased"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabelIDArticulo1">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Serif" size="12" style="1"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Buscar:"/>
+            <Property name="horizontalTextPosition" type="int" value="4"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

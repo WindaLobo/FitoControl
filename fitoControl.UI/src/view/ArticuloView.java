@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class ArticuloView extends javax.swing.JFrame {
@@ -52,6 +53,8 @@ public class ArticuloView extends javax.swing.JFrame {
         jLabelCantidaArticulo = new javax.swing.JLabel();
         jComboBoxtipodeMedida = new javax.swing.JComboBox<>();
         jComboBoxMarcas = new javax.swing.JComboBox<>();
+        jTextBuscar = new javax.swing.JTextField();
+        jLabelIDArticulo1 = new javax.swing.JLabel();
 
         setResizable(false);
 
@@ -115,39 +118,54 @@ public class ArticuloView extends javax.swing.JFrame {
         jLabelCantidaArticulo.setText("Cantidad:");
         jLabelCantidaArticulo.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
 
+        jTextBuscar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                jTextBuscarKeyReleased(evt);
+            }
+        });
+
+        jLabelIDArticulo1.setFont(new java.awt.Font("Serif", 1, 12)); // NOI18N
+        jLabelIDArticulo1.setText("Buscar:");
+        jLabelIDArticulo1.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+
         javax.swing.GroupLayout jPanelArticuloLayout = new javax.swing.GroupLayout(jPanelArticulo);
         jPanelArticulo.setLayout(jPanelArticuloLayout);
         jPanelArticuloLayout.setHorizontalGroup(
             jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
             .addGroup(jPanelArticuloLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLabelCantidaArticulo, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelIDArticulo, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombreArticulo, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelNombreArticulo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabelIDMarcas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanelArticuloLayout.createSequentialGroup()
-                        .addComponent(jLabelArticulos, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanelArticuloLayout.createSequentialGroup()
-                        .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabelCantidaArticulo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelIDArticulo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreArticulo, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelNombreArticulo1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabelIDMarcas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jComboBoxMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextIDArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jComboBoxtipodeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextNombreArticulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(117, 117, 117))
+            .addGroup(jPanelArticuloLayout.createSequentialGroup()
+                .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabelArticulos, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 176, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanelArticuloLayout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextNombreArticulo1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextIDArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxtipodeMedida, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBoxMarcas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(127, 127, 127))))
-            .addComponent(jScrollPane7, javax.swing.GroupLayout.DEFAULT_SIZE, 470, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelArticuloLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonNuevoAr, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonGuardarAr)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButtonEliminarAr)
+                            .addGroup(jPanelArticuloLayout.createSequentialGroup()
+                                .addComponent(jTextBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButtonNuevoAr, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonGuardarAr)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButtonEliminarAr))
+                            .addGroup(jPanelArticuloLayout.createSequentialGroup()
+                                .addComponent(jLabelIDArticulo1)
+                                .addGap(0, 0, Short.MAX_VALUE)))))
                 .addContainerGap())
         );
 
@@ -178,14 +196,17 @@ public class ArticuloView extends javax.swing.JFrame {
                 .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextCantidadArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabelCantidaArticulo))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane7, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabelIDArticulo1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanelArticuloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonNuevoAr)
                     .addComponent(jButtonGuardarAr)
                     .addComponent(jButtonEliminarAr))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         jPanelArticuloLayout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {jTextCantidadArticulo, jTextIDArticulo, jTextNombreArticulo1});
@@ -198,7 +219,7 @@ public class ArticuloView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanelArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanelArticulo, javax.swing.GroupLayout.PREFERRED_SIZE, 479, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -232,6 +253,11 @@ public class ArticuloView extends javax.swing.JFrame {
         int filaSeleccionada = jTableArticulo.getSelectedRow();
         controller.seleccionar((int) jTableArticulo.getValueAt(filaSeleccionada, 0));
     }//GEN-LAST:event_jTableArticuloMouseClicked
+
+    private void jTextBuscarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextBuscarKeyReleased
+        String busqueda = jTextBuscar.getText();
+        controller.buscarArticuloPorNombre(busqueda);
+    }//GEN-LAST:event_jTextBuscarKeyReleased
 
     public void cargar(ArrayList<Modelo> articulos, ArrayList<Modelo> marcas) {
 
@@ -270,7 +296,6 @@ public class ArticuloView extends javax.swing.JFrame {
         jComboBoxtipodeMedida.setSelectedItem(articulo.getTipoMedida());
         jComboBoxMarcas.setSelectedItem(articulo.getMarca());
         jTextCantidadArticulo.setText(String.valueOf(articulo.getCantidad()));
-
     }
 
     private void guardarActualizar() throws Exception {
@@ -291,6 +316,7 @@ public class ArticuloView extends javax.swing.JFrame {
         controller.cargar();
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonEliminarAr;
     private javax.swing.JButton jButtonGuardarAr;
@@ -300,12 +326,14 @@ public class ArticuloView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelArticulos;
     private javax.swing.JLabel jLabelCantidaArticulo;
     private javax.swing.JLabel jLabelIDArticulo;
+    private javax.swing.JLabel jLabelIDArticulo1;
     private javax.swing.JLabel jLabelIDMarcas;
     private javax.swing.JLabel jLabelNombreArticulo;
     private javax.swing.JLabel jLabelNombreArticulo1;
     private javax.swing.JPanel jPanelArticulo;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JTable jTableArticulo;
+    private javax.swing.JTextField jTextBuscar;
     private javax.swing.JTextField jTextCantidadArticulo;
     private javax.swing.JTextField jTextIDArticulo;
     private javax.swing.JTextField jTextNombreArticulo1;
