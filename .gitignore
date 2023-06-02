@@ -17,6 +17,4 @@ target/
 /Lib/target/
 fitoControl.UI/build.xml
 fitoControl.UI/build
-fitoControl.UI/nbproject
-fitoControl.UI/manifest.mf
 fitoControl.UI/dist
