@@ -8,7 +8,6 @@
 out
 test/
 *.iml
-pom.xml
 .idea*
 *.iws
 resources
