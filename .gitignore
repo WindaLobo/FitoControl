@@ -1,0 +1,19 @@
+/Lib/target/
+# Default ignored files
+# Project exclude paths
+/out/
+/shelf/
+/workspace.xml
+
+out
+test/
+*.iml
+.idea*
+*.iws
+resources
+log/
+target/
+/Lib/target/
+fitoControl.UI/build.xml
+fitoControl.UI/build
+fitoControl.UI/dist
